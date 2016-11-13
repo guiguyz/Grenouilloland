@@ -1,5 +1,7 @@
 package grenouilloland.vue;
 
+import grenouilloland.modele.Pion;
+import grenouilloland.modele.Position;
 import grenouilloland.presentateur.Presentateur;
 import javax.swing.JPanel;
 import java.awt.Image;
@@ -7,8 +9,10 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import java.awt.GridLayout;
 import javax.swing.JButton;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Dimension;
+import java.util.HashMap;
 
 /**
  * Representation graphique du modele.
@@ -31,11 +35,17 @@ class ModeleGraphique extends JPanel {
 	// Obtention de la resolution du modele.
 	final int resolution = presentateur.resolution();
 
-	// Creation de la grille de cellules. 
-	cellules = new CelluleGraphique[resolution][resolution];
-	for (int i = 0; i < resolution; i ++) {
-	    for (int j = 0; j < resolution; j ++) {
-		cellules[i][j] = new CelluleGraphique(this, i, j);
+	// Creation du plateau de cases graphiques.
+	{
+	    cases = new CaseGraphique[resolution][resolution];
+	    int rangCouleur;
+	    for (int i = 0; i < resolution; i ++) {
+		rangCouleur = i % 2;
+		for (int j = 0; j < resolution; j ++) {
+		    cases[i][j] = new CaseGraphique(this, new Position(i, j));
+		    cases[i][j].setBackground(couleurs[rangCouleur]);
+		    rangCouleur = (rangCouleur + 1) % couleurs.length;
+		}
 	    }
 	}
 
@@ -65,9 +75,9 @@ class ModeleGraphique extends JPanel {
 		add(bouton);
 	    }
 
-	    // Installation des cellules.
+	    // Installation des cases du plateau.
 	    for (int j = 0; j < resolution; j ++) {
-		add(cellules[i][j]);
+		add(cases[i][j]);
 	    }
 
 	    // Bordure.
@@ -88,6 +98,9 @@ class ModeleGraphique extends JPanel {
 	    add(bouton);
 	}
 
+	// Designation du joueur courant.
+	courant = Pion.Croix;
+
     }
 
     /**
@@ -100,17 +113,28 @@ class ModeleGraphique extends JPanel {
     }
 
     /**
-     * Met a jour toutes les cellules de ce modele.
+     * Retourne le pion du joueur courant.
      *
-     * @note cette methode ne doit etre invoquee que lorsque qu'un verrou est
-     *   place sur la vue proprietaire.
+     * @return le pion du joueur courant.
      */
-    protected void mettreAJour() {
-	for (int i = 0; i < cellules.length; i ++) {
-	    for (int j = 0; j < cellules.length; j ++) {
-		cellules[i][j].mettreAJour();
-	    }
-	}
+    protected Pion lireCourant() {
+	return courant;
+    }
+
+    /**
+     * Retourne l'image du pion du joueur courant.
+     *
+     * @return l'image du pion du joueur courant.
+     */
+    protected ImageIcon lireImageCourant() {
+	return imagesPions.get(courant);
+    }
+
+    /**
+     * Passe la main au joueur suivant.
+     */
+    protected void suivant() {
+	courant = courant == Pion.Croix ? Pion.Cercle : Pion.Croix;
     }
 
     /**
@@ -157,13 +181,50 @@ class ModeleGraphique extends JPanel {
     }
 
     /**
+     * Les deux couleurs de cases du plateau.
+     */
+    protected static final Color[] couleurs = {
+	Color.darkGray, 
+	Color.lightGray 
+    };
+
+    /**
+     * Chemin d'acces relatif au repertoire contenant les images des pions des
+     * deux joueurs.
+     */
+    protected static final String cheminPions = "ressources/images/";
+
+    /**
+     * Images des pions des deux joueurs.
+     */
+    protected static final HashMap< Pion, ImageIcon > imagesPions;
+    static {
+	imagesPions = new HashMap< Pion, ImageIcon >();
+	ClassLoader loader = ModeleGraphique.class.getClassLoader();
+	{
+	    URL url = loader.getResource(cheminPions + "croix.gif");
+	    imagesPions.put(Pion.Croix, new ImageIcon(url));
+	}
+	{
+	    URL url = loader.getResource(cheminPions + "cercle.gif");
+	    imagesPions.put(Pion.Cercle, new ImageIcon(url));
+	}
+	imagesPions.put(Pion.NiCroixNiCercle, null);
+    }
+
+    /**
+     * Pion du joueur courant.
+     */
+    protected Pion courant;
+
+    /**
      * Vue proprietaire de ce modele.
      */
     protected final Vue vue;
 
     /**
-     * Grille de cellules graphiques.
+     * Plateau compose de case graphiques.
      */
-    protected final CelluleGraphique[][] cellules;
+    protected final CaseGraphique[][] cases;
 
 }

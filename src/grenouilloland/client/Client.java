@@ -5,6 +5,8 @@ import grenouilloland.presentateur.Presentateur;
 /**
  * Classe representant le client de l'application, c'est a dire ici le
  * programme principal.
+ *
+ * @note la resolution minimum doit au moins etre egale a cinq.
  */
 public class Client {
 
@@ -35,13 +37,13 @@ public class Client {
 	final int resolutionMin;
 	try {
 	    resolutionMin = Integer.parseInt(args[0]);
-	    if (resolutionMin <= 0) {
+	    if (resolutionMin < 5) {
 		throw new NumberFormatException();
 	    }
 	}
 	catch (NumberFormatException e) {
 	    final String message = "La résolution minimum n'est pas un " +
-		"entier positif";
+		"entier au moins egal a cinq.";
 	    System.err.println(message);
 	    return;
 	}

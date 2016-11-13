@@ -79,8 +79,8 @@ class ActionAPropos extends ActionAbstraite {
     /**
      * Message de presentation de cette action.
      */
-    protected final String message = "Jeu de la vie 0.1\n" +
-	"Le jeu de la vie (Conway, 1970)\n\n" +
+    protected final String message = "Gomoku 0.1\n" +
+	"Le jeu du Gomoku\n\n" +
 	"Emmanuel CAGNIOT - Emmanuel.Cagniot@ensicaen.fr";
 
 }

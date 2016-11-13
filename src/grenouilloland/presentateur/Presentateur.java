@@ -1,7 +1,9 @@
 package grenouilloland.presentateur;
 
-import grenouilloland.modele.Modele;
-import grenouilloland.modele.Etat;
+import grenouilloland.modele.Pion;
+import grenouilloland.modele.Resultat;
+import grenouilloland.modele.Position;
+import grenouilloland.modele.Gomoku;
 import grenouilloland.vue.Vue;
 
 /**
@@ -15,13 +17,11 @@ public class Presentateur {
      * @param resolutionMin la valeur de {@link Presentateur#resolutionMin}.
      * @param resolutionMax la valeur de {@link Presentateur#resolutionMax}.
      * @param resolution la resolution initiale du modele.
-     *
-     * @note le modele est instancie a partir de cellules mortes.
      */
     public Presentateur(int resolutionMin, int resolutionMax, int resolution) {
 	this.resolutionMin = resolutionMin;
 	this.resolutionMax = resolutionMax;
-	modele = new Modele(resolution, Etat.Morte);
+	modele = new Gomoku(resolution);
 	vue = new Vue(this);
     }
 
@@ -53,18 +53,6 @@ public class Presentateur {
     }
 
     /**
-     * Retourne l'etat de la cellule du modele dont les numeros de ligne et
-     * de colonne sont fournis en arguments.
-     *
-     * @param ligne le numero de ligne.
-     * @param colonne le numero de colonne.
-     * @return l'etat de la cellule correspondante.
-     */
-    public Etat etat(int ligne, int colonne) {
-	return modele.etat(ligne, colonne);
-    }
-
-    /**
      * Demarre ce presentateur en affichant la vue.
      */
     public void demarrer() {
@@ -83,32 +71,19 @@ public class Presentateur {
      * @param resolution la resolution du nouveau modele.
      */
     public void nouveauModele(int resolution) {
-	modele = new Modele(resolution, Etat.Morte);
+	modele = new Gomoku(resolution);
     }
 
     /**
-     * Reinitialise le modele a partir de cellules mortes.
-     */
-    public void reinitialiser() {
-	modele.reinitialiser(Etat.Morte);
-    }
-
-    /**
-     * Fait changer d'etat la cellule dont les numeros de ligne et de colonne
-     * sont fournis en arguments.
+     * Demande au presentateur de jouer le coup demande en arguments et de
+     * retourner le resultat produit.
      *
-     * @param ligne le numero de ligne.
-     * @param colonne le numero de colonne.
+     * @param pion le pion a poser.
+     * @param position la position de la case ou poser le pion.
+     * @return le resultat produit par ce coup.
      */
-    public void basculer(int ligne, int colonne) {
-	modele.basculer(ligne, colonne);
-    }
-
-    /**
-     * Fait passer le modele a la generation suivante.
-     */
-    public void suivante() {
-	modele.suivante();
+    public Resultat jouer(Pion pion, Position position) {
+	return modele.jouer(pion, position);
     }
 
     /**
@@ -124,7 +99,7 @@ public class Presentateur {
     /**
      * Instance du modele.
      */
-    protected Modele modele;
+    protected Gomoku modele;
 
     /**
      * Instance de la vue.

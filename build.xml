@@ -3,6 +3,7 @@
 
   <!-- Proprietes. -->
   <property name="src" location="src"/>
+  <property name="images" location="images"/>
   <property name="build" location="build"/>
   <property name="dist"  location="dist"/>
   <property name="doc"  location="apidoc"/>
@@ -11,7 +12,7 @@
   <target name="init">
     <mkdir dir="${build}/grenouilloland/ressources/images"/>
     <copy todir="${build}/ressources/images" >
-      <fileset dir="${src}/grenouilloland/ressources/images">
+      <fileset dir="//grenouilloland/ressources/images">
 	<include name="**/*"/>
       </fileset>
     </copy>

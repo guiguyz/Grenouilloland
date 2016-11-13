@@ -1,5 +1,8 @@
 package grenouilloland.vue;
 
+import grenouilloland.modele.Pion;
+import grenouilloland.modele.Resultat;
+import grenouilloland.modele.Position;
 import grenouilloland.presentateur.Presentateur;
 import javax.swing.JFrame;
 import java.awt.event.WindowAdapter;
@@ -10,6 +13,7 @@ import javax.swing.JMenu;
 import javax.swing.JToolBar;
 import javax.swing.JMenu;
 import javax.swing.JScrollBar;
+import javax.swing.JOptionPane;
 
 /**
  * Classe representant la vue.
@@ -92,10 +96,6 @@ public class Vue extends JFrame {
 	final JMenu menu = new JMenu("Commandes");
 	menu.setMnemonic('C');
 
-	// Instanciation de l'action "Suivante" puis ajout dans le menu.
-	final ActionSuivante actionSuivante = new ActionSuivante(this);
-	menu.add(actionSuivante);
-
 	// Instanciation de l'action "Nouveau" puis ajout dans le menu.
 	final ActionNouveau actionNouveau = new ActionNouveau(this);
 	menu.add(actionNouveau);
@@ -109,9 +109,6 @@ public class Vue extends JFrame {
 
 	// Ajout de l'action "Quitter" dans le menu.
 	menu.add(actionQuitter);
-
-	// Ajout de l'action "Suivante" dans la barre d'outils.
-	barreOutils.add(actionSuivante);
 
 	// Ajout de l'action "Nouveau" dans la barre d'outils.
 	barreOutils.add(actionNouveau);
@@ -146,7 +143,78 @@ public class Vue extends JFrame {
      *   de son execution.
      */
     protected synchronized void cbNouveauModele(int resolution) {
-	
+	reinitialiser(resolution);
+    }
+
+    /**
+     * Callback permettant de poser un pion.
+     *
+     * @param caseGraphique la case graphique a l'origine de la requete.
+     *
+     * @note cette methode pose un verrou sur la vue pendant tout la duree
+     *   de son execution.
+     */
+    protected synchronized void cbPoser(CaseGraphique caseGraphique) {
+
+	// Obtention de la position de la case correspondante dans le modele.
+	final Position position = caseGraphique.lirePosition();
+
+	// Obtention du pion du joueur courant.
+	final Pion pion = modeleGraphique.lireCourant();
+
+	// Requete au presentateur pour poser le pion.
+	final Resultat resultat = presentateur.jouer(pion, position);
+
+	// Si le resultat est invalide, en avertir l'utilisateur.
+	if (resultat == Resultat.Invalide) {
+	    afficherMessage("Coup invalide.");
+	    return;
+	}
+
+	// Sinon, mettre a jour la case graphique.
+	caseGraphique.mettreAJour();
+
+	// Prononcer eventuellement la victoire du joueur puis reinitialiser
+	// le jeu.
+	if (resultat == Resultat.Gagnant) {
+	    afficherMessage("Vous avez gagné.");
+	    reinitialiser(presentateur.resolution());
+	    return;
+	}
+
+	// Sinon, passer au joueur suivant.
+	modeleGraphique.suivant();
+
+    }
+
+    /**
+     * Callback permettant de reinitialiser le jeu.
+     */
+    protected synchronized void cbReinitialiser() {
+	reinitialiser(presentateur.resolution());
+    }
+
+    /**
+     * Affiche un requester avec un message.
+     *
+     * @param message le message.
+     */
+    protected void afficherMessage(String message) {
+	JOptionPane.showMessageDialog(this, 
+				      message, 
+				      "le message", 
+				      JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    /**
+     * Reinitialise le jeu en remplacant le modele actuel.
+     *
+     * @param resolution la resolution souhaitee.
+     * @note cette methode ne peut etre invoquee que si un verrou est placee
+     *   sur la vue.
+     */
+    protected void reinitialiser(int resolution) {
+
 	// Requete au presentateur pour instancier un nouveau modele.
 	presentateur.nouveauModele(resolution);
 
@@ -165,68 +233,11 @@ public class Vue extends JFrame {
 	repaint();
 
     }
-
-    /**
-     * Callback permettant de reinitialiser le modele.
-     *
-     * @note cette methode pose un verrou sur la vue pendant tout la duree
-     *   de son execution.
-     */
-    protected synchronized void cbReinitialiser() {
-
-	// Requete au presentateur pour reinitialiser la modele a partir de
-	// cellules mortes.
-	presentateur.reinitialiser();
-
-	// Mise a jour du modele graphique.
-	modeleGraphique.mettreAJour();
-
-    }
-
-    /**
-     * Callback permettant de faire changer d'etat la cellule du modele dont
-     * les numeros de lignes et de colonnes sont fournis en arguments.
-     *
-     * @param cellule la cellule graphique a l'origine de la requete.
-     *
-     * @note cette methode pose un verrou sur la vue pendant tout la duree
-     *   de son execution.
-     */
-    protected synchronized void cbBasculer(CelluleGraphique cellule) {
-
-	// Obtention des numeros de ligne et de colonne.
-	final int ligne = cellule.lireLigne();
-	final int colonne = cellule.lireColonne();
-
-	// Requete au presentateur pour modifier l'etat de la cellule
-	// correspondante dans le modele.
-	presentateur.basculer(ligne, colonne);
-
-	// Mise a jour de la cellule graphique.
-	cellule.mettreAJour();
-
-    }
-    
-    /**
-     * Callback permettant de passer a la generation suivante.
-     *
-     * @note cette methode pose un verrou sur la vue pendant tout la duree
-     *   de son execution.
-     */
-    protected synchronized void cbSuivante() {
-	
-	// Requete au presentateur pour calculer la generation suivante.
-	presentateur.suivante();
-
-	// Mise a jour du modele graphique.
-	modeleGraphique.mettreAJour();
-
-    }
-    
+        
     /**
      * Titre de cette vue.
      */
-    protected static final String titre = "Jeu de la vie";
+    protected static final String titre = "Jeu du Gomoku";
 
     /**
      * Presentateur de cette vue.
