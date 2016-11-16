@@ -12,8 +12,8 @@
   <target name="init">
     <mkdir dir="${build}/grenouilloland/ressources/images"/>
     <copy todir="${build}/ressources/images" >
-      <fileset dir="//grenouilloland/ressources/images">
-	<include name="**/*"/>
+      <fileset dir="${src}/grenouilloland/ressources/images">
+        <include name="**/*"/>
       </fileset>
     </copy>
   </target>
@@ -26,7 +26,7 @@
   <!-- Distribution via un jar. -->
   <target name="dist" depends="compile" >
     <mkdir dir="${dist}/lib"/>
-    <jar jarfile="${dist}/lib/tdtp7.jar" basedir="${build}">
+    <jar jarfile="${dist}/lib/grenouilloland.jar" basedir="${build}">
       <manifest>
 	<attribute name="Main-Class" 
 		   value="grenouilloland/client/Client"/>
