@@ -144,8 +144,8 @@ class ModeleGraphique extends JPanel {
      */
     protected void afficherMosaique(Graphics gc) {
 	final Dimension dimension = getSize();
-	final int largeur = mosaique.getWidth(null);
-	final int hauteur = mosaique.getHeight(null);
+	final int largeur = mosaique.getWidth(null);//null
+	final int hauteur = mosaique.getHeight(null);//null
 	int ligne = 0;
 	int colonne = 0;
 	while (ligne < dimension.height) {
@@ -183,7 +183,7 @@ class ModeleGraphique extends JPanel {
     /**
      * Les deux couleurs de cases du plateau.
      */
-    protected static final Color[] couleurs = {
+    protected static final Color[] couleurs = {// eau ou nenuphar
 	Color.darkGray, 
 	Color.lightGray 
     };
