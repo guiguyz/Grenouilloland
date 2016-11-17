@@ -44,6 +44,7 @@ public class Vue extends JFrame {
 
 	// Titre de la fenetre principale.
 	setTitle(titre);
+    setSize(1000,600);
 
 	// Construction de la barre de menus et d'outils.
 	contruireBarresMenusEtOutils();
@@ -62,6 +63,9 @@ public class Vue extends JFrame {
 
 	// Positionnement initial de la fenetre au milieu de l'écran.
 	setLocationRelativeTo(null);
+
+
+
 
 	// Comportement par defaut en cas de suppression de la fenetre : tout
 	// doit passer par l'action "Quitter".
@@ -91,6 +95,8 @@ public class Vue extends JFrame {
 	// Instanciation des barres de menus et d'outils.
 	final JMenuBar barreMenus = new JMenuBar();
 	final JToolBar barreOutils = new JToolBar();
+	final Vie vie = new Vie();
+
 
 	// Creation du menu et definition de sa mnemonique.
 	final JMenu menu = new JMenu("Commandes");
@@ -131,7 +137,7 @@ public class Vue extends JFrame {
 	// Implantation de la barre d'outils dans le gestionnaire de mise en
 	// forme par defaut.
 	add(barreOutils, BorderLayout.NORTH);
-
+	add(vie, BorderLayout.WEST);
     }
 
     /**
@@ -237,7 +243,7 @@ public class Vue extends JFrame {
     /**
      * Titre de cette vue.
      */
-    protected static final String titre = "Jeu du Gomoku";
+    protected static final String titre = "Grenouilloland";
 
     /**
      * Presentateur de cette vue.

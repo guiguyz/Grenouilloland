@@ -43,6 +43,7 @@ class ModeleGraphique extends JPanel {
 		rangCouleur = i % 2;
 		for (int j = 0; j < resolution; j ++) {
 		    cases[i][j] = new CaseGraphique(this, new Position(i, j));
+			//cases[i][j].setIcon(new ImageIcon(cheminEau));
 		    cases[i][j].setBackground(couleurs[rangCouleur]);
 		    rangCouleur = (rangCouleur + 1) % couleurs.length;
 		}
@@ -167,8 +168,14 @@ class ModeleGraphique extends JPanel {
     /**
      * Chemin d'acces relatif a la mosaique de fond.
      */
-    protected static final String cheminMosaique = 
+    protected static final String cheminMosaique =
     	"ressources/images/mosaique.gif";
+
+	/**
+	 * Chemin d'acces relatif a l'eau.
+	 */
+	protected static final String cheminEau =
+			"ressources/images/mosaique.jpg";
 
     /**
      * Mosaique de fond d'ecran.
