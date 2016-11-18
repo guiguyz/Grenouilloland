@@ -1,7 +1,6 @@
 package grenouilloland.vue;
 
-import grenouilloland.modele.Pion;
-import grenouilloland.modele.Resultat;
+
 import grenouilloland.modele.Position;
 import grenouilloland.presentateur.Presentateur;
 import javax.swing.JFrame;
@@ -44,7 +43,7 @@ public class Vue extends JFrame {
 
 	// Titre de la fenetre principale.
 	setTitle(titre);
-    setSize(1000,600);
+    //setSize(1000,600);
 
 	// Construction de la barre de menus et d'outils.
 	contruireBarresMenusEtOutils();
@@ -166,30 +165,18 @@ public class Vue extends JFrame {
 	final Position position = caseGraphique.lirePosition();
 
 	// Obtention du pion du joueur courant.
-	final Pion pion = modeleGraphique.lireCourant();
+	//final Pion pion = modeleGraphique.lireCourant();
 
 	// Requete au presentateur pour poser le pion.
-	final Resultat resultat = presentateur.jouer(pion, position);
+	//final Resultat resultat = presentateur.jouer(pion, position);
 
-	// Si le resultat est invalide, en avertir l'utilisateur.
-	if (resultat == Resultat.Invalide) {
-	    afficherMessage("Coup invalide.");
-	    return;
-	}
+
 
 	// Sinon, mettre a jour la case graphique.
 	caseGraphique.mettreAJour();
 
-	// Prononcer eventuellement la victoire du joueur puis reinitialiser
-	// le jeu.
-	if (resultat == Resultat.Gagnant) {
-	    afficherMessage("Vous avez gagné.");
-	    reinitialiser(presentateur.resolution());
-	    return;
-	}
 
-	// Sinon, passer au joueur suivant.
-	modeleGraphique.suivant();
+
 
     }
 

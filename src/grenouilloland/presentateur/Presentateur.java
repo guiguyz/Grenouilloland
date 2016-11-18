@@ -1,9 +1,6 @@
 package grenouilloland.presentateur;
 
-import grenouilloland.modele.Pion;
-import grenouilloland.modele.Resultat;
-import grenouilloland.modele.Position;
-import grenouilloland.modele.Gomoku;
+import grenouilloland.modele.GrilleElement;
 import grenouilloland.vue.Vue;
 
 /**
@@ -21,7 +18,7 @@ public class Presentateur {
     public Presentateur(int resolutionMin, int resolutionMax, int resolution) {
 	this.resolutionMin = resolutionMin;
 	this.resolutionMax = resolutionMax;
-	modele = new Gomoku(resolution);
+	modele = new GrilleElement(resolution);
 	vue = new Vue(this);
     }
 
@@ -71,20 +68,9 @@ public class Presentateur {
      * @param resolution la resolution du nouveau modele.
      */
     public void nouveauModele(int resolution) {
-	modele = new Gomoku(resolution);
+	modele = new GrilleElement(resolution);
     }
 
-    /**
-     * Demande au presentateur de jouer le coup demande en arguments et de
-     * retourner le resultat produit.
-     *
-     * @param pion le pion a poser.
-     * @param position la position de la case ou poser le pion.
-     * @return le resultat produit par ce coup.
-     */
-    public Resultat jouer(Pion pion, Position position) {
-	return modele.jouer(pion, position);
-    }
 
     /**
      * Resolution minimum du modele.
@@ -99,7 +85,7 @@ public class Presentateur {
     /**
      * Instance du modele.
      */
-    protected Gomoku modele;
+    protected GrilleElement modele;
 
     /**
      * Instance de la vue.

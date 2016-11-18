@@ -42,9 +42,10 @@ public class Position {
      * @return la voisine de cette position selon la direction fournie en
      *   argument.
      */
-    public Position voisine(Direction direction) {
-	return new Position(ligne + direction.lireDeltaLigne(),
-			    colonne + direction.lireDeltaColonne());
+    public boolean voisine(Position position) {
+        int x = this.ligne-position.ligne;
+        int y = this.colonne-position.colonne;
+	    return Math.abs(x)+Math.abs(y)==1;
     }
 
     /**

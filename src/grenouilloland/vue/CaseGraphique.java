@@ -69,11 +69,7 @@ class CaseGraphique extends JButton implements ActionListener {
 	// Obtention de la vue proprietaire du modele graphique.
 	final Vue vue = modeleGraphique.lireVue();
 
-	// Obtention de l'image du joueur courant.
-	final ImageIcon image = modeleGraphique.lireImageCourant();
 
-	// Mise a jour.
-	setIcon(image);
 
     }
 
