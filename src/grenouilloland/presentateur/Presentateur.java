@@ -1,9 +1,6 @@
 package grenouilloland.presentateur;
 
-import grenouilloland.modele.GrilleElement;
-import grenouilloland.modele.Modele;
-import grenouilloland.modele.Nenuphar;
-import grenouilloland.modele.Position;
+import grenouilloland.modele.*;
 import grenouilloland.vue.Vue;
 
 /**
@@ -68,6 +65,23 @@ public class Presentateur {
     public Nenuphar getNenuphar(Position position){
         return modele.getNenuphar(position);
 
+    }
+
+    public Grenouille getGrenouille(){
+        return modele.getGrenouille();
+    }
+
+    public void deplacerGrenouille(Position position){
+        modele.deplacerGrenouille(position);
+    }
+
+//    public void creeChemin(){
+//        modele.genereCheminNenuphar();
+//    }
+
+
+    public void genereCheminNenuphar() {
+        modele.genereCheminNenuphar();
     }
 
     /**

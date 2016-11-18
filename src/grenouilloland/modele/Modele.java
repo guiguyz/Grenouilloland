@@ -1,16 +1,4 @@
-/*   Grenouilloland is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, either version 3 of the License, or
- *   (at your option) any later version.
- *
- *   This program is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License
- *   along with this program.  If not, see <http://www.gnu.org/licenses/>
- */
+
 package grenouilloland.modele;
 
 
@@ -56,7 +44,9 @@ public class Modele{
         this.grille = grille;
     }
 
-
+    public void deplacerGrenouille(Position position){
+        grenouille.setPosition(position);
+    }
 
     public Grenouille getGrenouille() {
         return grenouille;
@@ -64,6 +54,25 @@ public class Modele{
 
     public void setGrenouille(Grenouille grenouille) {
         this.grenouille = grenouille;
+    }
+
+
+    public void genereCheminNenuphar(){
+        Position posGrenouille = grenouille.getPosition();
+        for (int i = 0; i < grille.getResolution(); i++) {
+            Position positionLigne = new Position(i,posGrenouille.lireColonne());
+            Position positionColone = new Position(posGrenouille.lireLigne(),i);
+            if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
+                grille.setElement(nenuphar, positionLigne);
+            }
+            if (getNenuphar(positionColone).getType()==TypeElement.EAU){
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
+                grille.setElement(nenuphar, positionColone);
+            }
+
+
+        }
     }
 
     //atribut

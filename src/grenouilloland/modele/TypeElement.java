@@ -12,13 +12,13 @@ package grenouilloland.modele;
  */
 public enum TypeElement{
 
-	NENUPHAR{
+    EAU{
         @Override
-		public void effetSurGrenouille(Grenouille gr)
-		{
-			//rien
-		}
-	},
+        public void effetSurGrenouille(Grenouille gr)
+        {
+            gr.mourir();
+        }
+    },
 
 	NENUPHARIMMORTEL{
         @Override
@@ -28,13 +28,15 @@ public enum TypeElement{
 		}
 	},
 
-	EAU{
+
+
+    NENUPHAR{
         @Override
-		public void effetSurGrenouille(Grenouille gr)
-		{
-			gr.mourir();
-		}
-	},
+        public void effetSurGrenouille(Grenouille gr)
+        {
+            //rien
+        }
+    },
 
 	NENUPHARVENENEUX{
         @Override
@@ -78,6 +80,13 @@ public enum TypeElement{
 		}
 	};
 	public abstract void effetSurGrenouille(Grenouille gr);
+
+	public static TypeElement auHasard(){
+        int nbRand = (int)(Math.random()*(values().length-2))+2;
+        return values()[nbRand];
+	}
+
+
 
 }
 

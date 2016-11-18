@@ -29,7 +29,7 @@ class ActionNouveau extends ActionAbstraite {
     @Override
     public void actionPerformed(ActionEvent evt) {
 	vue.cbReinitialiser();
-    }
+    }//
 
     /**
      * Texte de cette action.

@@ -9,8 +9,6 @@ import java.awt.Image;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import java.awt.GridLayout;
-import javax.swing.JButton;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Dimension;
 
@@ -43,10 +41,7 @@ class ModeleGraphique extends JPanel {
             for (int i = 0; i < resolution; i++) {
                 rangCouleur = i % 2;
                 for (int j = 0; j < resolution; j++) {
-                    cases[i][j] = new CaseGraphique(this, new Position(i, j));
-                    //cases[i][j].setIcon(new ImageIcon(cheminEau));
-                    cases[i][j].setBackground(couleurs[rangCouleur]);
-                    rangCouleur = (rangCouleur + 1) % couleurs.length;
+                    cases[i][j] = new CaseGraphique(this, new Position(resolution-i-1, j));
                 }
             }
         }
@@ -117,11 +112,6 @@ class ModeleGraphique extends JPanel {
 
     }
 
-    /**
-     * Chemin d'acces relatif a la mosaique de fond.
-     */
-    protected static final String cheminMosaique =
-            "ressources/images/mosaique.gif";
 
     /**
      * Chemin d'acces relatif a l'eau.
@@ -136,17 +126,11 @@ class ModeleGraphique extends JPanel {
 
     static {
         ClassLoader loader = ModeleGraphique.class.getClassLoader();
-        URL url = loader.getResource(cheminMosaique);
+        URL url = loader.getResource(cheminEau);
         mosaique = (new ImageIcon(url)).getImage();
     }
 
-    /**
-     * Les deux couleurs de cases du plateau.
-     */
-    protected static final Color[] couleurs = {// eau ou nenuphar
-            Color.darkGray,
-            Color.lightGray
-    };
+
 
     /**
      * Chemin d'acces relatif au repertoire contenant les images des pions des

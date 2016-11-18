@@ -6,12 +6,19 @@ package grenouilloland.modele;
 public class Nenuphar {
 
 
-    public Nenuphar(){
+    public Nenuphar(TypeElement type, Age age){
+        this.type=type;
+        this.age=age;
+    }
+
+    public Nenuphar(){//surcharge
         this.type=type.EAU;
         this.age=age.Grand;
     };
 
-    public void viellir(){
+
+
+    public void viellir(){//
 
 
     }

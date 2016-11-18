@@ -1,6 +1,9 @@
 package grenouilloland.vue;
 
+import grenouilloland.modele.Grenouille;
+import grenouilloland.modele.Nenuphar;
 import grenouilloland.modele.Position;
+import grenouilloland.modele.TypeElement;
 import grenouilloland.presentateur.Presentateur;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -68,7 +71,15 @@ class CaseGraphique extends JButton implements ActionListener {
 		
         // Obtention de la vue proprietaire du modele graphique.
         final Vue vue = modeleGraphique.lireVue();
-        vue.lirePresentateur().getNenuphar(position);
+        Nenuphar nenuphar=vue.lirePresentateur().getNenuphar(position);
+        Position grenouille=vue.lirePresentateur().getGrenouille().getPosition();
+        TypeElement type=nenuphar.getType();
+        if(position.estEgale(grenouille)){
+            setText("Grrr");
+        }
+        else{
+            setText(type.name());
+        }
 
 
 

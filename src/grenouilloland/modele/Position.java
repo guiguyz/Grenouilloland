@@ -48,6 +48,10 @@ public class Position {
 	    return Math.abs(x)+Math.abs(y)==1;
     }
 
+    public boolean estEgale(Position position){
+        return position.ligne==this.ligne && position.colonne==this.colonne;
+    }
+
     /**
      * Numero de ligne.
      */
