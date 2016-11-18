@@ -6,12 +6,10 @@ package grenouilloland.modele;
 public class Nenuphar {
 
 
-
-
-    protected TypeElement type;
-    protected Age age;
-
-    public Nenuphar(){};
+    public Nenuphar(){
+        this.type=type.EAU;
+        this.age=age.Grand;
+    };
 
     public void viellir(){
 
@@ -25,4 +23,7 @@ public class Nenuphar {
     public void setType(TypeElement type) {
         this.type = type;
     }
+
+    protected TypeElement type;
+    protected Age age;
 }

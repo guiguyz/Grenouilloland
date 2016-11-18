@@ -1,6 +1,9 @@
 package grenouilloland.presentateur;
 
 import grenouilloland.modele.GrilleElement;
+import grenouilloland.modele.Modele;
+import grenouilloland.modele.Nenuphar;
+import grenouilloland.modele.Position;
 import grenouilloland.vue.Vue;
 
 /**
@@ -18,7 +21,7 @@ public class Presentateur {
     public Presentateur(int resolutionMin, int resolutionMax, int resolution) {
 	this.resolutionMin = resolutionMin;
 	this.resolutionMax = resolutionMax;
-	modele = new GrilleElement(resolution);
+	modele = new Modele(resolution);
 	vue = new Vue(this);
     }
 
@@ -46,7 +49,7 @@ public class Presentateur {
      * @return la resolution du modele.
      */
     public int resolution() {
-	return modele.resolution();
+	return modele.getResolution();
     }
 
     /**
@@ -62,13 +65,18 @@ public class Presentateur {
 
     }
 
+    public Nenuphar getNenuphar(Position position){
+        return modele.getNenuphar(position);
+
+    }
+
     /**
      * Instancie un nouveau modele.
      * 
      * @param resolution la resolution du nouveau modele.
      */
     public void nouveauModele(int resolution) {
-	modele = new GrilleElement(resolution);
+	modele = new Modele(resolution);
     }
 
 
@@ -85,7 +93,7 @@ public class Presentateur {
     /**
      * Instance du modele.
      */
-    protected GrilleElement modele;
+    protected Modele modele;
 
     /**
      * Instance de la vue.

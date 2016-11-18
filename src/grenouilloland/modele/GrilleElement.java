@@ -14,20 +14,23 @@ public class GrilleElement {
      * @param resolution la resolution du plateau de jeu.
      */
     public GrilleElement(int resolution) {
-	grille = new Nenuphar[resolution][resolution];
-	for (int i = 0; i < resolution; i ++) {
-	    for (int j = 0; j < resolution; j ++) {
-		grille[i][j] = new Nenuphar();
-	    }
-	}
+		grille = new Nenuphar[resolution][resolution];
+		for (int i = 0; i < resolution; i ++) {
+			for (int j = 0; j < resolution; j ++) {
+				grille[i][j] = new Nenuphar();
+			}
+		}
+		grille[0][0].setType(TypeElement.NENUPHARIMMORTEL);
+        grille[resolution-1][resolution-1].setType(TypeElement.NENUPHARIMMORTEL);
     }
+
 
     /**
      * Retourne la resolution de ce plateau.
      *
      * @return la resolution de ce plateau.
      */
-    public int resolution() {
+    public int getResolution() {
 	return grille.length;
     }
 
@@ -37,8 +40,13 @@ public class GrilleElement {
      * @param position la position.
      * @return le contenu de la case correspondante.
      */
-    public TypeElement lireCase(Position position) {
+    public TypeElement lireType(Position position) {
 	return grille[position.lireLigne()][position.lireColonne()].getType();
+    }
+
+    public Nenuphar getNenuphar(Position position) {
+        return grille[position.lireLigne()][position.lireColonne()];
+
     }
 
     /**
@@ -90,7 +98,7 @@ public class GrilleElement {
      * @param position la position.
      */
     protected void setElement(Nenuphar nenuphar, Position position) {
-	grille[position.lireLigne()][position.lireColonne()] = nenuphar;
+        grille[position.lireLigne()][position.lireColonne()] = nenuphar;
     }
 
     /**

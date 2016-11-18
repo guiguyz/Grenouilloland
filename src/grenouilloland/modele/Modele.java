@@ -13,8 +13,7 @@
  */
 package grenouilloland.modele;
 
-import java.lang.Iterable;
-import java.util.Iterator;
+
 
 /**
  * Cette classe représente le modèle de l'application. Il contient une
@@ -31,10 +30,46 @@ public class Modele{
 
     public Modele(int resolution) {
 
-        GrilleElement grille = new GrilleElement(resolution);
+        grille = new GrilleElement(resolution);
 
-        Grenouille grenouille = new Grenouille();
+        grenouille = new Grenouille();
     }
+
+    public Nenuphar getNenuphar(Position position) {
+        return grille.getNenuphar(position);
+    }
+
+    /**
+     * Retourne la resolution de ce plateau.
+     *
+     * @return la resolution de ce plateau.
+     */
+    public int getResolution() {
+        return grille.getResolution();
+    }
+
+    public GrilleElement getGrille() {
+        return grille;
+    }
+
+    public void setGrille(GrilleElement grille) {
+        this.grille = grille;
+    }
+
+
+
+    public Grenouille getGrenouille() {
+        return grenouille;
+    }
+
+    public void setGrenouille(Grenouille grenouille) {
+        this.grenouille = grenouille;
+    }
+
+    //atribut
+    protected GrilleElement grille;
+    protected Grenouille grenouille;
+
 
 
 }

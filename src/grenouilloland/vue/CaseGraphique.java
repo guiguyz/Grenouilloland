@@ -66,8 +66,9 @@ class CaseGraphique extends JButton implements ActionListener {
      */
     protected void mettreAJour() {
 		
-	// Obtention de la vue proprietaire du modele graphique.
-	final Vue vue = modeleGraphique.lireVue();
+        // Obtention de la vue proprietaire du modele graphique.
+        final Vue vue = modeleGraphique.lireVue();
+        vue.lirePresentateur().getNenuphar(position);
 
 
 

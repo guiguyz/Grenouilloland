@@ -54,54 +54,19 @@ class ModeleGraphique extends JPanel {
         // Implantation d'un gestionnaire de mise en forme de type grille.
         // Une bordure de boutons inertes et invisibles est installee autour
         // de la grille de cellules pour des considerations esthetiques.
-        final int dimension = resolution + 2;
-        setLayout(new GridLayout(dimension, dimension, 0, 0));
-
-        // Installation de la premiere ligne (bordure).
-        for (int i = 0; i < dimension; i++) {
-            final JButton bouton = new JButton();
-            bouton.setVisible(false);
-            bouton.setEnabled(false);
-            add(bouton);
-        }
+        setLayout(new GridLayout(resolution, resolution, 0, 0));
 
         // Installation de la grille de cellules. Le debut et la fin de
         // chaque ligne representent la bordure.
         for (int i = 0; i < resolution; i++) {
-
-            // Bordure.
-            {
-                final JButton bouton = new JButton();
-                bouton.setVisible(false);
-                bouton.setEnabled(false);
-                add(bouton);
-            }
-
-            // Installation des cases du plateau.
             for (int j = 0; j < resolution; j++) {
                 add(cases[i][j]);
             }
-
-            // Bordure.
-            {
-                final JButton bouton = new JButton();
-                bouton.setVisible(false);
-                bouton.setEnabled(false);
-                add(bouton);
-            }
-
         }
 
-        // Installation de la derniere ligne (bordure).
-        for (int i = 0; i < dimension; i++) {
-            final JButton bouton = new JButton();
-            bouton.setVisible(false);
-            bouton.setEnabled(false);
-            add(bouton);
-        }
-
-
+    mettreAJour();
     }
+
 
     /**
      * Accesseur.
@@ -138,6 +103,18 @@ class ModeleGraphique extends JPanel {
     protected void paintComponent(Graphics gc) {
         super.paintComponent(gc);
         afficherMosaique(gc);
+    }
+
+    public void mettreAJour(){
+        // Obtention de la resolution du modele.
+        final int resolution = vue.lirePresentateur().resolution();
+        for (int i = 0; i < resolution; i++) {
+            for (int j = 0; j < resolution; j++) {
+                cases[i][j].mettreAJour();
+            }
+
+        }
+
     }
 
     /**
