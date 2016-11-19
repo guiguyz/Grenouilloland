@@ -104,6 +104,10 @@ public class Vue extends JFrame {
         final ActionNouveau actionNouveau = new ActionNouveau(this);
         menu.add(actionNouveau);
 
+        // Instanciation de l'action "Lancer" puis ajout dans le menu.
+        final ActionLancer actionLancer = new ActionLancer(this);
+        menu.add(actionLancer);
+
         // Instanciation de l'action "A propos ..." puis ajout  dans le menu.
         final ActionAPropos actionAPropos = new ActionAPropos(this);
         menu.add(actionAPropos);
@@ -116,6 +120,9 @@ public class Vue extends JFrame {
 
         // Ajout de l'action "Nouveau" dans la barre d'outils.
         barreOutils.add(actionNouveau);
+
+        // Ajout de l'action "Nouveau" dans la barre d'outils.
+        barreOutils.add(actionLancer);
 
         // Ajout de l'action "A propos ..." dans la barre d'outils.
         barreOutils.add(actionAPropos);
@@ -149,8 +156,24 @@ public class Vue extends JFrame {
         reinitialiser(resolution);
     }
 
+
     /**
-     * Callback permettant de poser un pion.
+     * Callback permettant de lancer Une Partie.
+     *
+     *
+     * @note cette methode pose un verrou sur la vue pendant tout la duree
+     * de son execution.
+     */
+    protected synchronized void cbLancer() {
+        //lancer le timer de 60s
+        //lancer le timer de 1s
+        presentateur.genereCheminNenuphar();
+        modeleGraphique.mettreAJour();
+
+    }
+
+    /**
+     * Callback permettant de déplacer la grenouille.
      *
      * @param caseGraphique la case graphique a l'origine de la requete.
      * @note cette methode pose un verrou sur la vue pendant tout la duree
