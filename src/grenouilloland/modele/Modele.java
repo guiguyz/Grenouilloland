@@ -73,9 +73,9 @@ public class Modele{
             }
         }
 
-/*        for (int j = grille.getResolution(); j > 0; j--) {
-            Position positionLigne = new Position(j,posGrenouille.lireColonne());
-            Position positionColone = new Position(posGrenouille.lireLigne(),j);
+        for (int j = grille.getResolution()-1; j > 0; j--) {
+            Position positionLigne = new Position(j,grille.getResolution()-1);
+            Position positionColone = new Position(grille.getResolution()-1,j);
             if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
                 Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
                 grille.setElement(nenuphar, positionLigne);
@@ -84,7 +84,7 @@ public class Modele{
                 Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
                 grille.setElement(nenuphar, positionColone);
             }
-        }*/
+        }
     }
 
     //atribut
