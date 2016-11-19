@@ -59,6 +59,7 @@ public class Modele{
 
     public void genereCheminNenuphar(){
         Position posGrenouille = grenouille.getPosition();
+
         for (int i = 0; i < grille.getResolution(); i++) {
             Position positionLigne = new Position(i,posGrenouille.lireColonne());
             Position positionColone = new Position(posGrenouille.lireLigne(),i);
@@ -70,9 +71,20 @@ public class Modele{
                 Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
                 grille.setElement(nenuphar, positionColone);
             }
-
-
         }
+
+/*        for (int j = grille.getResolution(); j > 0; j--) {
+            Position positionLigne = new Position(j,posGrenouille.lireColonne());
+            Position positionColone = new Position(posGrenouille.lireLigne(),j);
+            if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
+                grille.setElement(nenuphar, positionLigne);
+            }
+            if (getNenuphar(positionColone).getType()==TypeElement.EAU){
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
+                grille.setElement(nenuphar, positionColone);
+            }
+        }*/
     }
 
     //atribut
