@@ -28,7 +28,7 @@ public class Nenuphar {
 
 
     public void viellir(){
-        if(!(this.type==type.EAU&&this.type==type.NENUPHARIMMORTEL)){
+        if(!(this.type==type.EAU)&&!(this.type==type.NENUPHARIMMORTEL)){
             if(this.age==age.Grand){
                 this.age=age.Moyen;
             }
