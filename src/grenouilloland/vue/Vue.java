@@ -167,6 +167,7 @@ public class Vue extends JFrame {
     protected synchronized void cbLancer() {
         //lancer le timer de 60s
         //lancer le timer de 1s
+        testLancer=true;
         presentateur.genereCheminNenuphar();
         modeleGraphique.mettreAJour();
 
@@ -194,7 +195,9 @@ public class Vue extends JFrame {
 
         // Sinon, mettre a jour la case graphique.
         //caseGraphique.mettreAJour();
-        presentateur.genereCheminNenuphar();
+        if (testLancer==true){
+            presentateur.genereCheminNenuphar();
+        }
         modeleGraphique.mettreAJour();
 
 
@@ -204,6 +207,7 @@ public class Vue extends JFrame {
      * Callback permettant de reinitialiser le jeu.
      */
     protected synchronized void cbReinitialiser() {
+        testLancer=false;
         reinitialiser(presentateur.resolution());
     }
 
@@ -266,5 +270,7 @@ public class Vue extends JFrame {
      * Modele graphique de cette vue.
      */
     protected ModeleGraphique modeleGraphique;
+
+    protected boolean testLancer=false;
 
 }
