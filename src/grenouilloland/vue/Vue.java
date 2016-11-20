@@ -196,20 +196,13 @@ public class Vue extends JFrame {
         final Position position = caseGraphique.lirePosition();
         presentateur.deplacerGrenouille(position);
 
-        // Obtention du pion du joueur courant.
-        //final Pion pion = modeleGraphique.lireCourant();
 
-        // Requete au presentateur pour poser le pion.
-        //final Resultat resultat = presentateur.jouer(pion, position);
-
-
-        // Sinon, mettre a jour la case graphique.
-        //caseGraphique.mettreAJour();
+        // Mise a jour de la case graphique si la partie est lancer.
         if (testLancer==true){
             presentateur.genereCheminNenuphar();
         }
-        //presentateur.viellirNenuphar();
         modeleGraphique.mettreAJour();
+        presentateur.viellirNenuphar();
 
 
     }
