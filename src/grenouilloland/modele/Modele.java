@@ -4,11 +4,6 @@ package grenouilloland.modele;
 
 
 /**
- * Cette classe représente le modèle de l'application. Il contient une
- * grenouille et une mare, permettant de jouer à Grenouilloland.<br/>
- * Le but du jeu est d'arriver à amener la grenouille au coin opposé de
- * sa position de départ. Elle doit évoluer sur différentes surfaces,
- * qui ont un impact sur sa vie.
  *
  * @author
  * @author
@@ -27,7 +22,7 @@ public class Modele{
         return grille.getNenuphar(position);
     }
 
-    public void viellirNenuphar() {
+    public synchronized void viellirNenuphar() {
         nenuphar.viellir();
     }
 
@@ -90,6 +85,24 @@ public class Modele{
             }
         }
     }
+
+    /**
+     * étape suivante de la grille. Fait vieillir chaque nénuphar, et
+     * crée un chemin entre la position de la grenouille et la position
+     * d'arrivée.
+     */
+
+    public void etapeSuivante(){
+        for (int i = 0; i < grille.getResolution()-1; i++) {
+            for (int j = 0; j < grille.getResolution()-1; j++) {
+                Position position = new Position(i,i);
+                nenuphar = getNenuphar(position);
+                nenuphar.viellir();
+            }
+        }
+        //genereCheminNenuphar();
+    }
+
 
     //atribut
     protected GrilleElement grille;

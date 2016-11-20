@@ -27,17 +27,30 @@ public class Nenuphar {
 
 
 
+
     public void viellir(){
-        if(!(this.type==type.EAU)&&!(this.type==type.NENUPHARIMMORTEL)){
-            if(this.age==age.Grand){
-                this.age=age.Moyen;
+        if(!(type==type.EAU)&&!(type==type.NENUPHARIMMORTEL)){
+            if(age==age.Grand){
+                age=age.Moyen;
             }
-            else if(this.age==age.Moyen){
-                this.age=age.Petit;
+            else if(age==age.Moyen){
+                age=age.Petit;
             }
-            this.type=type.EAU;
+            type=type.EAU;
         }
     }
+
+/*
+
+
+    public void viellir(){
+        if(!(type==type.EAU)&&!(type==type.NENUPHARIMMORTEL)){
+            if(age.ordinal() < Age.values().length-1)){
+                setAge(age.values()[age.ordinal()+1]);
+            }
+            setType(type.EAU);
+        }
+    }*/
 
     public TypeElement getType() {
         return type;
@@ -45,6 +58,10 @@ public class Nenuphar {
 
     public Age getAge() {
         return age;
+    }
+
+    public void setAge(Age age) {
+        this.age = age;
     }
 
     public void setType(TypeElement type) {

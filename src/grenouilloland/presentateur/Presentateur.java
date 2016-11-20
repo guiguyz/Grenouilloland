@@ -67,7 +67,15 @@ public class Presentateur {
 
     }
 
-    public void viellirNenuphar(){
+    public void lancerPartie(){
+        modele.genereCheminNenuphar();
+    }
+
+    public void etapeSuivante(){
+        modele.etapeSuivante();
+    }
+
+    public synchronized void viellirNenuphar(){
         modele.viellirNenuphar();
     }
 

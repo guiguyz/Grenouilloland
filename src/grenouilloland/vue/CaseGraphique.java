@@ -60,7 +60,7 @@ class CaseGraphique extends JButton implements ActionListener {
      * Met a jour l'icone de cette case graphique en fonction du pion pose dans
      * la case correspondante du modele.
      *
-     * @note A la seule exception du constructeur logique, toute invocation
+     * A la seule exception du constructeur logique, toute invocation
      *   de cette methode ne doit etre realisee que si un verrou est pose sur
      *   la vue.
      */
@@ -76,14 +76,11 @@ class CaseGraphique extends JButton implements ActionListener {
             setText("Grenouille "+grenouille.getEtat().name());
         }
         else{
+
             setText(type.name()+" "+nenuphar.getAge());
+
         }
 
-
-
-    }
-
-    private void setText(Etat etat) {
     }
 
     /**

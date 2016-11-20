@@ -1,6 +1,7 @@
 package grenouilloland.vue;
 
 
+
 import grenouilloland.modele.Position;
 import grenouilloland.presentateur.Presentateur;
 
@@ -123,6 +124,7 @@ public class Vue extends JFrame {
         // Ajout de l'action "Quitter" dans le menu.
         menu.add(actionQuitter);
 
+
         /* Barre d'outils */
 
         // Ajout de l'action "Nouveau" dans la barre d'outils.
@@ -142,6 +144,9 @@ public class Vue extends JFrame {
 
         // Ajout de l'action "Quitter" dans la barre d'outils.
         barreOutils.add(actionQuitter);
+
+        // Ajout d'un separateur dans la barre d'outils.
+        barreOutils.addSeparator();
 
         // Inscription du menu dans sa barre.
         barreMenus.add(menu);
@@ -178,7 +183,7 @@ public class Vue extends JFrame {
         //lancer le timer de 60s
         //lancer le timer de 1s
         testLancer=true;
-        presentateur.genereCheminNenuphar();
+        presentateur.lancerPartie();
         modeleGraphique.mettreAJour();
 
     }
@@ -199,13 +204,11 @@ public class Vue extends JFrame {
 
         // Mise a jour de la case graphique si la partie est lancer.
         if (testLancer==true){
-            presentateur.genereCheminNenuphar();
+            genereCheminNenuphar();
         }
         //Mettre a jour puis  viellir
-        modeleGraphique.mettreAJour();
-        presentateur.viellirNenuphar();
-
-
+        mettreAJour();
+        etapeSuivante();
     }
 
     /**
@@ -256,6 +259,19 @@ public class Vue extends JFrame {
 
     }
 
+    public void genereCheminNenuphar(){
+        presentateur.genereCheminNenuphar();
+    }
+
+    public void etapeSuivante(){
+        presentateur.etapeSuivante();
+    }
+
+    public void mettreAJour(){
+        modeleGraphique.mettreAJour();
+    }
+
+
     /**
      * Titre de cette vue.
      */
@@ -277,5 +293,6 @@ public class Vue extends JFrame {
     protected ModeleGraphique modeleGraphique;
 
     protected boolean testLancer=false;
+
 
 }
