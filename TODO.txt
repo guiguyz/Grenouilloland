@@ -1,4 +1,4 @@
-1:afficher la taille des nenuphar(grand,moyen,petit)
+﻿1:afficher la taille des nenuphar(grand,moyen,petit) et age grenouille => ok
 2:ajouter le viellisement au clic 
 3:gerer deplacement valide
 4:gerer les effets des nenuphars
