@@ -95,7 +95,7 @@ public class Modele{
     public void etapeSuivante(){
         for (int i = 0; i < grille.getResolution()-1; i++) {
             for (int j = 0; j < grille.getResolution()-1; j++) {
-                Position position = new Position(i,i);
+                Position position = new Position(i,j);// le nenuphar doit avoir une position
                 nenuphar = getNenuphar(position);
                 nenuphar.viellir();
             }
