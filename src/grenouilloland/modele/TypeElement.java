@@ -4,7 +4,7 @@ package grenouilloland.modele;
 
 
 /**
- * Enum TypeElement.
+ * Type enumere fortement type permettant une strategie sur les nenuphar.
  * @author Alexis Prevost Mayhen
  * @author Guillaume Drouart
  * @author Lucas Gouedant
@@ -79,6 +79,7 @@ public enum TypeElement{
 			gr.mourir();
 		}
 	};
+
 	public abstract void effetSurGrenouille(Grenouille gr);
 
 	public static TypeElement auHasard(){

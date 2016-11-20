@@ -38,7 +38,7 @@ public class Position {
      * Retourne la voisine de cette position selon la direction fournie en
      * argument.
      *
-     * @param direction la direction.
+     * @param position la position.
      * @return la voisine de cette position selon la direction fournie en
      *   argument.
      */

@@ -1,7 +1,11 @@
 package grenouilloland.modele;
 
 /**
- *
+ * Nenuphar.
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedant
+ * @author Nicolas Vatel
  */
 public class Nenuphar {
 
@@ -11,7 +15,12 @@ public class Nenuphar {
         this.age=age;
     }
 
-    public Nenuphar(){//surcharge
+    /**
+     * Surcharge de constructeur definnisant un nenuphar de base comme étant de l'eau et comme etat toujours grand.
+     *
+     *
+     */
+    public Nenuphar(){//
         this.type=type.EAU;
         this.age=age.Grand;
     };
@@ -25,6 +34,10 @@ public class Nenuphar {
 
     public TypeElement getType() {
         return type;
+    }
+
+    public Age getAge() {
+        return age;
     }
 
     public void setType(TypeElement type) {

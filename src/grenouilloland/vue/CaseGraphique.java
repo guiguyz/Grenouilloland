@@ -1,9 +1,6 @@
 package grenouilloland.vue;
 
-import grenouilloland.modele.Grenouille;
-import grenouilloland.modele.Nenuphar;
-import grenouilloland.modele.Position;
-import grenouilloland.modele.TypeElement;
+import grenouilloland.modele.*;
 import grenouilloland.presentateur.Presentateur;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -71,18 +68,22 @@ class CaseGraphique extends JButton implements ActionListener {
 		
         // Obtention de la vue proprietaire du modele graphique.
         final Vue vue = modeleGraphique.lireVue();
+        Grenouille grenouille=vue.lirePresentateur().getGrenouille();
         Nenuphar nenuphar=vue.lirePresentateur().getNenuphar(position);
-        Position grenouille=vue.lirePresentateur().getGrenouille().getPosition();
+        Position posGrenouille=vue.lirePresentateur().getGrenouille().getPosition();
         TypeElement type=nenuphar.getType();
-        if(position.estEgale(grenouille)){
-            setText("Grrr");
+        if(position.estEgale(posGrenouille)){
+            setText("Grenouille "+grenouille.getEtat().name());
         }
         else{
-            setText(type.name());
+            setText(type.name()+" "+nenuphar.getAge());
         }
 
 
 
+    }
+
+    private void setText(Etat etat) {
     }
 
     /**
@@ -94,5 +95,9 @@ class CaseGraphique extends JButton implements ActionListener {
      * Position de la cellule du modele correspondante.
      */
     protected final Position position;
+
+
+
+
 
 }

@@ -41,9 +41,16 @@ public class GrilleElement {
      * @return le contenu de la case correspondante.
      */
     public TypeElement lireType(Position position) {
-	return grille[position.lireLigne()][position.lireColonne()].getType();
+	    return grille[position.lireLigne()][position.lireColonne()].getType();
     }
 
+
+    /**
+     * Retourne la position d'un nenuphar.
+     *
+     * @param position la position.
+     * @return le contenu de la case correspondante.
+     */
     public Nenuphar getNenuphar(Position position) {
         return grille[position.lireLigne()][position.lireColonne()];
 
@@ -65,15 +72,15 @@ public class GrilleElement {
      *   false.
      */
     protected boolean estValide(Position position) {
-	final int ligne = position.lireLigne();
-	if (ligne < 0 || ligne >= grille.length) {
-	    return false;
-	}
-	final int colonne = position.lireColonne();
-	if (colonne < 0 || colonne >= grille.length) {
-	    return false;
-	}
-	return true;
+        final int ligne = position.lireLigne();
+        if (ligne < 0 || ligne >= grille.length) {
+            return false;
+        }
+        final int colonne = position.lireColonne();
+        if (colonne < 0 || colonne >= grille.length) {
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -81,14 +88,14 @@ public class GrilleElement {
      * en argument.
      *
      * @param position la position.
-     * @return true si un pion peut etre pose sur la case correspondante sinon
+     * @return true si une grenouille peut etre pose sur la case correspondante sinon
      *   false.
      */
     protected boolean peutPoser(Position position) {
-	if (! estValide(position)) {
-	    return false;
-	}
-	return true;
+        if (! estValide(position)) {
+            return false;
+        }
+        return true;
     }
 
     /**

@@ -36,13 +36,13 @@ public class Modele{
         return grille.getResolution();
     }
 
-    public GrilleElement getGrille() {
+/*    public GrilleElement getGrille() {
         return grille;
     }
 
     public void setGrille(GrilleElement grille) {
         this.grille = grille;
-    }
+    }*/
 
     public void deplacerGrenouille(Position position){
         grenouille.setPosition(position);
