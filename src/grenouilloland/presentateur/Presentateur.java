@@ -67,6 +67,10 @@ public class Presentateur {
 
     }
 
+    public void viellirNenuphar(){
+        modele.viellirNenuphar();
+    }
+
     public Grenouille getGrenouille(){
         return modele.getGrenouille();
     }

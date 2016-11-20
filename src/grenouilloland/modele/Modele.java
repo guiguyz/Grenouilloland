@@ -27,6 +27,10 @@ public class Modele{
         return grille.getNenuphar(position);
     }
 
+    public void viellirNenuphar() {
+        nenuphar.viellir();
+    }
+
     /**
      * Retourne la resolution de ce plateau.
      *
@@ -90,6 +94,7 @@ public class Modele{
     //atribut
     protected GrilleElement grille;
     protected Grenouille grenouille;
+    protected Nenuphar nenuphar;
 
 
 

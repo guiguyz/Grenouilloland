@@ -208,6 +208,7 @@ public class Vue extends JFrame {
         if (testLancer==true){
             presentateur.genereCheminNenuphar();
         }
+        //presentateur.viellirNenuphar();
         modeleGraphique.mettreAJour();
 
 
