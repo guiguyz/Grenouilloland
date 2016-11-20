@@ -95,6 +95,7 @@ public class Vue extends JFrame {
         final JToolBar barreOutils = new JToolBar();
         final Vie vie = new Vie();
 
+        /* Menu */
 
         // Creation du menu et definition de sa mnemonique.
         final JMenu menu = new JMenu("Commandes");
@@ -108,6 +109,10 @@ public class Vue extends JFrame {
         final ActionLancer actionLancer = new ActionLancer(this);
         menu.add(actionLancer);
 
+        // Instanciation de l'action "Aide" puis ajout dans le menu.
+        final ActionAide actionAide = new ActionAide(this);
+        menu.add(actionAide);
+
         // Instanciation de l'action "A propos ..." puis ajout  dans le menu.
         final ActionAPropos actionAPropos = new ActionAPropos(this);
         menu.add(actionAPropos);
@@ -118,11 +123,16 @@ public class Vue extends JFrame {
         // Ajout de l'action "Quitter" dans le menu.
         menu.add(actionQuitter);
 
+        /* Barre d'outils */
+
         // Ajout de l'action "Nouveau" dans la barre d'outils.
         barreOutils.add(actionNouveau);
 
         // Ajout de l'action "Nouveau" dans la barre d'outils.
         barreOutils.add(actionLancer);
+
+        // Ajout de l'action "Aide" dans la barre d'outils.
+        barreOutils.add(actionAide);
 
         // Ajout de l'action "A propos ..." dans la barre d'outils.
         barreOutils.add(actionAPropos);
