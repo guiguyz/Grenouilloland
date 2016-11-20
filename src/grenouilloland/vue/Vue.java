@@ -201,6 +201,7 @@ public class Vue extends JFrame {
         if (testLancer==true){
             presentateur.genereCheminNenuphar();
         }
+        //Mettre a jour puis  viellir
         modeleGraphique.mettreAJour();
         presentateur.viellirNenuphar();
 
