@@ -47,7 +47,7 @@ public class Modele{
             if(position.voisine(grenouille.getPosition())){
                 grenouille.setPosition(position);
                 grille.lireType(position).effetSurGrenouille(grenouille);
-                vieillirNenuphar();
+                //vieillirNenuphar();
             }
 
     }
