@@ -3,7 +3,7 @@ package grenouilloland.modele;
 /**
  * Classe representant une position dans un repere cartesien
  */
-public class Position {//
+public class Position {
 
     /**
      * Constructeur logique.
