@@ -14,15 +14,15 @@ public enum TypeElement{
 
     EAU{
         @Override
-        public void effetSurGrenouille(Grenouille gr)
+        public void effetSurGrenouille(Grenouille grenouille)
         {
-            gr.mourir();
+			grenouille.mourir();
         }
     },
 
 	NENUPHARIMMORTEL{
         @Override
-		public void effetSurGrenouille(Grenouille gr)
+		public void effetSurGrenouille(Grenouille grenouille)
 		{
 			//rien
 		}
@@ -32,7 +32,7 @@ public enum TypeElement{
 
     NENUPHAR{
         @Override
-        public void effetSurGrenouille(Grenouille gr)
+        public void effetSurGrenouille(Grenouille grenouille)
         {
             //rien
         }
@@ -40,47 +40,49 @@ public enum TypeElement{
 
 	NENUPHARVENENEUX{
         @Override
-		public void effetSurGrenouille(Grenouille gr)
+		public void effetSurGrenouille(Grenouille grenouille)
 		{
-			if(gr.estMalade())
+			if(grenouille.estMalade())
 			{
-				gr.mourir();
+				grenouille.mourir();
+				grenouille.setPtVie(0);
 			}
 			else
 			{
-				gr.estMalade();
-				gr.setPtVie(gr.getPtVie()/2);
+				grenouille.rendreMalade();
+				grenouille.setPtVie(grenouille.getPtVie()/2);
 			}
 		}
 	},
 
 	NENUPHARNUTRITIF{
         @Override
-		public void effetSurGrenouille(Grenouille gr)
+		public void effetSurGrenouille(Grenouille grenouille)
 		{
-			gr.setPtVie(gr.getPtVie()+1);
-			gr.guerir();
+			grenouille.setPtVie(grenouille.getPtVie()+1);
+			grenouille.guerir();
 		}
 	},
 
 	NENUPHARDOPANT{
         @Override
-		public void effetSurGrenouille(Grenouille gr)
+		public void effetSurGrenouille(Grenouille grenouille)
 		{
-			gr.setPtVie(gr.getPtVie()*2);
-			gr.guerir();
+			grenouille.setPtVie(grenouille.getPtVie()*2);
+			grenouille.guerir();
 		}
 	},
 
 	NENUPHARMORTEL{
         @Override
-		public void effetSurGrenouille(Grenouille gr)
+		public void effetSurGrenouille(Grenouille grenouille)
 		{
-			gr.mourir();
+			grenouille.mourir();
+			grenouille.setPtVie(0);
 		}
 	};
 
-	public abstract void effetSurGrenouille(Grenouille gr);
+	public abstract void effetSurGrenouille(Grenouille grenouille);
 
 	public static TypeElement auHasard(){
         int nbRand = (int)(Math.random()*(values().length-2))+2;

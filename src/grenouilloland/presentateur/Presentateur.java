@@ -84,7 +84,20 @@ public class Presentateur {
     }
 
     public void deplacerGrenouille(Position position){
-        modele.deplacerGrenouille(position);
+        if(!modele.partieFinie()){
+
+            modele.deplacerGrenouille(position);
+            modele.genereCheminNenuphar();
+            vue.mettreAJour();
+        }
+        else{
+            vue.afficherFin();
+        }
+
+    }
+
+    public boolean gagnant(){
+        return modele.gagnant();
     }
 
 //    public void creeChemin(){
@@ -92,9 +105,7 @@ public class Presentateur {
 //    }
 
 
-    public void genereCheminNenuphar() {
-        modele.genereCheminNenuphar();
-    }
+
 
     /**
      * Instancie un nouveau modele.

@@ -182,7 +182,7 @@ public class Vue extends JFrame {
     protected synchronized void cbLancer() {
         //lancer le timer de 60s
         //lancer le timer de 1s
-        testLancer=true;
+        partieLancee=true;
         presentateur.lancerPartie();
         modeleGraphique.mettreAJour();
 
@@ -199,23 +199,18 @@ public class Vue extends JFrame {
 
         // Obtention de la position de la case correspondante dans le modele.
         final Position position = caseGraphique.lirePosition();
-        presentateur.deplacerGrenouille(position);
-
 
         // Mise a jour de la case graphique si la partie est lancer.
-        if (testLancer==true){
-            genereCheminNenuphar();
+        if (partieLancee){
+            presentateur.deplacerGrenouille(position);
         }
-        //Mettre a jour puis  viellir
-        mettreAJour();
-        etapeSuivante();
     }
 
     /**
      * Callback permettant de reinitialiser le jeu.
      */
     protected synchronized void cbReinitialiser() {
-        testLancer=false;
+        partieLancee=false;
         reinitialiser(presentateur.resolution());
     }
 
@@ -271,6 +266,22 @@ public class Vue extends JFrame {
         modeleGraphique.mettreAJour();
     }
 
+    /**
+     * Affiche le message de fin de partie, qui peut être gagnante ou
+     * perdante.
+     */
+    public void afficherFin(){
+        if(presentateur.gagnant()){
+            JOptionPane.showMessageDialog(this, "win", titre,
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Lose", titre,
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        cbReinitialiser(); // On prépare une nouvelle partie.
+    }
+
 
     /**
      * Titre de cette vue.
@@ -292,7 +303,7 @@ public class Vue extends JFrame {
      */
     protected ModeleGraphique modeleGraphique;
 
-    protected boolean testLancer=false;
+    protected boolean partieLancee=false;
 
 
 }

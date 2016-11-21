@@ -44,7 +44,11 @@ public class Modele{
     }*/
 
     public void deplacerGrenouille(Position position){
-        grenouille.setPosition(position);
+            if(position.voisine(grenouille.getPosition())){
+                grenouille.setPosition(position);
+                grille.lireType(position).effetSurGrenouille(grenouille);
+            }
+
     }
 
     public Grenouille getGrenouille() {
@@ -93,21 +97,49 @@ public class Modele{
      */
 
     public void etapeSuivante(){
-        for (int i = 0; i < grille.getResolution()-1; i++) {
-            for (int j = 0; j < grille.getResolution()-1; j++) {
-                Position position = new Position(i,j);// le nenuphar doit avoir une position
-                nenuphar = getNenuphar(position);
-                nenuphar.viellir();
+
+            for (int i = 0; i < grille.getResolution() - 1; i++) {
+                for (int j = 0; j < grille.getResolution() - 1; j++) {
+                    Position position = new Position(i, j);// le nenuphar doit avoir une position
+                    nenuphar = getNenuphar(position);
+                    if(nenuphar.getType()!=TypeElement.EAU || nenuphar.getType()!=TypeElement.NENUPHARIMMORTEL) {
+                        nenuphar.viellir();
+                        genereCheminNenuphar();
+                }
             }
         }
-        //genereCheminNenuphar();
+
     }
 
+    public boolean partieFinie(){
+        if(perdant()){
+            System.out.println("partie finie mort");
+            return true;
+        }
+        if(gagnant()){
+            System.out.println("partie finie bonne case");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean perdant(){
+        return grenouille.getPtVie()==0;
+    }
+
+    public boolean gagnant(){
+        Position positionFinale = new Position(grille.getResolution()-1,grille.getResolution()-1);
+        if(grenouille.getPosition().lireColonne()==grille.getResolution()-1 && grenouille.getPosition().lireLigne()==grille.getResolution()-1) {
+            return true;
+        }
+        return false;
+    }
 
     //atribut
     protected GrilleElement grille;
     protected Grenouille grenouille;
     protected Nenuphar nenuphar;
+    //protected Position position;
 
 
 

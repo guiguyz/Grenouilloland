@@ -1,9 +1,9 @@
 ﻿1:afficher la taille des nenuphar(grand,moyen,petit) et age grenouille => ok
-2:ajouter le viellisement au clic 
-3:gerer deplacement valide
-4:gerer les effets des nenuphars
-5:gerer le timer de 1s
-6:gerer les parties(gagner ,perdre) sans timer
+2:ajouter le viellisement au clic //
+3:gerer deplacement valide => ok
+4:gerer les effets des nenuphars => ok
+5:gerer les parties(gagner ,perdre) sans timer // quasi
+6:gerer le timer de 1s
 7:avec timer de 60s
 
 a la fin affichage graphique des éléments

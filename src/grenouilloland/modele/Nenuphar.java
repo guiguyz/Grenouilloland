@@ -29,15 +29,15 @@ public class Nenuphar {
 
 
     public void viellir(){
-        if(!(type==type.EAU)&&!(type==type.NENUPHARIMMORTEL)){
-            if(age==age.Grand){
-                age=age.Moyen;
+
+            if(this.age==age.Grand){
+                this.age=age.Moyen;
             }
-            else if(age==age.Moyen){
-                age=age.Petit;
+            else if(this.age==age.Moyen){
+                this.age=age.Petit;
             }
-            type=type.EAU;
-        }
+            this.type=type.EAU;
+
     }
 
 /*

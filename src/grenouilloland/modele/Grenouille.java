@@ -45,6 +45,8 @@ public class Grenouille
 
     }
 
+    public void rendreMalade(){ this.etat = etat.Bad; }
+
     public void guerir(){
         this.etat = etat.Good;
     }

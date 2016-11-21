@@ -73,7 +73,7 @@ class CaseGraphique extends JButton implements ActionListener {
         Position posGrenouille=vue.lirePresentateur().getGrenouille().getPosition();
         TypeElement type=nenuphar.getType();
         if(position.estEgale(posGrenouille)){
-            setText("Grenouille "+grenouille.getEtat().name());
+            setText("G "+grenouille.getEtat().name()+" "+grenouille.getPtVie());
         }
         else{
 
