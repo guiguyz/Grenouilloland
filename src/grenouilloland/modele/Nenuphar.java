@@ -29,7 +29,6 @@ public class Nenuphar {
 
 
     public void viellir(){
-
             if(this.age==age.Grand){
                 this.age=age.Moyen;
             }

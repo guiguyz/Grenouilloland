@@ -71,7 +71,7 @@ public class Presentateur {
     }
 
     public void etapeSuivante(){
-        modele.etapeSuivante();
+        modele.vieillirNenuphar();
     }
 
     public synchronized void viellirNenuphar(){
@@ -87,7 +87,9 @@ public class Presentateur {
         if(!modele.partieFinie()){
             modele.deplacerGrenouille(position);
             modele.genereCheminNenuphar();
+            //modele.vieillirNenuphar();
             vue.mettreAJour();
+            //verifier la bonne position de la grenouille et non la précedente
             deplacerGrenouille(position);
         }else{
             vue.afficherFin();

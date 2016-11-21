@@ -47,6 +47,7 @@ public class Modele{
             if(position.voisine(grenouille.getPosition())){
                 grenouille.setPosition(position);
                 grille.lireType(position).effetSurGrenouille(grenouille);
+                vieillirNenuphar();
             }
 
     }
@@ -90,13 +91,29 @@ public class Modele{
         }
     }
 
+    public void genereCheminNouveauNenuphar(){
+        Position posGrenouille = grenouille.getPosition();
+
+        for (int i = 0; i < grille.getResolution(); i++) {
+            Position positionLigne = new Position(i,posGrenouille.lireColonne());
+            Position positionColone = new Position(posGrenouille.lireLigne(),i);
+            if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
+                grille.setElement(nenuphar, positionLigne);
+            }
+            if (getNenuphar(positionColone).getType()==TypeElement.EAU){
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
+                grille.setElement(nenuphar, positionColone);
+            }
+        }
+    }
+
     /**
-     * étape suivante de la grille. Fait vieillir chaque nénuphar, et
-     * crée un chemin entre la position de la grenouille et la position
-     * d'arrivée.
+     * Fait vieillir chaque nénuphar qui peut vieillir.
+
      */
 
-    public void etapeSuivante(){
+    public void vieillirNenuphar(){
 
             for (int i = 0; i < grille.getResolution() - 1; i++) {
                 for (int j = 0; j < grille.getResolution() - 1; j++) {
@@ -104,7 +121,7 @@ public class Modele{
                     nenuphar = getNenuphar(position);
                     if(nenuphar.getType()!=TypeElement.EAU || nenuphar.getType()!=TypeElement.NENUPHARIMMORTEL) {
                         nenuphar.viellir();
-                        genereCheminNenuphar();
+                        //genereCheminNouveauNenuphar();
                 }
             }
         }
@@ -113,11 +130,9 @@ public class Modele{
 
     public boolean partieFinie(){
         if(perdant()){
-            System.out.println("partie finie mort");
             return true;
         }
         if(gagnant()){
-            System.out.println("partie finie bonne case");
             return true;
         }
         return false;
