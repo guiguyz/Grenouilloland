@@ -203,7 +203,9 @@ public class Vue extends JFrame {
         // Mise a jour de la case graphique si la partie est lancer.
         if (partieLancee){
             presentateur.deplacerGrenouille(position);
+            mettreAJour();
         }
+        //mettreAJour();
     }
 
     /**
@@ -252,14 +254,6 @@ public class Vue extends JFrame {
         validate();
         repaint();
 
-    }
-
-    public void genereCheminNenuphar(){
-        presentateur.genereCheminNenuphar();
-    }
-
-    public void etapeSuivante(){
-        presentateur.etapeSuivante();
     }
 
     public void mettreAJour(){

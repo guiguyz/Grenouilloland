@@ -1,13 +1,12 @@
 ﻿1:afficher la taille des nenuphar(grand,moyen,petit) et age grenouille => ok
-2:ajouter le viellisement au clic //
-3:gerer deplacement valide => ok
-4:gerer les effets des nenuphars => ok
-5:gerer les parties(gagner ,perdre) sans timer // quasi
+2:gerer deplacement valide => ok
+3:gerer les effets des nenuphars => ok
+4:gerer les parties(gagner ,perdre) sans timer => ok
+5:ajouter le viellisement au clic //
 6:gerer le timer de 1s
 7:avec timer de 60s
-
-a la fin affichage graphique des éléments
-
-et enfin nettoyage du code au carcher, javadoc, uml
+8:gerer les threads
+9:affichage graphique des éléments
+10:nettoyage du code au carcher, javadoc, uml
 
 et on verra ...

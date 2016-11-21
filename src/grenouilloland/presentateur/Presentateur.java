@@ -64,7 +64,6 @@ public class Presentateur {
 
     public Nenuphar getNenuphar(Position position){
         return modele.getNenuphar(position);
-
     }
 
     public void lancerPartie(){
@@ -83,17 +82,16 @@ public class Presentateur {
         return modele.getGrenouille();
     }
 
-    public void deplacerGrenouille(Position position){
+    public void deplacerGrenouille(Position position){//ancienne position
+        System.out.println(modele.getGrenouille().getPosition().lireLigne()+" "+modele.getGrenouille().getPosition().lireColonne()+" "+modele.getGrenouille().getPtVie());
         if(!modele.partieFinie()){
-
             modele.deplacerGrenouille(position);
             modele.genereCheminNenuphar();
             vue.mettreAJour();
-        }
-        else{
+            deplacerGrenouille(position);
+        }else{
             vue.afficherFin();
         }
-
     }
 
     public boolean gagnant(){

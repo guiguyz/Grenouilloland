@@ -16,6 +16,7 @@ public enum TypeElement{
         @Override
         public void effetSurGrenouille(Grenouille grenouille)
         {
+			grenouille.setPtVie(0);
 			grenouille.mourir();
         }
     },
@@ -44,8 +45,9 @@ public enum TypeElement{
 		{
 			if(grenouille.estMalade())
 			{
-				grenouille.mourir();
 				grenouille.setPtVie(0);
+				grenouille.mourir();
+
 			}
 			else
 			{

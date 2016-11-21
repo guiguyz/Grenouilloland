@@ -128,18 +128,14 @@ public class Modele{
     }
 
     public boolean gagnant(){
-        Position positionFinale = new Position(grille.getResolution()-1,grille.getResolution()-1);
-        if(grenouille.getPosition().lireColonne()==grille.getResolution()-1 && grenouille.getPosition().lireLigne()==grille.getResolution()-1) {
-            return true;
-        }
-        return false;
+        return grenouille.getPosition().lireColonne()==grille.getResolution()-1 && grenouille.getPosition().lireLigne()==grille.getResolution()-1;
     }
 
     //atribut
     protected GrilleElement grille;
     protected Grenouille grenouille;
     protected Nenuphar nenuphar;
-    //protected Position position;
+
 
 
 
