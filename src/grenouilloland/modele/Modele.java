@@ -89,7 +89,7 @@ public class Modele{
                 grille.setElement(nenuphar, positionColone);
             }
         }
-        tempsRestant--;
+
     }
 
     /**
@@ -155,7 +155,7 @@ public class Modele{
     protected GrilleElement grille;
     protected Grenouille grenouille;
     protected Nenuphar nenuphar;
-    protected int tempsRestant = 10;
+
 
 
 
