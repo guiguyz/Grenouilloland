@@ -183,7 +183,7 @@ class CaseGraphique extends JButton implements ActionListener {
 
 
     /**
-     * Grenouille.
+     * Grenouille Image.
      */
     protected static final Image grenouilleIcone;
 

@@ -77,6 +77,16 @@ public class Modele{
             }
         }
 
+
+
+    }
+
+    /**
+     * Ne genere que les lignes et les colones de nenuphar sur l'eau.
+     */
+    public void genereNenupharHaut(){
+        Position posGrenouille = grenouille.getPosition();
+
         for (int j = grille.getResolution()-1; j > 0; j--) {
             Position positionLigne = new Position(j,grille.getResolution()-1);
             Position positionColone = new Position(grille.getResolution()-1,j);
@@ -90,27 +100,7 @@ public class Modele{
             }
         }
 
-    }
 
-    /**
-     * Ne genere que les lignes et les colones de nenuphar sur l'eau.
-     */
-    public void genereCheminNouveauNenuphar(){
-        Position posGrenouille = grenouille.getPosition();
-
-        for (int i = 0; i < grille.getResolution(); i++) {
-
-            Position positionLigne = new Position(i,posGrenouille.lireColonne());
-            Position positionColone = new Position(posGrenouille.lireLigne(),i);
-            if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.GRAND);
-                grille.setElement(nenuphar, positionLigne);
-            }
-            if (getNenuphar(positionColone).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.GRAND);
-                grille.setElement(nenuphar, positionColone);
-            }
-        }
     }
 
 

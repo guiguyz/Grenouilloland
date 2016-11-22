@@ -67,6 +67,7 @@ public class Presentateur {
     }
 
     public void lancerPartie(){
+        modele.genereNenupharHaut();
         modele.genereCheminNenuphar();
     }
 
@@ -87,7 +88,7 @@ public class Presentateur {
         if(!modele.partieFinie()){
             modele.deplacerGrenouille(position);
             modele.genereCheminNenuphar();
-            //modele.vieillirNenuphar();
+            //etapeSuivante();
             vue.mettreAJour();
             //verifier la bonne position de la grenouille et non la précedente
             deplacerGrenouille(position);
