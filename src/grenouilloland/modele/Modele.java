@@ -68,11 +68,11 @@ public class Modele{
             Position positionLigne = new Position(i,posGrenouille.lireColonne());
             Position positionColone = new Position(posGrenouille.lireLigne(),i);
             if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.GRAND);
                 grille.setElement(nenuphar, positionLigne);
             }
             if (getNenuphar(positionColone).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.GRAND);
                 grille.setElement(nenuphar, positionColone);
             }
         }
@@ -81,11 +81,11 @@ public class Modele{
             Position positionLigne = new Position(j,grille.getResolution()-1);
             Position positionColone = new Position(grille.getResolution()-1,j);
             if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.GRAND);
                 grille.setElement(nenuphar, positionLigne);
             }
             if (getNenuphar(positionColone).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.GRAND);
                 grille.setElement(nenuphar, positionColone);
             }
         }
@@ -98,11 +98,11 @@ public class Modele{
             Position positionLigne = new Position(i,posGrenouille.lireColonne());
             Position positionColone = new Position(posGrenouille.lireLigne(),i);
             if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.GRAND);
                 grille.setElement(nenuphar, positionLigne);
             }
             if (getNenuphar(positionColone).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.Grand);
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.GRAND);
                 grille.setElement(nenuphar, positionColone);
             }
         }

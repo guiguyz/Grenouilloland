@@ -22,18 +22,18 @@ public class Nenuphar {
      */
     public Nenuphar(){//
         this.type=type.EAU;
-        this.age=age.Grand;
+        this.age=age.GRAND;
     };
 
 
 
 
     public void viellir(){
-            if(this.age==age.Grand){
-                this.age=age.Moyen;
+            if(this.age==age.GRAND){
+                this.age=age.MOYEN;
             }
-            else if(this.age==age.Moyen){
-                this.age=age.Petit;
+            else if(this.age==age.MOYEN){
+                this.age=age.PETIT;
             }
             this.type=type.EAU;
 

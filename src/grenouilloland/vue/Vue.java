@@ -265,14 +265,8 @@ public class Vue extends JFrame {
      * perdante.
      */
     public void afficherFin(){
-        if(presentateur.gagnant()){
-            JOptionPane.showMessageDialog(this, "win", titre,
-                    JOptionPane.INFORMATION_MESSAGE);
-        }
-        else {
-            JOptionPane.showMessageDialog(this, "Lose", titre,
-                    JOptionPane.INFORMATION_MESSAGE);
-        }
+        if(presentateur.gagnant()){ afficherMessage("Bravo vous avez gagner"); }
+        else { afficherMessage("Dommage vous avez perdu"); }
         cbReinitialiser(); // On prépare une nouvelle partie.
     }
 

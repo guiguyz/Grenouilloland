@@ -8,7 +8,7 @@ package grenouilloland.modele;
  * @author Nicolas Vatel
  */
 public enum Age {
-    Grand, /** 1) Age associe au grand nenuphard. */
-    Moyen, /** 2) Age associe au moyen nenuphard. */
-    Petit /** 3) Age associe au petit nenuphard. */
+    GRAND, /** 1) Age associe au grand nenuphard. */
+    MOYEN, /** 2) Age associe au moyen nenuphard. */
+    PETIT /** 3) Age associe au petit nenuphard. */
 }
