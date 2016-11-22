@@ -1,13 +1,7 @@
 package grenouilloland.vue;
 
-
-
-
-
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Image;
+
 
 import javax.swing.*;
 
@@ -20,10 +14,8 @@ import javax.swing.*;
  */
 class Vie extends JPanel{
 
-    private JPanel vie = new JPanel();
-
     /**
-     * Constructeur logique du panneau de contrôle.
+     * Constructeur logique du panneau de vie.
      *
      * @param vue La vue principale de l'application
      */

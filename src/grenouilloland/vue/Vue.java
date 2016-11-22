@@ -225,7 +225,6 @@ public class Vue extends JFrame {
             presentateur.deplacerGrenouille(position);
             mettreAJour();
         }
-        //mettreAJour();
     }
 
     /**
