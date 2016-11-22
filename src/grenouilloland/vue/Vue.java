@@ -5,16 +5,11 @@ package grenouilloland.vue;
 import grenouilloland.modele.Position;
 import grenouilloland.presentateur.Presentateur;
 
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.BorderLayout;
-import javax.swing.JMenuBar;
 import javax.swing.JMenu;
-import javax.swing.JToolBar;
-import javax.swing.JMenu;
-import javax.swing.JScrollBar;
-import javax.swing.JOptionPane;
 
 /**
  * Classe representant la vue.
@@ -55,12 +50,32 @@ public class Vue extends JFrame {
         modeleGraphique = new ModeleGraphique(this);
         add(modeleGraphique, BorderLayout.CENTER);
 
+        final JPanel barreBas = new JPanel();
+        barreBas.setLayout(new GridLayout(2,1));
+
         // Instanciation de la barre de defilement controlant la resolution et
         // implantation dans la partie south du gestionnaire de mise en forme
         // par defaut.
         final Resolution resolution =
                 new Resolution(JScrollBar.HORIZONTAL, this);
-        add(resolution, BorderLayout.SOUTH);
+
+        // Instanciation de la barre de defilement controlant la resolution et
+        // implantation dans la partie south du gestionnaire de mise en forme
+        // par defaut.
+        final Temporisation temporisation = new Temporisation(this);
+
+
+
+        final JPanel barreResolution = new JPanel(new GridLayout(1,1));
+        final JPanel barreTimer = new JPanel(new GridLayout(1,1));
+
+        barreResolution.add(resolution);
+
+        barreTimer.add(temporisation);
+
+        barreBas.add(barreResolution);
+        barreBas.add(barreTimer);
+        add(barreBas, BorderLayout.SOUTH);
 
         // Positionnement initial de la fenetre au milieu de l'écran.
         setLocationRelativeTo(null);
@@ -224,7 +239,7 @@ public class Vue extends JFrame {
     protected void afficherMessage(String message) {
         JOptionPane.showMessageDialog(this,
                 message,
-                "le message",
+                titre,
                 JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -257,6 +272,7 @@ public class Vue extends JFrame {
     }
 
     public void mettreAJour(){
+
         modeleGraphique.mettreAJour();
     }
 

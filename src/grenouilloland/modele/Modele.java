@@ -89,12 +89,17 @@ public class Modele{
                 grille.setElement(nenuphar, positionColone);
             }
         }
+        tempsRestant--;
     }
 
+    /**
+     * Ne genere que les lignes et les colones de nenuphar sur l'eau.
+     */
     public void genereCheminNouveauNenuphar(){
         Position posGrenouille = grenouille.getPosition();
 
         for (int i = 0; i < grille.getResolution(); i++) {
+
             Position positionLigne = new Position(i,posGrenouille.lireColonne());
             Position positionColone = new Position(posGrenouille.lireLigne(),i);
             if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
@@ -108,11 +113,11 @@ public class Modele{
         }
     }
 
+
     /**
      * Fait vieillir chaque nénuphar qui peut vieillir.
 
      */
-
     public void vieillirNenuphar(){
 
             for (int i = 0; i < grille.getResolution() - 1; i++) {
@@ -150,7 +155,7 @@ public class Modele{
     protected GrilleElement grille;
     protected Grenouille grenouille;
     protected Nenuphar nenuphar;
-
+    protected int tempsRestant = 10;
 
 
 
