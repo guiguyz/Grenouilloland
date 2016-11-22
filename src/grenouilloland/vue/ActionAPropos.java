@@ -79,8 +79,13 @@ class ActionAPropos extends ActionAbstraite {
     /**
      * Message de presentation de cette action.
      */
-    protected final String message = "GrilleElement 0.1\n" +
-	"Le jeu du GrilleElement\n\n" +
-	"Emmanuel CAGNIOT - Emmanuel.Cagniot@ensicaen.fr";
+    protected final String message = "Grenouilloland 0.1\n" +
+	"Le jeu du Grenouilloland\n\n" +
+    "Alexis Prevost Mayhen\n"+
+    "Guillaume Drouart\n"+
+    "Lucas Gouedant\n"+
+    "Nicolas Vatel\n"+
+        " ";
+
 
 }

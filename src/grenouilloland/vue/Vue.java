@@ -69,6 +69,11 @@ public class Vue extends JFrame {
         final JPanel barreResolution = new JPanel(new GridLayout(1,1));
         final JPanel barreTimer = new JPanel(new GridLayout(1,1));
 
+        barreResolution.setBorder(BorderFactory.createTitledBorder(
+                " Changer résolution "));
+        barreTimer.setBorder(BorderFactory.createTitledBorder(
+                " Temps restant "));
+
         barreResolution.add(resolution);
 
         barreTimer.add(temporisation);
@@ -109,7 +114,7 @@ public class Vue extends JFrame {
         // Instanciation des barres de menus et d'outils.
         final JMenuBar barreMenus = new JMenuBar();
         final JToolBar barreOutils = new JToolBar();
-        final Vie vie = new Vie();
+        final Vie vie = new Vie(this);
 
         /* Menu */
 

@@ -12,7 +12,7 @@ public class Temporisation extends JProgressBar{
 
     public Temporisation(Vue vue){
 
-        super(JProgressBar.HORIZONTAL, 0, 9);
+        super(JProgressBar.HORIZONTAL, 0, 59);
         this.vue = vue;
 
     }

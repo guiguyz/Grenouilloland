@@ -76,6 +76,7 @@ class CaseGraphique extends JButton implements ActionListener {
         Position posGrenouille=vue.lirePresentateur().getGrenouille().getPosition();
         TypeElement typeNenuphar=nenuphar.getType();
         //setIcon(new ImageIcon(eauIcone));
+        //vie.mettreAJour();
 
         if(position.estEgale(posGrenouille)){
 
@@ -208,6 +209,8 @@ class CaseGraphique extends JButton implements ActionListener {
         URL url = loader.getResource(eauChemin);
         eauIcone = (new ImageIcon(url)).getImage();
     }
+
+    protected Vie vie;
 
 
 

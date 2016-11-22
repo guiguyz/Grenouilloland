@@ -1,13 +1,15 @@
 package grenouilloland.vue;
 
+
+
+
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 /**
  * Classe Vie .
@@ -25,12 +27,46 @@ class Vie extends JPanel{
      *
      * @param vue La vue principale de l'application
      */
-    public Vie(){
-        vie.setPreferredSize(new Dimension(200, 500));
-        vie.setBackground(Color.gray);
-        add(vie, BorderLayout.WEST);
+    public Vie(Vue vue){
+        super(new BorderLayout());
+        this.vue = vue;
+        setBorder(BorderFactory.createTitledBorder(titreBordure));
+
+        texte = new JLabel(vue.lirePresentateur().getGrenouille().getPtVie()+"", icone, JLabel.HORIZONTAL);
+        add(texte, BorderLayout.CENTER);
 
     }
+    /**
+     * Met à jour le composant (affiche le nombre de points de vie de
+     * la grenouille)
+     */
+    protected void mettreAJour(){
+        int Ptvie = vue.lirePresentateur().getGrenouille().getPtVie();
+        texte.setText(Ptvie+"");
+    }
+
+    /** Le titre du panneau de contrôle */
+    protected final static String titreBordure = "Points de vie :";
+
+    /** Le chemin vers l'image de coeur */
+    protected JLabel texte;
+
+    /** Le chemin vers l'icône du JLabel */
+    protected static final String cheminIcone =
+            "ressources/images/coeur-96x91.png";
+
+    /** L'icône de coeur à afficher dans le JLabel */
+    protected static final ImageIcon icone;
+    static{
+        ClassLoader loader = Vie.class.getClassLoader();
+        icone = new ImageIcon(loader.getResource(cheminIcone));
+    }
+
+
+    /** La vue possédant ce panneau de contrôle */
+    protected final Vue vue;
+
+
 
 
 
