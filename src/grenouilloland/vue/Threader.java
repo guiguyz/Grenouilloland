@@ -3,11 +3,11 @@ package grenouilloland.vue;
 import grenouilloland.presentateur.Presentateur;
 
 /**
- * Created by 21009341 on 23/11/16.
+ *
  */
-public class Temporiser extends Thread {
+public class Threader extends Thread {
 
-    public Temporiser(Vue vue, Presentateur presentateur){
+    public Threader(Vue vue, Presentateur presentateur){
         this.vue=vue;
         this.presentateur=presentateur;
     }

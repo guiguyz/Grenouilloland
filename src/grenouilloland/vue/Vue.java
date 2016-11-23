@@ -9,7 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.*;
 import javax.swing.JMenu;
 
 /**
@@ -205,8 +204,9 @@ public class Vue extends JFrame {
         //lancer le timer de 1s
         partieLancee=true;
         presentateur.lancerPartie();
-        temporiser();
         modeleGraphique.mettreAJour();
+        threader();
+
 
     }
 
@@ -279,9 +279,9 @@ public class Vue extends JFrame {
 
     }
 
-    public void temporiser(){
-        Temporiser temporiser = new Temporiser(this , presentateur);
-        temporiser.start();
+    public void threader(){
+        Threader threader = new Threader(this , presentateur);
+        threader.start();
     }
 
     public void mettreAJour(){
