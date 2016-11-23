@@ -113,6 +113,7 @@ public class Modele{
                 if ( (nenuphar.getType() != TypeElement.EAU) && (nenuphar.getType() != TypeElement.NENUPHARIMMORTEL) ) {
                     nenuphar.vieillir();
                 }
+                //}else if(nenuphar.getAge()==Age.PETIT && grenouille.getPosition()==getNenuphar(position))
             }
         }
     }
