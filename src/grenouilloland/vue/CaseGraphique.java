@@ -78,9 +78,10 @@ class CaseGraphique extends JButton implements ActionListener {
         //setIcon(new ImageIcon(eauIcone));
         //vie.mettreAJour();
 
+
         if(position.estEgale(posGrenouille)){
 
-            //setIcon(new ImageIcon(grenouilleIcone));
+            //setIcon(grenouilleIcone);
             setText("G "+grenouille.getEtat().name()+" "+grenouille.getPtVie());
         }
         else{
