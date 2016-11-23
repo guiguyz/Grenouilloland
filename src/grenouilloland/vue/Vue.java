@@ -204,8 +204,9 @@ public class Vue extends JFrame {
         //lancer le timer de 1s
         partieLancee=true;
         presentateur.lancerPartie();
-        modeleGraphique.mettreAJour();
         threader();
+        //modeleGraphique.mettreAJour();
+
 
 
     }

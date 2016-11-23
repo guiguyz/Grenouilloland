@@ -16,12 +16,12 @@ public class Threader extends Thread {
     public void run(){
         try
         {
-            while (vue.partieLancee)
-            {
+            while (vue.partieLancee){
+                vue.mettreAJour();
                 // Exécution de la tâche
                 presentateur.vieillirNenuphar();
-                vue.mettreAJour();
-                Thread.sleep (1000); // En pause pour une seconde
+                // En pause pour une seconde
+                Thread.sleep (1000);
             }
         }
         catch (InterruptedException exception){}
