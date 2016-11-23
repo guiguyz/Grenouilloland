@@ -2,7 +2,7 @@
 2:gerer deplacement valide => ok
 3:gerer les effets des nenuphars => ok
 4:gerer les parties(gagner ,perdre) sans temporisation => ok
-5:ajouter le viellisement au clic // pas bon
+5:ajouter le viellisement au clic => ok
 6:gerer le temporisation de 1s
 7:avec temporisation de 60s
 8:gerer les threads
