@@ -205,7 +205,7 @@ public class Vue extends JFrame {
         //lancer le timer de 1s
         partieLancee=true;
         presentateur.lancerPartie();
-        //temporiser();
+        temporiser();
         modeleGraphique.mettreAJour();
 
     }
@@ -224,7 +224,7 @@ public class Vue extends JFrame {
 
         // Mise a jour de la case graphique si la partie est lancer.
         if (partieLancee){
-            presentateur.vieillirNenuphar();
+            //presentateur.vieillirNenuphar();
             presentateur.deplacerGrenouille(position);
 
             mettreAJour();
@@ -280,8 +280,8 @@ public class Vue extends JFrame {
     }
 
     public void temporiser(){
-        Thread temps = new Thread();
-
+        Temporiser temporiser = new Temporiser(this , presentateur);
+        temporiser.start();
     }
 
     public void mettreAJour(){
@@ -320,6 +320,6 @@ public class Vue extends JFrame {
      */
     protected ModeleGraphique modeleGraphique;
 
-    protected boolean partieLancee=false;
+    public boolean partieLancee=false;
 
 }

@@ -37,9 +37,7 @@ class ModeleGraphique extends JPanel {
         // Creation du plateau de cases graphiques.
         {
             cases = new CaseGraphique[resolution][resolution];
-            int rangCouleur;
             for (int i = 0; i < resolution; i++) {
-                rangCouleur = i % 2;
                 for (int j = 0; j < resolution; j++) {
                     cases[i][j] = new CaseGraphique(this, new Position(resolution-i-1, j));
                 }
