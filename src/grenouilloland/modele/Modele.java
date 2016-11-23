@@ -66,11 +66,11 @@ public class Modele{
             Position positionColone = new Position(posGrenouille.lireLigne(),i);
             //nenuphar.getAge();
             if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.GRAND);
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
                 grille.setElement(nenuphar, positionLigne);
             }
             if (getNenuphar(positionColone).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.GRAND);
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
                 grille.setElement(nenuphar, positionColone);
             }
         }
@@ -89,11 +89,11 @@ public class Modele{
             Position positionLigne = new Position(j,grille.getResolution()-1);
             Position positionColone = new Position(grille.getResolution()-1,j);
             if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.GRAND);
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
                 grille.setElement(nenuphar, positionLigne);
             }
             if (getNenuphar(positionColone).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.GRAND);
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
                 grille.setElement(nenuphar, positionColone);
             }
         }
@@ -106,18 +106,15 @@ public class Modele{
      * Fait vieillir chaque nénuphar qui peut vieillir.
      */
     public void vieillirNenuphar() {
-
-        System.out.println("test");
         for (int i = 0; i < grille.getResolution(); i++) {
             for (int j = 0; j < grille.getResolution(); j++) {
-                Position position = new Position(i, j);// le nenuphar doit avoir une position
+                Position position = new Position(i, j);
                 nenuphar = getNenuphar(position);
-                if (nenuphar.getType() != TypeElement.EAU || nenuphar.getType() != TypeElement.NENUPHARIMMORTEL) {
+                if ( (nenuphar.getType() != TypeElement.EAU) && (nenuphar.getType() != TypeElement.NENUPHARIMMORTEL) ) {
                     nenuphar.vieillir();
                 }
             }
         }
-
     }
 
     public boolean partieFinie(){

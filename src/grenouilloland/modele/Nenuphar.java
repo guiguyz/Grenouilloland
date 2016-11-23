@@ -10,15 +10,17 @@ package grenouilloland.modele;
 public class Nenuphar {
 
 
-    public Nenuphar(TypeElement type, Age age){
+    public Nenuphar(TypeElement type){
         this.type=type;
-        this.age=age;
+        this.age=age.GRAND;
     }
 
     /**
-     * Surcharge de constructeur definnisant un nenuphar de base comme étant de l'eau et comme etat toujours grand.
-     *
-     *
+     * Constructeur par defaut
+     * Surcharge de constructeur
+     * definnisant un nenuphar de base
+     * comme étant de l'eau
+     * et comme etant toujours grand.
      */
     public Nenuphar(){//
         this.type=type.EAU;
@@ -29,13 +31,13 @@ public class Nenuphar {
 
 
     public void vieillir(){
-            if(this.age==age.GRAND){
-                this.age=age.MOYEN;
+            if(getAge()==age.GRAND){
+                setAge(age.MOYEN);
             }
-            else if(this.age==age.MOYEN){
-                this.age=age.PETIT;
+            else if(getAge()==age.MOYEN){
+                setAge(age=age.PETIT);
             }else{
-                this.type=type.EAU;
+                setType(type.EAU);
             }
 
     }
@@ -44,13 +46,11 @@ public class Nenuphar {
 
 
 //    public void vieillir(){
-//        if(!(type==type.EAU)&&!(type==type.NENUPHARIMMORTEL)){
 //            if(age.ordinal() < Age.values().length-1){
 //                setAge(age.MOYEN);//values()[age.ordinal()+1]
 //            }else {
 //                setType(type.EAU);
 //            }
-//        }
 //    }
 
     public TypeElement getType() {
