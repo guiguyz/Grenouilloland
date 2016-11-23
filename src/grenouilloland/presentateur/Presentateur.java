@@ -75,8 +75,8 @@ public class Presentateur {
         modele.vieillirNenuphar();
     }
 
-    public synchronized void viellirNenuphar(){
-        modele.viellirNenuphar();
+    public synchronized void vieillirNenuphar(){
+        modele.vieillirNenuphar();
     }
 
     public Grenouille getGrenouille(){
@@ -84,7 +84,7 @@ public class Presentateur {
     }
 
     public void deplacerGrenouille(Position position){//ancienne position
-        System.out.println(modele.getGrenouille().getPosition().lireLigne()+" "+modele.getGrenouille().getPosition().lireColonne()+" "+modele.getGrenouille().getPtVie());
+        //System.out.println(modele.getGrenouille().getPosition().lireLigne()+" "+modele.getGrenouille().getPosition().lireColonne()+" "+modele.getGrenouille().getPtVie());
         if(!modele.partieFinie()){
             modele.deplacerGrenouille(position);
             modele.genereCheminNenuphar();

@@ -28,28 +28,30 @@ public class Nenuphar {
 
 
 
-    public void viellir(){
+    public void vieillir(){
             if(this.age==age.GRAND){
                 this.age=age.MOYEN;
             }
             else if(this.age==age.MOYEN){
                 this.age=age.PETIT;
+            }else{
+                this.type=type.EAU;
             }
-            this.type=type.EAU;
 
     }
 
-/*
 
 
-    public void viellir(){
-        if(!(type==type.EAU)&&!(type==type.NENUPHARIMMORTEL)){
-            if(age.ordinal() < Age.values().length-1)){
-                setAge(age.values()[age.ordinal()+1]);
-            }
-            setType(type.EAU);
-        }
-    }*/
+
+//    public void vieillir(){
+//        if(!(type==type.EAU)&&!(type==type.NENUPHARIMMORTEL)){
+//            if(age.ordinal() < Age.values().length-1){
+//                setAge(age.MOYEN);//values()[age.ordinal()+1]
+//            }else {
+//                setType(type.EAU);
+//            }
+//        }
+//    }
 
     public TypeElement getType() {
         return type;

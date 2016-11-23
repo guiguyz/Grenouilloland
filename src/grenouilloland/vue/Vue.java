@@ -222,7 +222,11 @@ public class Vue extends JFrame {
 
         // Mise a jour de la case graphique si la partie est lancer.
         if (partieLancee){
+
+            presentateur.vieillirNenuphar();
+
             presentateur.deplacerGrenouille(position);
+
             mettreAJour();
         }
     }
@@ -285,7 +289,7 @@ public class Vue extends JFrame {
      * perdante.
      */
     public void afficherFin(){
-        if(presentateur.gagnant()){ afficherMessage("Bravo vous avez gagner"); }
+        if(presentateur.gagnant()){ afficherMessage("Bravo vous avez gagné"); }
         else { afficherMessage("Dommage vous avez perdu"); }
         cbReinitialiser(); // On prépare une nouvelle partie.
     }

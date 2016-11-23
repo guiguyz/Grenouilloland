@@ -20,11 +20,8 @@ public class Modele{
 
     public Nenuphar getNenuphar(Position position) {
         return grille.getNenuphar(position);
-    }
+    }// retourne la posituion d'un nenuphar
 
-    public synchronized void viellirNenuphar() {
-        nenuphar.viellir();
-    }
 
     /**
      * Retourne la resolution de ce plateau.
@@ -67,6 +64,7 @@ public class Modele{
         for (int i = 0; i < grille.getResolution(); i++) {
             Position positionLigne = new Position(i,posGrenouille.lireColonne());
             Position positionColone = new Position(posGrenouille.lireLigne(),i);
+            //nenuphar.getAge();
             if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
                 Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard(), Age.GRAND);
                 grille.setElement(nenuphar, positionLigne);
@@ -106,17 +104,16 @@ public class Modele{
 
     /**
      * Fait vieillir chaque nénuphar qui peut vieillir.
-
      */
-    public void vieillirNenuphar(){
+    public void vieillirNenuphar() {
 
-            for (int i = 0; i < grille.getResolution() - 1; i++) {
-                for (int j = 0; j < grille.getResolution() - 1; j++) {
-                    Position position = new Position(i, j);// le nenuphar doit avoir une position
-                    nenuphar = getNenuphar(position);
-                    if(nenuphar.getType()!=TypeElement.EAU || nenuphar.getType()!=TypeElement.NENUPHARIMMORTEL) {
-                        nenuphar.viellir();
-                        //genereCheminNouveauNenuphar();
+        System.out.println("test");
+        for (int i = 0; i < grille.getResolution(); i++) {
+            for (int j = 0; j < grille.getResolution(); j++) {
+                Position position = new Position(i, j);// le nenuphar doit avoir une position
+                nenuphar = getNenuphar(position);
+                if (nenuphar.getType() != TypeElement.EAU || nenuphar.getType() != TypeElement.NENUPHARIMMORTEL) {
+                    nenuphar.vieillir();
                 }
             }
         }
