@@ -4,7 +4,7 @@ import grenouilloland.modele.*;
 import grenouilloland.vue.Vue;
 
 /**
- * Classe representant le presentateur de l'application. 
+ * Classe representant le presentateur de l'application.
  */
 public class Presentateur {
 
@@ -13,14 +13,15 @@ public class Presentateur {
      *
      * @param resolutionMin la valeur de {@link Presentateur#resolutionMin}.
      * @param resolutionMax la valeur de {@link Presentateur#resolutionMax}.
-     * @param resolution la resolution initiale du modele.
+     * @param resolution    la resolution initiale du modele.
      */
     public Presentateur(int resolutionMin, int resolutionMax, int resolution) {
-	this.resolutionMin = resolutionMin;
-	this.resolutionMax = resolutionMax;
-	modele = new Modele(resolution);
-	vue = new Vue(this);
+        this.resolutionMin = resolutionMin;
+        this.resolutionMax = resolutionMax;
+        modele = new Modele(resolution);
+        vue = new Vue(this);
     }
+
 
     /**
      * Accesseur.
@@ -28,7 +29,7 @@ public class Presentateur {
      * @return la valeur de {@link Presentateur#resolutionMin}.
      */
     public int lireResolutionMin() {
-	return resolutionMin;
+        return resolutionMin;
     }
 
     /**
@@ -37,7 +38,7 @@ public class Presentateur {
      * @return la valeur de {@link Presentateur#resolutionMax}.
      */
     public int lireResolutionMax() {
-	return resolutionMax;
+        return resolutionMax;
     }
 
     /**
@@ -46,7 +47,7 @@ public class Presentateur {
      * @return la resolution du modele.
      */
     public int resolution() {
-	return modele.getResolution();
+        return modele.getResolution();
     }
 
     /**
@@ -54,50 +55,48 @@ public class Presentateur {
      */
     public void demarrer() {
 
-	// Calcul des dimensions de tous les composants de la vue.
-	vue.pack();
+        // Calcul des dimensions de tous les composants de la vue.
+        vue.pack();
 
-	// Affichage : il existe maintenant deux threads.
-	vue.setVisible(true);
+        // Affichage : il existe maintenant deux threads.
+        vue.setVisible(true);
 
     }
 
-    public Nenuphar getNenuphar(Position position){
+    public Nenuphar getNenuphar(Position position) {
         return modele.getNenuphar(position);
     }
 
-    public void lancerPartie(){
+    public void lancerPartie() {
         modele.genereNenupharHaut();
         modele.genereCheminNenuphar();
+
     }
 
-    public void etapeSuivante(){
+
+    public synchronized void vieillirNenuphar() {
         modele.vieillirNenuphar();
     }
 
-    public synchronized void vieillirNenuphar(){
-        modele.vieillirNenuphar();
-    }
-
-    public Grenouille getGrenouille(){
+    public Grenouille getGrenouille() {
         return modele.getGrenouille();
     }
 
-    public void deplacerGrenouille(Position position){//ancienne position
+    public void deplacerGrenouille(Position position) {//ancienne position
         //System.out.println(modele.getGrenouille().getPosition().lireLigne()+" "+modele.getGrenouille().getPosition().lireColonne()+" "+modele.getGrenouille().getPtVie());
-        if(!modele.partieFinie()){
+        if (!modele.partieFinie()) {
             modele.deplacerGrenouille(position);
             modele.genereCheminNenuphar();
             //etapeSuivante();
             vue.mettreAJour();
             //verifier la bonne position de la grenouille et non la précedente
             deplacerGrenouille(position);
-        }else{
+        } else {
             vue.afficherFin();
         }
     }
 
-    public boolean gagnant(){
+    public boolean gagnant() {
         return modele.gagnant();
     }
 
@@ -106,15 +105,13 @@ public class Presentateur {
 //    }
 
 
-
-
     /**
      * Instancie un nouveau modele.
-     * 
+     *
      * @param resolution la resolution du nouveau modele.
      */
     public void nouveauModele(int resolution) {
-	modele = new Modele(resolution);
+        modele = new Modele(resolution);
     }
 
 

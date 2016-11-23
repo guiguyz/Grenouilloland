@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.*;
 import javax.swing.JMenu;
 
 /**
@@ -204,6 +205,7 @@ public class Vue extends JFrame {
         //lancer le timer de 1s
         partieLancee=true;
         presentateur.lancerPartie();
+        //temporiser();
         modeleGraphique.mettreAJour();
 
     }
@@ -222,9 +224,7 @@ public class Vue extends JFrame {
 
         // Mise a jour de la case graphique si la partie est lancer.
         if (partieLancee){
-
             presentateur.vieillirNenuphar();
-
             presentateur.deplacerGrenouille(position);
 
             mettreAJour();
@@ -279,6 +279,11 @@ public class Vue extends JFrame {
 
     }
 
+    public void temporiser(){
+        Thread temps = new Thread();
+
+    }
+
     public void mettreAJour(){
 
         modeleGraphique.mettreAJour();
@@ -316,6 +321,5 @@ public class Vue extends JFrame {
     protected ModeleGraphique modeleGraphique;
 
     protected boolean partieLancee=false;
-
 
 }

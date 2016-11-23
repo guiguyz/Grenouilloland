@@ -39,19 +39,10 @@ public class Nenuphar {
             }else{
                 setType(type.EAU);
             }
-
     }
 
 
 
-
-//    public void vieillir(){
-//            if(age.ordinal() < Age.values().length-1){
-//                setAge(age.MOYEN);//values()[age.ordinal()+1]
-//            }else {
-//                setType(type.EAU);
-//            }
-//    }
 
     public TypeElement getType() {
         return type;

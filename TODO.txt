@@ -3,8 +3,8 @@
 3:gerer les effets des nenuphars => ok
 4:gerer les parties(gagner ,perdre) sans temporisation => ok
 5:ajouter le viellisement au clic => ok
-6:gerer le temporisation de 1s
-7:avec temporisation de 60s
+6:gerer le temporisation avec thread de 1s
+7:avec temporisation avec thread d de 60s
 8:gerer les threads
 9:affichage graphique des éléments
 10:nettoyage du code au carcher, javadoc, uml
