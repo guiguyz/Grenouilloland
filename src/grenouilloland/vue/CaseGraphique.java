@@ -14,6 +14,11 @@ import java.util.HashMap;
  * Representation graphique d'une case du plateau de jeu.
  *
  * @note Chaque instance de cette classe represente son propre listener.
+ *
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedant
+ * @author Nicolas Vatel
  */
 class CaseGraphique extends JButton implements ActionListener {
 

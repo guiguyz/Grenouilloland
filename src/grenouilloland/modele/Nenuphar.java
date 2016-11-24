@@ -1,7 +1,10 @@
 package grenouilloland.modele;
 
 /**
- * Nenuphar.
+ * Permet de construire un nenuphar
+ *
+ * @note par defaut construit de l'eau
+ *
  * @author Alexis Prevost Mayhen
  * @author Guillaume Drouart
  * @author Lucas Gouedant
