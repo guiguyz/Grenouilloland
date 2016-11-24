@@ -96,10 +96,7 @@ class CaseGraphique extends JButton implements ActionListener {
 
 
 
-    /**
-     * Les différentes couleurs que peuvent prendre les nénuphars
-     * */
-    protected static final String[] couleurs = {"rouge", "vert", "jaune", "rose"};
+
 
     /**
      * Representation graphique du modele proprietaire de cette case.
@@ -152,7 +149,7 @@ class CaseGraphique extends JButton implements ActionListener {
         eauIcone = (new ImageIcon(url)).getImage();
     }
 
-    protected Vie vie;
+
 
 
 
