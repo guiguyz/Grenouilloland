@@ -92,50 +92,6 @@ class CaseGraphique extends JButton implements ActionListener {
 
     }
 
-//    /*
-//     * Les différentes couleurs que peuvent prendre les nénuphars
-//     */
-//
-//    protected static final String[] couleurNenuphar = {"rouge", "vert", "jaune", "rose"};//etat
-//
-//    /*
-//     * Les différentes tailles que peuvent prendre les nénuphars
-//     */
-//
-//    protected static final String[] tailles = {"grand", "moyen", "petit"};//age
-//
-//    /*
-//     * Le dossier contenant toutes les images
-//     */
-
-
-
-    /*
-     * Tableau contenant toutes les images des nénuphars
-     */
-
-//    protected static final ImageIcon[][] nenupharsIcons;
-//    static{
-//        // Crée le tableau d'images à 3 dimensions et charge chacune
-//        //    des images dans ce tableau.
-//        nenupharsIcons = new ImageIcon[couleurNenuphar.length][tailles.length];
-//        ClassLoader loader = ActionQuitter.class.getClassLoader();
-//
-//        /*Pour chaque couleur et chaque taille de nénuphar, ainsi que
-//         * pour chaque état de la grenouille, on charge l'image.
-//         * Les noms d'image sont de la forme :
-//         * taille-couleur.png
-//         * */
-//
-//        for (int i = 0; i < tailles.length; i++) {
-//            for (int j = 0; j < couleurNenuphar.length; j++) {
-//                String chemin = dossierImages + "/" + tailles[i] + "-" + "nenuphar"+
-//                        couleurNenuphar[j] + "-" + "96x96" + ".png";
-//                URL urlImage = loader.getResource(chemin);
-//                nenupharsIcons[i][j] = new ImageIcon(urlImage);
-//            }
-//        }
-//    }
 
 
 
@@ -155,22 +111,7 @@ class CaseGraphique extends JButton implements ActionListener {
      */
     protected final Position position;
 
-//    /**
-//     * Hashmap contenant les équivalences ActionSurface-image.
-//     * Elle permet d'associer à chaque type de nénuphar la couleur qui
-//     * lui est associée
-//     */
-//    protected static final HashMap<TypeElement, Integer> couleurSurface;
-//    static{
-//        couleurSurface = new HashMap<TypeElement, Integer>();
-//        couleurSurface.put(TypeElement.EAU, -1);
-//        couleurSurface.put(TypeElement.NENUPHARIMMORTEL, 1);
-//        couleurSurface.put(TypeElement.NENUPHAR, 1);
-//        couleurSurface.put(TypeElement.NENUPHARDOPANT, 0);
-//        couleurSurface.put(TypeElement.NENUPHARMORTEL, 0);
-//        couleurSurface.put(TypeElement.NENUPHARNUTRITIF, 3);
-//        couleurSurface.put(TypeElement.NENUPHARVENENEUX, 2);
-//    }
+
 
     protected static final String dossierImages = "ressources/images/";
 
