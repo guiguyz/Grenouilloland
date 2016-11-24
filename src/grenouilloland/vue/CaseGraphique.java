@@ -80,9 +80,6 @@ class CaseGraphique extends JButton implements ActionListener {
         Nenuphar nenuphar=vue.lirePresentateur().getNenuphar(position);
         Position posGrenouille=vue.lirePresentateur().getGrenouille().getPosition();
         TypeElement typeNenuphar=nenuphar.getType();
-        //setIcon(new ImageIcon(eauIcone));
-        //vie.mettreAJour();
-
 
         if(position.estEgale(posGrenouille)){
 
@@ -101,6 +98,11 @@ class CaseGraphique extends JButton implements ActionListener {
 
 
 
+    /**
+     * Les différentes couleurs que peuvent prendre les nénuphars
+     *
+     */
+    protected static final String[] couleurs = {"rouge", "vert", "jaune", "rose"};
 
 
 
@@ -114,7 +116,7 @@ class CaseGraphique extends JButton implements ActionListener {
      */
     protected final Position position;
 
-    /*
+    /**
      * Le dossier contenant toutes les images
      */
     protected static final String dossierImages = "ressources/images/";
@@ -123,15 +125,10 @@ class CaseGraphique extends JButton implements ActionListener {
     /**
      * Chemin d'acces relatif a la grenouille.
      */
-    protected static final String grenouilleChemin =
-            dossierImages+"grenouille-verte-96x57.png";
+    protected static final String grenouilleChemin = dossierImages+"grenouille-verte-96x57.png";
 
 
-    /*
-     * Les différentes couleurs que peuvent prendre les nénuphars
-     */
 
-    protected static final String[] couleurNenuphar = {"rouge", "vert", "jaune", "rose"};//etat
 
     /*
      * Les différentes tailles que peuvent prendre les nénuphars
@@ -216,10 +213,7 @@ class CaseGraphique extends JButton implements ActionListener {
 
 
 
-    /**
-     * Les différentes couleurs que peuvent prendre les nénuphars
-     * */
-    protected static final String[] couleurs = {"rouge", "vert", "jaune", "rose"};
+
 
 
 
