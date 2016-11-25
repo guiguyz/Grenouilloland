@@ -28,12 +28,12 @@ public class Threader extends Thread {
 
                     // En pause pour une seconde
                     Thread.sleep (1000);
-
-
                 }
             }
         }
-        catch (InterruptedException exception){}
+        catch (InterruptedException exception){
+
+        }
     }
 
     public int getTempsDeJeuRestant(){

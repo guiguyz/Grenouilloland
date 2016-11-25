@@ -295,7 +295,8 @@ public class Vue extends JFrame {
     public void afficherFin(){
         if(presentateur.gagnant()){ afficherMessage("Bravo vous avez gagné"); }
         else { afficherMessage("Dommage vous avez perdu"); }
-        cbReinitialiser(); // On prépare une nouvelle partie.
+        // On prépare une nouvelle partie.
+        cbReinitialiser();
     }
 
 
