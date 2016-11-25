@@ -76,7 +76,11 @@ public class Presentateur {
     public void vieillirNenuphar() {
 
         modele.vieillirNenuphar();
-        deplacerGrenouille(modele.getGrenouille().getPosition());
+        if (modele.partieFinie()) {
+            vue.afficherFin();
+        }
+        modele.genereCheminNenuphar();
+
     }
 
     public Grenouille getGrenouille() {

@@ -129,7 +129,7 @@ public class Modele{
     }
 
     public boolean perdant(){
-        return grenouille.getPtVie()==0;
+        return grenouille.getPtVie()==0 || grille.lireType(grenouille.getPosition())==TypeElement.EAU;
     }
 
     public boolean gagnant(){

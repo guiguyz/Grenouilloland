@@ -14,15 +14,17 @@ public class Temporisation extends JProgressBar{
 
         super(JProgressBar.HORIZONTAL, 0, 59);
         this.vue = vue;
-        setValue(59);
-        //mettreTempsAJour();
+        //setValue(59);
+
+        mettreTempsAJour(59);
     }
 
     /**
      * Met à jour le chronomètre à partir du modèle.
      */
-    protected void mettreTempsAJour(){
-        setValue(0);
+    protected void mettreTempsAJour(int temps){
+        System.out.println(temps);
+        setValue(temps);
     }
 
 

@@ -62,7 +62,7 @@ public class Vue extends JFrame {
         // Instanciation de la barre de defilement controlant la resolution et
         // implantation dans la partie south du gestionnaire de mise en forme
         // par defaut.
-        final Temporisation temporisation = new Temporisation(this);
+        temporisation = new Temporisation(this);
 
 
 
@@ -210,9 +210,13 @@ public class Vue extends JFrame {
         mettreAJour();
     }
 
-    protected synchronized void cbTimer(){
+    protected synchronized void cbTimer(int temps){
+        if(!partieLancee){
+            return;
+        }
         presentateur.vieillirNenuphar();
         presentateur.genererChemin();
+        temporisation.mettreTempsAJour(temps);
         mettreAJour();
     }
 
@@ -240,9 +244,10 @@ public class Vue extends JFrame {
      * Callback permettant de reinitialiser le jeu.
      */
     protected synchronized void cbReinitialiser() {
+        timerDeJeu.arreter();
         partieLancee=false;
         reinitialiser(presentateur.resolution());
-        timerDeJeu.arreter();
+
     }
 
     /**
@@ -297,14 +302,17 @@ public class Vue extends JFrame {
      * perdante.
      */
     public synchronized void afficherFin(){
+        if(!partieLancee){
+            return;
+        }
+        // On prépare une nouvelle partie.
+        timerDeJeu.arreter();
+        cbReinitialiser();
         if(presentateur.gagnant()){
             afficherMessage("Bravo vous avez gagné");
 
         }
         else { afficherMessage("Dommage vous avez perdu"); }
-        // On prépare une nouvelle partie.
-        timerDeJeu.arreter();
-        cbReinitialiser();
     }
 
 

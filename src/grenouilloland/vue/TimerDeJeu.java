@@ -17,6 +17,7 @@ public class TimerDeJeu implements ActionListener{
 
 
     public void demarrer(){
+        temps=59;
         timer.start();
     }
 
@@ -33,10 +34,14 @@ public class TimerDeJeu implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        vue.cbTimer();
-
+        temps--;
+        vue.cbTimer(temps);
+        if(temps==0){
+            vue.afficherFin();
+        }
     }
+
+    protected int temps;
 
     protected Vue vue;
 }
