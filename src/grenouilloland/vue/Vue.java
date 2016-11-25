@@ -205,8 +205,6 @@ public class Vue extends JFrame {
         partieLancee=true;
         presentateur.lancerPartie();
         threader();
-        //modeleGraphique.mettreAJour();
-
 
 
     }
@@ -227,8 +225,7 @@ public class Vue extends JFrame {
         if (partieLancee){
             //presentateur.vieillirNenuphar();
             presentateur.deplacerGrenouille(position);
-
-            mettreAJour();
+            //mettreAJour();
         }
     }
 
@@ -286,8 +283,9 @@ public class Vue extends JFrame {
     }
 
     public void mettreAJour(){
-
         modeleGraphique.mettreAJour();
+        //temporisation.mettreTempsAJour();
+        //vie.mettreAJour();
     }
 
     /**
@@ -322,5 +320,10 @@ public class Vue extends JFrame {
     protected ModeleGraphique modeleGraphique;
 
     public boolean partieLancee=false;
+
+    protected Temporisation temporisation;
+
+    protected Vie vie;
+
 
 }

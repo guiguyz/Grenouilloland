@@ -17,15 +17,30 @@ public class Threader extends Thread {
         try
         {
             while (vue.partieLancee){
-                vue.mettreAJour();
-                // Exécution de la tâche
-                presentateur.vieillirNenuphar();
-                // En pause pour une seconde
-                Thread.sleep (1000);
+                for(int i = 59; i >= 0; i--){
+
+                    vue.mettreAJour();
+
+                    tempsDeJeuRestant=i;
+
+                    // Exécution de la tâche
+                    presentateur.vieillirNenuphar();
+
+                    // En pause pour une seconde
+                    Thread.sleep (1000);
+
+
+                }
             }
         }
         catch (InterruptedException exception){}
     }
+
+    public int getTempsDeJeuRestant(){
+        return tempsDeJeuRestant;
+    }
+
+    public int tempsDeJeuRestant;
 
     protected Presentateur presentateur;
 
