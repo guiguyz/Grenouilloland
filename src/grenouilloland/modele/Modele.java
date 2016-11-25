@@ -119,13 +119,7 @@ public class Modele{
     }
 
     public boolean partieFinie(){
-        if(perdant()){
-            return true;
-        }
-        if(gagnant()){
-            return true;
-        }
-        return false;
+        return gagnant() || perdant();
     }
 
     public boolean perdant(){
