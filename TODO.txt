@@ -5,7 +5,7 @@
 5:ajouter le viellisement au clic => ok
 6:gerer le temporisation avec thread de 1s => ok
 7:avec temporisation avec thread d de 60s => ok
-8:gerer les threads => ok
+8:gerer les threads => pas ok
 9:gerer les parties(gagner ,perdre) avec temporisation // ARGH
 10:affichage graphique des éléments
 

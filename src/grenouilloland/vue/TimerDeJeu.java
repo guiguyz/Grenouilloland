@@ -11,17 +11,18 @@ import java.awt.event.ActionListener;
  */
 public class TimerDeJeu implements ActionListener{
 
-    public TimerDeJeu(Vue vue){
+    public TimerDeJeu(Vue vue, int temps){
+        this.temps=temps;
         this.vue=vue;
     }
 
 
     public void demarrer(){
-        temps=59;
         timer.start();
     }
 
     public void arreter(){
+
         timer.stop();
     }
 

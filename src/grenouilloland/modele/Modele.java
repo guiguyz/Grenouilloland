@@ -2,6 +2,7 @@
 package grenouilloland.modele;
 
 
+import javafx.geometry.Pos;
 
 /**
  *
@@ -134,6 +135,7 @@ public class Modele{
     protected GrilleElement grille;
     protected Grenouille grenouille;
     protected Nenuphar nenuphar;
+    protected Position positionGrenouille;
 
 
 

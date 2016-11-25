@@ -94,7 +94,9 @@ public class Vue extends JFrame {
             }
         });
 
-        timerDeJeu = new TimerDeJeu(this);
+        timerDeJeu = new TimerDeJeu(this, 59);
+
+
 
     }
 
@@ -204,6 +206,7 @@ public class Vue extends JFrame {
     protected synchronized void cbLancer() {
         //lancer le timer de 60s
         //lancer le timer de 1s
+        temporisation.mettreTempsAJour(59);
         partieLancee=true;
         presentateur.lancerPartie();
         timerDeJeu.demarrer();
@@ -261,6 +264,7 @@ public class Vue extends JFrame {
         timerDeJeu.arreter();
         partieLancee=false;
         reinitialiser(presentateur.resolution());
+        temporisation.mettreTempsAJour(59);
 
     }
 
@@ -308,13 +312,18 @@ public class Vue extends JFrame {
             return;
         }
         // On prépare une nouvelle partie.
+        temporisation.mettreTempsAJour(59);
         timerDeJeu.arreter();
         cbReinitialiser();
-        if(presentateur.gagnant()){
+        if(!presentateur.gagnant()){
+            afficherMessage("Dommage vous avez perdu");
+
+
+        }
+        else {
             afficherMessage("Bravo vous avez gagné");
 
         }
-        else { afficherMessage("Dommage vous avez perdu"); }
     }
 
 
