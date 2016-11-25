@@ -240,15 +240,7 @@ public class Vue extends JFrame {
         }
     }
 
-    /**
-     * Callback permettant de reinitialiser le jeu.
-     */
-    protected synchronized void cbReinitialiser() {
-        timerDeJeu.arreter();
-        partieLancee=false;
-        reinitialiser(presentateur.resolution());
 
-    }
 
     /**
      * Affiche un requester avec un message.
@@ -260,6 +252,16 @@ public class Vue extends JFrame {
                 message,
                 titre,
                 JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    /**
+     * Callback permettant de reinitialiser le jeu.
+     */
+    protected synchronized void cbReinitialiser() {
+        timerDeJeu.arreter();
+        partieLancee=false;
+        reinitialiser(presentateur.resolution());
+
     }
 
     /**

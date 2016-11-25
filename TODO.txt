@@ -1,11 +1,11 @@
 ﻿1:afficher la taille des nenuphar(grand,moyen,petit) et age grenouille => ok
 2:gerer deplacement valide => ok
 3:gerer les effets des nenuphars => ok
-4:gerer les parties(gagner ,perdre) sans temporisation => ok
+4:gerer les parties(gagner ,perdre) sans temporisation => pas ok
 5:ajouter le viellisement au clic => ok
-6:gerer le temporisation avec thread de 1s
-7:avec temporisation avec thread d de 60s
-8:gerer les threads
+6:gerer le temporisation avec thread de 1s => ok
+7:avec temporisation avec thread d de 60s => ok
+8:gerer les threads => ok
 9:affichage graphique des éléments
 10:nettoyage du code au carcher, javadoc, uml
 
