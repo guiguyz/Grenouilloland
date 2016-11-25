@@ -1,7 +1,5 @@
 package grenouilloland.vue;
 
-import grenouilloland.modele.Modele;
-
 import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,8 +9,8 @@ import java.awt.event.ActionListener;
  */
 public class TimerDeJeu implements ActionListener{
 
-    public TimerDeJeu(Vue vue, int temps){
-        this.temps=temps;
+    public TimerDeJeu(Vue vue){
+        temps=59;
         this.vue=vue;
     }
 

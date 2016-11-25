@@ -94,7 +94,7 @@ public class Vue extends JFrame {
             }
         });
 
-        timerDeJeu = new TimerDeJeu(this, 59);
+        timerDeJeu = new TimerDeJeu(this);
 
 
 
