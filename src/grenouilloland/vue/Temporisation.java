@@ -22,7 +22,7 @@ public class Temporisation extends JProgressBar{
      * Met à jour le chronomètre à partir du modèle.
      */
     protected void mettreTempsAJour(){
-        setValue(threader.getTempsDeJeuRestant());
+        setValue(0);
     }
 
 
@@ -32,6 +32,5 @@ public class Temporisation extends JProgressBar{
      */
     protected Vue vue;
 
-    protected Threader threader;
 }
 

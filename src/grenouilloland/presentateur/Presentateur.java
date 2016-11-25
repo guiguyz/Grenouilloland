@@ -73,8 +73,10 @@ public class Presentateur {
     }
 
 
-    public synchronized void vieillirNenuphar() {
+    public void vieillirNenuphar() {
+
         modele.vieillirNenuphar();
+        deplacerGrenouille(modele.getGrenouille().getPosition());
     }
 
     public Grenouille getGrenouille() {
@@ -82,16 +84,16 @@ public class Presentateur {
     }
 
     public void deplacerGrenouille(Position position) {
-        if (!modele.partieFinie()) {
-            modele.deplacerGrenouille(position);
-            modele.genereCheminNenuphar();
-            //etapeSuivante();
-            vue.mettreAJour();
-            //verifier la bonne position de la grenouille et non la précedente
-            deplacerGrenouille(position);
-        } else {
+        modele.deplacerGrenouille(position);
+        if (modele.partieFinie()) {
             vue.afficherFin();
         }
+        modele.genereCheminNenuphar();
+    }
+
+    public void genererChemin(){
+        modele.genereCheminNenuphar();
+        modele.genereNenupharHaut();
     }
 
     public boolean gagnant() {

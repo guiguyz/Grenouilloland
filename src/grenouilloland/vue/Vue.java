@@ -94,6 +94,8 @@ public class Vue extends JFrame {
             }
         });
 
+        timerDeJeu = new TimerDeJeu(this);
+
     }
 
     /**
@@ -204,9 +206,14 @@ public class Vue extends JFrame {
         //lancer le timer de 1s
         partieLancee=true;
         presentateur.lancerPartie();
-        threader();
+        timerDeJeu.demarrer();
+        mettreAJour();
+    }
 
-
+    protected synchronized void cbTimer(){
+        presentateur.vieillirNenuphar();
+        presentateur.genererChemin();
+        mettreAJour();
     }
 
     /**
@@ -223,9 +230,9 @@ public class Vue extends JFrame {
 
         // Mise a jour de la case graphique si la partie est lancer.
         if (partieLancee){
-            //presentateur.vieillirNenuphar();
+
             presentateur.deplacerGrenouille(position);
-            //mettreAJour();
+            mettreAJour();
         }
     }
 
@@ -235,6 +242,7 @@ public class Vue extends JFrame {
     protected synchronized void cbReinitialiser() {
         partieLancee=false;
         reinitialiser(presentateur.resolution());
+        timerDeJeu.arreter();
     }
 
     /**
@@ -277,10 +285,6 @@ public class Vue extends JFrame {
 
     }
 
-    public void threader(){
-        Threader threader = new Threader(this , presentateur);
-        threader.start();
-    }
 
     public void mettreAJour(){
         modeleGraphique.mettreAJour();
@@ -292,10 +296,14 @@ public class Vue extends JFrame {
      * Affiche le message de fin de partie, qui peut être gagnante ou
      * perdante.
      */
-    public void afficherFin(){
-        if(presentateur.gagnant()){ afficherMessage("Bravo vous avez gagné"); }
+    public synchronized void afficherFin(){
+        if(presentateur.gagnant()){
+            afficherMessage("Bravo vous avez gagné");
+
+        }
         else { afficherMessage("Dommage vous avez perdu"); }
         // On prépare une nouvelle partie.
+        timerDeJeu.arreter();
         cbReinitialiser();
     }
 
@@ -325,6 +333,8 @@ public class Vue extends JFrame {
     protected Temporisation temporisation;
 
     protected Vie vie;
+
+    protected TimerDeJeu timerDeJeu;
 
 
 }

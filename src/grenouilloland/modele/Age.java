@@ -10,5 +10,5 @@ package grenouilloland.modele;
 public enum Age {
     GRAND, /** 1) Age associe au grand nenuphard. */
     MOYEN, /** 2) Age associe au moyen nenuphard. */
-    PETIT /** 3) Age associe au petit nenuphard. */
+    PETIT, /** 3) Age associe au petit nenuphard. */
 }
