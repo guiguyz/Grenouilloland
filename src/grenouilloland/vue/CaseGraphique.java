@@ -42,6 +42,7 @@ class CaseGraphique extends JButton implements ActionListener {
 	//Rend transparent les JButton, pour afficher la mosaique d'eau.
     this.setContentAreaFilled(false);
 
+    //Dimensionne les JButton au démarage
     this.setPreferredSize(new Dimension(250, 150));
 
     }
