@@ -79,8 +79,8 @@ class ActionAPropos extends ActionAbstraite {
     /**
      * Message de presentation de cette action.
      */
-    protected final String message = "Grenouilloland 0.1\n" +
-	"Le jeu du Grenouilloland\n\n" +
+    protected final String message = "Grenouilloland\n\n" +
+	"Projet conçu par\n" +
     "Alexis Prevost Mayhen\n"+
     "Guillaume Drouart\n"+
     "Lucas Gouedant\n"+
