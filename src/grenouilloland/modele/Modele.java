@@ -2,8 +2,6 @@
 package grenouilloland.modele;
 
 
-import javafx.geometry.Pos;
-
 /**
  *
  * @author
@@ -129,7 +127,7 @@ public class Modele{
     public boolean gagnant(){
         Position positionGagnante = new Position(grille.getResolution() - 1, grille.getResolution() - 1);
         return grenouille.getPosition().estEgale(positionGagnante);
-        //grenouille.getPosition().lireColonne()==grille.getResolution()-1 && grenouille.getPosition().lireLigne()==grille.getResolution()-1
+        //return grenouille.getPosition().lireColonne()==grille.getResolution()-1 && grenouille.getPosition().lireLigne()==grille.getResolution()-1
     }
 
     //atribut

@@ -38,6 +38,7 @@ class CaseGraphique extends JButton implements ActionListener {
 
 	// Declaration de cette instance comme son propre listener.
 	addActionListener(this);
+    this.setContentAreaFilled(false);
 
     }
 
@@ -85,7 +86,7 @@ class CaseGraphique extends JButton implements ActionListener {
 
             //setIcon(new ImageIcon(grenouilleIcone));
             //setIcon(grenouilleIcone);
-            setText(typeNenuphar.name()+" "+nenuphar.getAge() + "G "+grenouille.getEtat().name()+" "+grenouille.getPtVie());
+            setText("G "+grenouille.getEtat().name()+" "+grenouille.getPtVie());
         }
         else{
             //setIcon(nenupharsIcons[0][couleurSurface.get(nenuphar.getType())]);
@@ -210,11 +211,5 @@ class CaseGraphique extends JButton implements ActionListener {
         URL url = loader.getResource(eauChemin);
         eauIcone = (new ImageIcon(url)).getImage();
     }
-
-
-
-
-
-
 
 }
