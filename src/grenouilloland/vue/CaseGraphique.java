@@ -38,6 +38,8 @@ class CaseGraphique extends JButton implements ActionListener {
 
 	// Declaration de cette instance comme son propre listener.
 	addActionListener(this);
+
+	//Rend transparent les JButton, pour afficher la mosaique d'eau.
     this.setContentAreaFilled(false);
 
     }

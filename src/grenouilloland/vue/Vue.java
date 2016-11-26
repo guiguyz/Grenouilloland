@@ -299,7 +299,6 @@ public class Vue extends JFrame {
 
     public void mettreAJour(){
         modeleGraphique.mettreAJour();
-        //temporisation.mettreTempsAJour();
         //vie.mettreAJour();
     }
 
