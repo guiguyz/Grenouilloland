@@ -19,10 +19,7 @@ public class TimerDeJeu implements ActionListener{
         timer.start();
     }
 
-    public void arreter(){
-
-        timer.stop();
-    }
+    public void arreter(){ timer.stop(); }
 
 
 
@@ -37,6 +34,7 @@ public class TimerDeJeu implements ActionListener{
         vue.cbTimer(temps);
         if(temps==0){
             vue.afficherFin();
+            vue.cbReinitialiser();
         }
     }
 

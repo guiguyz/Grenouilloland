@@ -312,18 +312,14 @@ public class Vue extends JFrame {
             return;
         }
         // On prépare une nouvelle partie.
-        temporisation.mettreTempsAJour(59);
         timerDeJeu.arreter();
-        cbReinitialiser();
         if(!presentateur.gagnant()){
             afficherMessage("Dommage vous avez perdu");
-
-
         }
         else {
             afficherMessage("Bravo vous avez gagné");
-
         }
+        cbReinitialiser();
     }
 
 

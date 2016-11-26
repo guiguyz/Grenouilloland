@@ -45,9 +45,17 @@ public class Position {
     public boolean voisine(Position position) {
         int x = this.ligne-position.ligne;
         int y = this.colonne-position.colonne;
-	    return Math.abs(x)+Math.abs(y)<=1;
+	    return Math.abs(x)+Math.abs(y)<=1;//==
     }
 
+    /**
+     * Retourne la voisine de cette position selon la direction fournie en
+     * argument.
+     *
+     * @param position la position.
+     * @return la voisine de cette position selon la direction fournie en
+     *   argument.
+     */
     public boolean estEgale(Position position){
         return position.ligne==this.ligne && position.colonne==this.colonne;
     }

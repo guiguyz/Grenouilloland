@@ -21,7 +21,7 @@ public class Modele{
 
     public Nenuphar getNenuphar(Position position) {
         return grille.getNenuphar(position);
-    }// retourne la posituion d'un nenuphar
+    }// retourne la position d'un nenuphar
 
 
     /**
@@ -65,7 +65,6 @@ public class Modele{
         for (int i = 0; i < grille.getResolution(); i++) {
             Position positionLigne = new Position(i,posGrenouille.lireColonne());
             Position positionColone = new Position(posGrenouille.lireLigne(),i);
-            //nenuphar.getAge();
             if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
                 Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
                 grille.setElement(nenuphar, positionLigne);
@@ -128,7 +127,9 @@ public class Modele{
     }
 
     public boolean gagnant(){
-        return grenouille.getPosition().lireColonne()==grille.getResolution()-1 && grenouille.getPosition().lireLigne()==grille.getResolution()-1;
+        Position positionGagnante = new Position(grille.getResolution() - 1, grille.getResolution() - 1);
+        return grenouille.getPosition().estEgale(positionGagnante);
+        //grenouille.getPosition().lireColonne()==grille.getResolution()-1 && grenouille.getPosition().lireLigne()==grille.getResolution()-1
     }
 
     //atribut
