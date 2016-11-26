@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.JMenu;
+//import javax.swing.JMenu;
 
 /**
  * Classe representant la vue.
@@ -82,8 +82,18 @@ public class Vue extends JFrame {
         barreBas.add(barreTimer);
         add(barreBas, BorderLayout.SOUTH);
 
+        // Obtenir la résolution de l'écran
+        Toolkit kit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = kit.getScreenSize();
+        int screenHeight = screenSize.height;
+        int screenWidth = screenSize.width;
+
+        // Centrer la fenêtre dans l'écran
+        setSize(screenWidth / 2, screenHeight / 2);
+        setLocation(screenWidth / 4, screenHeight / 4);
+
         // Positionnement initial de la fenetre au milieu de l'écran.
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
 
 
         // Comportement par defaut en cas de suppression de la fenetre : tout
