@@ -32,7 +32,6 @@ class Resolution extends JScrollBar implements AdjustmentListener {
 
 	// L'instance est declaree comme son propre listener.
 	addAdjustmentListener(this);
-
     }
 
     /**
