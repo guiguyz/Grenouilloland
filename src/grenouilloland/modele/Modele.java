@@ -6,7 +6,7 @@ package grenouilloland.modele;
  *
  * @author
  * @author
- * @version 0.1
+ * @version
  */
 public class Modele{
 

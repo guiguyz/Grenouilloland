@@ -322,11 +322,12 @@ public class Vue extends JFrame {
         }
         // On prépare une nouvelle partie.
         timerDeJeu.arreter();
-        if(!presentateur.gagnant()){
-            afficherMessage("Dommage vous avez perdu");
+        if(presentateur.gagnant()){
+            afficherMessage("Bravo vous avez gagné");
         }
         else {
-            afficherMessage("Bravo vous avez gagné");
+            afficherMessage("Dommage vous avez perdu");
+
         }
         cbReinitialiser();
     }

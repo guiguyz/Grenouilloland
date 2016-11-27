@@ -1,7 +1,7 @@
 package grenouilloland.vue;
 
 import grenouilloland.modele.*;
-import grenouilloland.presentateur.Presentateur;
+
 
 import javax.swing.*;
 import java.awt.*;
