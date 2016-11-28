@@ -166,7 +166,6 @@ class CaseGraphique extends JButton implements ActionListener {
 //    /*
 //     * Les différentes tailles que peuvent prendre les nénuphars
 //     */
-//
 //    protected static final String[] tailles = {"grand", "moyen", "petit"};//age
 //
 //    /** Les différentes couleurs que peuvent prendre les nénuphars */
