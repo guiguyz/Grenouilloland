@@ -32,6 +32,7 @@ public class TimerDeJeu implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         temps--;
         vue.cbTimer(temps);
+        //vie.mettreAJour();
         if(temps==0){
             vue.afficherFin();
             vue.cbReinitialiser();

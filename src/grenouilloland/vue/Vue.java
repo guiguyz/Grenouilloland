@@ -2,6 +2,7 @@ package grenouilloland.vue;
 
 
 
+import grenouilloland.modele.Grenouille;
 import grenouilloland.modele.Position;
 import grenouilloland.presentateur.Presentateur;
 
@@ -223,17 +224,16 @@ public class Vue extends JFrame {
         mettreAJour();
     }
 
-    protected synchronized void cbTimer(int temps){
-        if(!partieLancee){
+    protected synchronized void cbTimer(int temps) {
+        if (!partieLancee) {
             return;
         }
-        else{
-            presentateur.vieillirNenuphar();
-            presentateur.genererChemin();
-            temporisation.mettreTempsAJour(temps);
-            vie.mettreAJour(presentateur.getGrenouille().getPtVie());
-            mettreAJour();
-        }
+        presentateur.vieillirNenuphar();
+        presentateur.genererChemin();
+        temporisation.mettreTempsAJour(temps);
+        mettreAJour();
+
+
     }
 
     /**
@@ -250,9 +250,9 @@ public class Vue extends JFrame {
 
         // Mise a jour de la case graphique si la partie est lancer.
         if (partieLancee){
-
             presentateur.deplacerGrenouille(position);
             mettreAJour();
+            mettreAJourVie();
         }
     }
 
@@ -263,7 +263,7 @@ public class Vue extends JFrame {
      *
      * @param message le message.
      */
-    protected void afficherMessage(String message) {
+    protected synchronized void afficherMessage(String message) {
         JOptionPane.showMessageDialog(this,
                 message,
                 titre,
@@ -278,7 +278,6 @@ public class Vue extends JFrame {
         partieLancee=false;
         reinitialiser(presentateur.resolution());
         temporisation.mettreTempsAJour(59);
-
     }
 
     /**
@@ -309,10 +308,16 @@ public class Vue extends JFrame {
 
     }
 
+    public void mettreAJourVie(){
+        Grenouille grenouille=lirePresentateur().getGrenouille();
+        vie.mettreAJour(grenouille.getPtVie());
+    }
+
 
     public void mettreAJour(){
-        modeleGraphique.mettreAJour();
         //vie.mettreAJour();
+        modeleGraphique.mettreAJour();
+
     }
 
     /**
@@ -326,16 +331,15 @@ public class Vue extends JFrame {
         // On prépare une nouvelle partie.
         timerDeJeu.arreter();
         if(presentateur.gagnant()){
-            partieLancee=false;
-            cbReinitialiser();
+            //cbReinitialiser();
             afficherMessage("Bravo vous avez gagné");
         }
         else {
-            partieLancee=false;
-            cbReinitialiser();
+            //cbReinitialiser();
             afficherMessage("Dommage vous avez perdu");
 
         }
+        cbReinitialiser();
 
     }
 

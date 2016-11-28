@@ -1,6 +1,10 @@
 package grenouilloland.vue;
 
+import grenouilloland.modele.Grenouille;
+
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 import javax.swing.*;
@@ -26,9 +30,8 @@ class Vie extends JPanel{
 
         texte = new JLabel(vue.lirePresentateur().getGrenouille().getPtVie()+"", icone, JLabel.HORIZONTAL);
         add(texte, BorderLayout.CENTER);
-        mettreAJour(2);
-
     }
+
     /**
      * Met à jour le composant (affiche le nombre de points de vie de
      * la grenouille)
