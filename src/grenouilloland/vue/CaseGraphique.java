@@ -90,22 +90,22 @@ class CaseGraphique extends JButton implements ActionListener {
         Position posGrenouille=vue.lirePresentateur().getGrenouille().getPosition();
         TypeElement typeNenuphar=nenuphar.getType();
         //couleurSurface.get(typeNenuphar)
+
         if(position.estEgale(posGrenouille)){
             setIcon(new ImageIcon(grenouilleIcone));
-//            setIcon(new ImageIcon(grenouilleIcone));
-//            revalidate();
-//            repaint();
             //setText("G "+grenouille.getEtat().name()+" "+grenouille.getPtVie());
         }
-        else if(vue.lireType(position)==typeNenuphar && vue.lireType(position)!=TypeElement.EAU ){
-            //System.out.println((nenuphar.getAge());
-            //setIcon(new ImageIcon(nenupharsIcons[3][0].getImage()));
+        else if(vue.lireType(position)==typeNenuphar && vue.lireType(position)==TypeElement.NENUPHARIMMORTEL ) {
             setIcon(new ImageIcon(nenupharIcone));
+        }
+
+        else if(vue.lireType(position)==typeNenuphar && vue.lireType(position)!=TypeElement.EAU ){
+            //setIcon(new ImageIcon(nenupharsIcons[3][0].getImage()));
+            setIcon(new ImageIcon(nenupharRose));
             //setText(typeNenuphar.name()+" "+nenuphar.getAge());
 
-        }else setIcon(null);
-        //else setIcon(new ImageIcon(nenupharsIcons[0][3].getImage()));//setIcon(null);
-
+        }
+        else setIcon(null);
     }
 
     /**
@@ -117,6 +117,17 @@ class CaseGraphique extends JButton implements ActionListener {
         ClassLoader loader = ModeleGraphique.class.getClassLoader();
         URL url = loader.getResource("ressources/images/grand-nenuphare-vert-96x96.png");
         nenupharIcone = (new ImageIcon(url)).getImage();
+    }
+
+    /**
+     * Nenuphar immortel Image.
+     */
+    protected static final Image nenupharRose;
+
+    static {
+        ClassLoader loader = ModeleGraphique.class.getClassLoader();
+        URL url = loader.getResource("ressources/images/grand-nenuphare-rose-96x96.png");
+        nenupharRose = (new ImageIcon(url)).getImage();
     }
 
 

@@ -38,6 +38,7 @@ class Vie extends JPanel{
      */
     protected void mettreAJour(int ptVie){
         texte.setText(ptVie+"");
+        repaint();
     }
 
     /** Le titre du panneau de contrôle */
