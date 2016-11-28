@@ -46,7 +46,7 @@ class CaseGraphique extends JButton implements ActionListener {
 
 
     //Dimensionne les JButton au démarage
-    setPreferredSize(new Dimension(150, 100));
+    setPreferredSize(new Dimension(200, 150));
 
     }
 
