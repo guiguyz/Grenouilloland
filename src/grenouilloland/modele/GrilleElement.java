@@ -56,12 +56,7 @@ public class GrilleElement {
 
     }
 
-    /**
-     * Joue un nouveau coup et retourne le resultat produit.
-     */
-    public void jouer() {
 
-	}
 
     /**
      * Indique si la position fournie en argument designe une case du plateau
@@ -84,7 +79,7 @@ public class GrilleElement {
     }
 
     /**
-     * Indique si un pion peut etre pose sur la case dont la position en fournie
+     * Indique si une grenouille peut etre pose sur la case dont la position en fournie
      * en argument.
      *
      * @param position la position.

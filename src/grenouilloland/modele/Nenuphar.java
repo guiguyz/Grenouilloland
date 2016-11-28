@@ -57,6 +57,10 @@ public class Nenuphar {
             }
     }
 
+    public GrilleElement getPos(){
+        return getPos();
+    }
+
 
 
 

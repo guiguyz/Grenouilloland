@@ -39,8 +39,11 @@ class CaseGraphique extends JButton implements ActionListener {
 	// Declaration de cette instance comme son propre listener.
 	addActionListener(this);
 
+
 	//Rend transparent les JButton, pour afficher la mosaique d'eau.
     setContentAreaFilled(false);
+    setBorderPainted(false);
+
 
     //Dimensionne les JButton au démarage
     setPreferredSize(new Dimension(150, 100));
@@ -88,17 +91,32 @@ class CaseGraphique extends JButton implements ActionListener {
         TypeElement typeNenuphar=nenuphar.getType();
         //couleurSurface.get(typeNenuphar)
         if(position.estEgale(posGrenouille)){
-            //setIcon(new ImageIcon(grenouilleIcone));
-            //setIcon((Icon) grenouilleIcone);
-            setText("G "+grenouille.getEtat().name()+" "+grenouille.getPtVie());
+            setIcon(new ImageIcon(grenouilleIcone));
+//            setIcon(new ImageIcon(grenouilleIcone));
+//            revalidate();
+//            repaint();
+            //setText("G "+grenouille.getEtat().name()+" "+grenouille.getPtVie());
         }
-        else{
+        else if(vue.lireType(position)==typeNenuphar && vue.lireType(position)!=TypeElement.EAU ){
             //System.out.println((nenuphar.getAge());
-            //setIcon(new ImageIcon(nenupharsIcons[3][0]));
-            setText(typeNenuphar.name()+" "+nenuphar.getAge());
+            //setIcon(new ImageIcon(nenupharsIcons[3][0].getImage()));
+            setIcon(new ImageIcon(nenupharIcone));
+            //setText(typeNenuphar.name()+" "+nenuphar.getAge());
 
-        }
+        }else setIcon(null);
+        //else setIcon(new ImageIcon(nenupharsIcons[0][3].getImage()));//setIcon(null);
 
+    }
+
+    /**
+     * Grenouille Image.
+     */
+    protected static final Image nenupharIcone;
+
+    static {
+        ClassLoader loader = ModeleGraphique.class.getClassLoader();
+        URL url = loader.getResource("ressources/images/grand-nenuphare-vert-96x96.png");
+        nenupharIcone = (new ImageIcon(url)).getImage();
     }
 
 
@@ -133,8 +151,6 @@ class CaseGraphique extends JButton implements ActionListener {
      */
     protected static final String grenouilleChemin = dossierImages+"grenouille-verte-96x57.png";
 
-
-//
 //
 //    /*
 //     * Les différentes tailles que peuvent prendre les nénuphars
@@ -153,10 +169,11 @@ class CaseGraphique extends JButton implements ActionListener {
 //    */
 //    protected static final ImageIcon[][] nenupharsIcons;
 //    static{
-//        // Crée le tableau d'images à 3 dimensions et charge chacune
+//        // Crée le tableau d'images à 2 dimensions et charge chacune
 //        //    des images dans ce tableau.
-//        nenupharsIcons = new ImageIcon[couleurNenuphar.length][tailles.length];//4,3
-//        ClassLoader loader = ActionQuitter.class.getClassLoader();
+//        nenupharsIcons = new ImageIcon[tailles.length][couleurNenuphar.length];//3,4
+//        ClassLoader loader = ModeleGraphique.class.getClassLoader();
+//        //ClassLoader loader = ActionQuitter.class.getClassLoader();
 //
 //        /*Pour chaque couleur et chaque taille de nénuphar, ainsi que
 //         * pour chaque état de la grenouille, on charge l'image.

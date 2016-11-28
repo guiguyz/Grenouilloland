@@ -63,6 +63,16 @@ public class Presentateur {
 
     }
 
+    /**
+     * Retourne le contenu de la case dont la position est fournie en argument.
+     *
+     * @param position la position.
+     * @return le contenu de la case correspondante.
+     */
+    public TypeElement lireType(Position position) {
+        return modele.lireType(position);
+    }
+
     public Nenuphar getNenuphar(Position position) {
         return modele.getNenuphar(position);
     }

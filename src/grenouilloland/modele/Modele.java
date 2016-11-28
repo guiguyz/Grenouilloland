@@ -115,6 +115,17 @@ public class Modele{
         }
     }
 
+    /**
+     * Retourne le contenu de la case dont la position est fournie en argument.
+     *
+     * @param position la position.
+     * @return le contenu de la case correspondante.
+     */
+    public TypeElement lireType(Position position) {
+        return grille.lireType(position);
+    }
+
+
     public boolean partieFinie(){
         return gagnant() || perdant();
     }

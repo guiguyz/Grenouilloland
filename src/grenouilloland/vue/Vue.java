@@ -4,6 +4,7 @@ package grenouilloland.vue;
 
 import grenouilloland.modele.Grenouille;
 import grenouilloland.modele.Position;
+import grenouilloland.modele.TypeElement;
 import grenouilloland.presentateur.Presentateur;
 
 import javax.swing.*;
@@ -340,7 +341,18 @@ public class Vue extends JFrame {
 
         }
         cbReinitialiser();
+        //cbNouveauModele(presentateur.resolution());
 
+    }
+
+    /**
+     * Retourne le contenu de la case dont la position est fournie en argument.
+     *
+     * @param position la position.
+     * @return le contenu de la case correspondante.
+     */
+    public TypeElement lireType(Position position) {
+        return presentateur.lireType(position);
     }
 
 
