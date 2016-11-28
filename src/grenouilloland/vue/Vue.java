@@ -227,10 +227,13 @@ public class Vue extends JFrame {
         if(!partieLancee){
             return;
         }
-        presentateur.vieillirNenuphar();
-        presentateur.genererChemin();
-        temporisation.mettreTempsAJour(temps);
-        mettreAJour();
+        else{
+            presentateur.vieillirNenuphar();
+            presentateur.genererChemin();
+            temporisation.mettreTempsAJour(temps);
+            vie.mettreAJour(presentateur.getGrenouille().getPtVie());
+            mettreAJour();
+        }
     }
 
     /**
@@ -323,10 +326,12 @@ public class Vue extends JFrame {
         // On prépare une nouvelle partie.
         timerDeJeu.arreter();
         if(presentateur.gagnant()){
+            partieLancee=false;
             cbReinitialiser();
             afficherMessage("Bravo vous avez gagné");
         }
         else {
+            partieLancee=false;
             cbReinitialiser();
             afficherMessage("Dommage vous avez perdu");
 

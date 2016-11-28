@@ -32,7 +32,6 @@ public class TimerDeJeu implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         temps--;
         vue.cbTimer(temps);
-        vie.mettreAJour(vue.lirePresentateur().getGrenouille().getPtVie());
         if(temps==0){
             vue.afficherFin();
             vue.cbReinitialiser();
@@ -44,4 +43,5 @@ public class TimerDeJeu implements ActionListener{
     protected Vue vue;
 
     protected Vie vie;
+
 }
