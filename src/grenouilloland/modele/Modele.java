@@ -81,7 +81,6 @@ public class Modele{
      * Ne genere que les lignes et les colones de nenuphar sur l'eau.
      */
     public void genereNenupharHaut(){
-        Position posGrenouille = grenouille.getPosition();
 
         for (int j = grille.getResolution()-1; j > 0; j--) {
             Position positionLigne = new Position(j,grille.getResolution()-1);

@@ -323,13 +323,15 @@ public class Vue extends JFrame {
         // On prépare une nouvelle partie.
         timerDeJeu.arreter();
         if(presentateur.gagnant()){
+            cbReinitialiser();
             afficherMessage("Bravo vous avez gagné");
         }
         else {
+            cbReinitialiser();
             afficherMessage("Dommage vous avez perdu");
 
         }
-        cbReinitialiser();
+
     }
 
 
