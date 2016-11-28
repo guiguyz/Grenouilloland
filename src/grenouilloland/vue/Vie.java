@@ -32,9 +32,8 @@ class Vie extends JPanel{
      * Met à jour le composant (affiche le nombre de points de vie de
      * la grenouille)
      */
-    protected void mettreAJour(){
-        int Ptvie = vue.lirePresentateur().getGrenouille().getPtVie();
-        texte.setText(Ptvie+"");
+    protected void mettreAJour(int PtVie){
+        texte.setText(PtVie+"");
     }
 
     /** Le titre du panneau de contrôle */
