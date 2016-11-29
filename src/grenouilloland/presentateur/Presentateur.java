@@ -79,22 +79,12 @@ public class Presentateur {
 
     public void lancerPartie() {
         modele.genereChemin();
-//        modele.genereNenupharHaut();
-//        modele.genereCheminNenuphar();
     }
 
 
     public void vieillirNenuphar() {
-
         modele.vieillirNenuphar();
         modele.genereChemin();
-//        if (modele.partieFinie()) {
-//            vue.afficherFin();
-//            System.out.println("termine");
-//            return;
-//        }
-//        modele.genereCheminNenuphar();
-
     }
 
     public Grenouille getGrenouille() {
@@ -108,8 +98,6 @@ public class Presentateur {
 
     public void genererChemin(){
         modele.genereChemin();
-//        modele.genereCheminNenuphar();
-//        modele.genereNenupharHaut();
     }
 
     public boolean gagnant() {
