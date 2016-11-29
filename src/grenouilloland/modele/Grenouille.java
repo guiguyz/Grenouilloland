@@ -20,7 +20,7 @@ public class Grenouille
 
     public Grenouille()
     {
-        this.etat=etat.Good;
+        this.etat=etat.VIVANTE;
 
         this.position=new Position(0,0);
 
@@ -41,19 +41,19 @@ public class Grenouille
     }
 
     public boolean estMalade(){
-        return this.etat==etat.Bad;
+        return this.etat==etat.MALADE;
 
     }
 
-    public void rendreMalade(){ this.etat = etat.Bad; }
+    public void rendreMalade(){ this.etat = etat.MALADE; }
 
     public void guerir(){
-        this.etat = etat.Good;
+        this.etat = etat.VIVANTE;
     }
 
     public void mourir()
     {
-        this.etat=etat.Dead;
+        this.etat=etat.MORTE;
     }
 
     public Position getPosition() {
