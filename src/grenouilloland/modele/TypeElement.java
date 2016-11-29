@@ -18,7 +18,8 @@ public enum TypeElement{
         {
 			grenouille.setPtVie(0);
 			grenouille.mourir();
-        }
+			System.out.println("Elle est morte !");
+		}
     },
 
 	NENUPHARIMMORTEL{

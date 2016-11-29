@@ -39,6 +39,10 @@ public class TimerDeJeu implements ActionListener{
         }
     }
 
+    public void resetTemps(){
+        temps=59;
+    }
+
     protected int temps;
 
     protected Vue vue;

@@ -86,9 +86,11 @@ public class Presentateur {
     public void vieillirNenuphar() {
 
         modele.vieillirNenuphar();
-        if (modele.partieFinie()) {
-            vue.afficherFin();
-        }
+//        if (modele.partieFinie()) {
+//            vue.afficherFin();
+//            System.out.println("termine");
+//            return;
+//        }
         modele.genereCheminNenuphar();
 
     }
@@ -99,10 +101,7 @@ public class Presentateur {
 
     public void deplacerGrenouille(Position position) {
         modele.deplacerGrenouille(position);
-        if (modele.partieFinie()) {
-            vue.afficherFin();
-        }
-        modele.genereCheminNenuphar();
+        genererChemin();
     }
 
     public void genererChemin(){
@@ -113,6 +112,8 @@ public class Presentateur {
     public boolean gagnant() {
         return modele.gagnant();
     }
+
+    public boolean perdant() { return modele.perdant(); }
 
 
     /**

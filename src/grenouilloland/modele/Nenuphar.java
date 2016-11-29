@@ -49,11 +49,17 @@ public class Nenuphar {
     public void vieillir(){
             if(getAge()==age.GRAND){
                 setAge(age.MOYEN);
+                return;
             }
-            else if(getAge()==age.MOYEN){
-                setAge(age=age.PETIT);
-            }else{
+            if(getAge()==age.MOYEN){
+                setAge(age.PETIT);
+                return;
+            }
+            if(getAge()==age.PETIT){
+                setAge(age.GRAND);
                 setType(type.EAU);
+                System.out.println("eau");
+                return;
             }
     }
 

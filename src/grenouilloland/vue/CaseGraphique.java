@@ -70,7 +70,9 @@ class CaseGraphique extends JButton implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent evt) {
-	modeleGraphique.lireVue().cbPoser(this);
+        if(modeleGraphique.lireVue().partieLancee){
+            modeleGraphique.lireVue().cbPoser(this);
+        }
     }
 
     /**
@@ -92,20 +94,21 @@ class CaseGraphique extends JButton implements ActionListener {
         //couleurSurface.get(typeNenuphar)
 
         if(position.estEgale(posGrenouille)){
-            setIcon(new ImageIcon(grenouilleIcone));
-            //setText("G "+grenouille.getEtat().name()+" "+grenouille.getPtVie());
+            //setIcon(new ImageIcon(grenouilleIcone));
+            setText("G "+grenouille.getEtat().name()+" "+grenouille.getPtVie());
         }
-        else if(vue.lireType(position)==typeNenuphar && vue.lireType(position)==TypeElement.NENUPHARIMMORTEL ) {
-            setIcon(new ImageIcon(nenupharIcone));
-        }
-
-        else if(vue.lireType(position)==typeNenuphar && vue.lireType(position)!=TypeElement.EAU ){
-            //setIcon(new ImageIcon(nenupharsIcons[3][0].getImage()));
-            setIcon(new ImageIcon(nenupharRose));
-            //setText(typeNenuphar.name()+" "+nenuphar.getAge());
-
-        }
-        else setIcon(null);
+        else setText(typeNenuphar.name()+" "+nenuphar.getAge());
+//        else if(vue.lireType(position)==typeNenuphar && vue.lireType(position)==TypeElement.NENUPHARIMMORTEL ) {
+//            setIcon(new ImageIcon(nenupharIcone));
+//        }
+//
+//        else if(vue.lireType(position)==typeNenuphar && vue.lireType(position)!=TypeElement.EAU ){
+//            //setIcon(new ImageIcon(nenupharsIcons[3][0].getImage()));
+//            setIcon(new ImageIcon(nenupharRose));
+//            //setText(typeNenuphar.name()+" "+nenuphar.getAge());
+//
+//        }
+//        else setIcon(null);
     }
 
     /**

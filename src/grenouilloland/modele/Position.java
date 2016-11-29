@@ -45,7 +45,7 @@ public class Position {
     public boolean voisine(Position position) {
         int x = this.ligne-position.ligne;
         int y = this.colonne-position.colonne;
-	    return Math.abs(x)+Math.abs(y)<=1;//==
+        return Math.abs(x)+Math.abs(y)==1;//==
     }
 
     /**

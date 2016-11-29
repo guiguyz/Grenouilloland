@@ -203,7 +203,7 @@ public class Vue extends JFrame {
      * @note cette methode pose un verrou sur la vue pendant tout la duree
      * de son execution.
      */
-    protected synchronized void cbNouveauModele(int resolution) {
+    protected void cbNouveauModele(int resolution) {
         reinitialiser(resolution);
     }
 
@@ -215,7 +215,7 @@ public class Vue extends JFrame {
      * @note cette methode pose un verrou sur la vue pendant tout la duree
      * de son execution.
      */
-    protected synchronized void cbLancer() {
+    protected void cbLancer() {
         //lancer le timer de 60s
         //lancer le timer de 1s
         temporisation.mettreTempsAJour(59);
@@ -225,12 +225,17 @@ public class Vue extends JFrame {
         mettreAJour();
     }
 
-    protected synchronized void cbTimer(int temps) {
+    protected void cbTimer(int temps) {
         if (!partieLancee) {
             return;
         }
         presentateur.vieillirNenuphar();
+        afficherFin();
+        if(! partieLancee){
+            return;
+        }
         presentateur.genererChemin();
+        System.out.println("cbTimer");
         temporisation.mettreTempsAJour(temps);
         mettreAJour();
 
@@ -244,16 +249,18 @@ public class Vue extends JFrame {
      * @note cette methode pose un verrou sur la vue pendant tout la duree
      * de son execution.
      */
-    protected synchronized void cbPoser(CaseGraphique caseGraphique) {
+    protected void cbPoser(CaseGraphique caseGraphique) {
 
         // Obtention de la position de la case correspondante dans le modele.
         final Position position = caseGraphique.lirePosition();
 
-        // Mise a jour de la case graphique si la partie est lancer.
+        // Mise a jour de la case graphique si la partie est lancée.
         if (partieLancee){
+            //System.out.println("deplace");
             presentateur.deplacerGrenouille(position);
+            afficherFin();
             mettreAJour();
-            mettreAJourVie();
+            //mettreAJourVie();
         }
     }
 
@@ -264,7 +271,7 @@ public class Vue extends JFrame {
      *
      * @param message le message.
      */
-    protected synchronized void afficherMessage(String message) {
+    protected void afficherMessage(String message) {
         JOptionPane.showMessageDialog(this,
                 message,
                 titre,
@@ -274,8 +281,10 @@ public class Vue extends JFrame {
     /**
      * Callback permettant de reinitialiser le jeu.
      */
-    protected synchronized void cbReinitialiser() {
+    protected void cbReinitialiser() {
+        System.out.println("cbReinit");
         timerDeJeu.arreter();
+        timerDeJeu.resetTemps();
         partieLancee=false;
         reinitialiser(presentateur.resolution());
         temporisation.mettreTempsAJour(59);
@@ -289,6 +298,8 @@ public class Vue extends JFrame {
      * sur la vue.
      */
     protected void reinitialiser(int resolution) {
+
+        System.out.println("reinitialiser");
 
         // Requete au presentateur pour instancier un nouveau modele.
         presentateur.nouveauModele(resolution);
@@ -325,24 +336,31 @@ public class Vue extends JFrame {
      * Affiche le message de fin de partie, qui peut être gagnante ou
      * perdante.
      */
-    public synchronized void afficherFin(){
+    public void afficherFin(){
         if(!partieLancee){
+            System.out.println("Partie pas lancee");
             return;
         }
         // On prépare une nouvelle partie.
+
+        final boolean gagnant = presentateur.gagnant();
+        final boolean perdant = presentateur.perdant();
+
+        if (! gagnant && ! perdant) { return; }
         timerDeJeu.arreter();
-        if(presentateur.gagnant()){
+        partieLancee = false;
+        if(gagnant) {
             //cbReinitialiser();
             afficherMessage("Bravo vous avez gagné");
         }
-        else {
+        if(perdant){
             //cbReinitialiser();
             afficherMessage("Dommage vous avez perdu");
 
         }
-        cbReinitialiser();
-        //cbNouveauModele(presentateur.resolution());
 
+        System.out.println("Verdict affiche");
+        cbReinitialiser();
     }
 
     /**
