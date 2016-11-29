@@ -58,7 +58,6 @@ public class Nenuphar {
             if(getAge()==age.PETIT){
                 setAge(age.GRAND);
                 setType(type.EAU);
-                System.out.println("eau");
                 return;
             }
     }

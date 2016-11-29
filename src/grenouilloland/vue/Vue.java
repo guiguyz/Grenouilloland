@@ -216,8 +216,6 @@ public class Vue extends JFrame {
      * de son execution.
      */
     protected void cbLancer() {
-        //lancer le timer de 60s
-        //lancer le timer de 1s
         temporisation.mettreTempsAJour(59);
         partieLancee=true;
         presentateur.lancerPartie();
@@ -256,7 +254,6 @@ public class Vue extends JFrame {
 
         // Mise a jour de la case graphique si la partie est lancée.
         if (partieLancee){
-            //System.out.println("deplace");
             presentateur.deplacerGrenouille(position);
             afficherFin();
             mettreAJour();
@@ -282,7 +279,6 @@ public class Vue extends JFrame {
      * Callback permettant de reinitialiser le jeu.
      */
     protected void cbReinitialiser() {
-        System.out.println("cbReinit");
         timerDeJeu.arreter();
         timerDeJeu.resetTemps();
         partieLancee=false;
@@ -298,8 +294,6 @@ public class Vue extends JFrame {
      * sur la vue.
      */
     protected void reinitialiser(int resolution) {
-
-        System.out.println("reinitialiser");
 
         // Requete au presentateur pour instancier un nouveau modele.
         presentateur.nouveauModele(resolution);
@@ -350,13 +344,10 @@ public class Vue extends JFrame {
         timerDeJeu.arreter();
         partieLancee = false;
         if(gagnant) {
-            //cbReinitialiser();
             afficherMessage("Bravo vous avez gagné");
         }
         if(perdant){
-            //cbReinitialiser();
             afficherMessage("Dommage vous avez perdu");
-
         }
 
         System.out.println("Verdict affiche");

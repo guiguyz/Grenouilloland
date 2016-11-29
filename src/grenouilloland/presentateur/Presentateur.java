@@ -78,20 +78,22 @@ public class Presentateur {
     }
 
     public void lancerPartie() {
-        modele.genereNenupharHaut();
-        modele.genereCheminNenuphar();
+        modele.genereChemin();
+//        modele.genereNenupharHaut();
+//        modele.genereCheminNenuphar();
     }
 
 
     public void vieillirNenuphar() {
 
         modele.vieillirNenuphar();
+        modele.genereChemin();
 //        if (modele.partieFinie()) {
 //            vue.afficherFin();
 //            System.out.println("termine");
 //            return;
 //        }
-        modele.genereCheminNenuphar();
+//        modele.genereCheminNenuphar();
 
     }
 
@@ -105,8 +107,9 @@ public class Presentateur {
     }
 
     public void genererChemin(){
-        modele.genereCheminNenuphar();
-        modele.genereNenupharHaut();
+        modele.genereChemin();
+//        modele.genereCheminNenuphar();
+//        modele.genereNenupharHaut();
     }
 
     public boolean gagnant() {

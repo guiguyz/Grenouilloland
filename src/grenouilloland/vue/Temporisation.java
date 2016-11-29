@@ -14,8 +14,6 @@ public class Temporisation extends JProgressBar{
 
         super(JProgressBar.HORIZONTAL, 0, 59);
         this.vue = vue;
-        //setValue(59);
-
         mettreTempsAJour(59);
     }
 

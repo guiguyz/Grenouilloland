@@ -51,17 +51,6 @@ public class Grenouille
         this.etat = etat.Good;
     }
 
-
-    public void ajouteVie()
-    {
-        ptVie++;
-    }
-
-    public void retirerVie()
-    {
-        ptVie--;
-    }
-
     public void mourir()
     {
         this.etat=etat.Dead;
