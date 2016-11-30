@@ -94,7 +94,7 @@ class CaseGraphique extends JButton implements ActionListener {
         //couleurSurface.get(typeNenuphar)
 
         if(position.estEgale(posGrenouille)){
-            //setIcon(new ImageIcon(grenouilleIcone));
+            //setIcon(grenouilleIcones);
             setText("G "+grenouille.getEtat().name()+" "+grenouille.getPtVie());
         }
         else setText(typeNenuphar.name()+" "+nenuphar.getAge());
@@ -221,7 +221,7 @@ class CaseGraphique extends JButton implements ActionListener {
 //    }
 
     /**
-     * Hashmap contenant les équivalences ActionSurface-image.
+     * Hashmap contenant les équivalences TypeElement-image.
      * Elle permet d'associer à chaque type de nénuphar la couleur qui
      * lui est associée
      */

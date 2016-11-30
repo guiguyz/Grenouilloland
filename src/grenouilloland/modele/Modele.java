@@ -51,42 +51,59 @@ public class Modele{
 
     public void genereChemin(){
         Position posGrenouille = grenouille.getPosition();
-
-        //ligne du bas
-        for (int c = posGrenouille.lireColonne()+1; c != grille.getResolution(); c++) {
-            Position positionColone = new Position(posGrenouille.lireLigne(),c);
-            if (getNenuphar(positionColone).getType()==TypeElement.EAU){
+        for (int i = posGrenouille.lireColonne()+1; i != grille.getResolution(); i++) {
+            //ligne du bas
+            Position positionLigneBas = new Position(posGrenouille.lireLigne(),i);
+            if (getNenuphar(positionLigneBas).getType()==TypeElement.EAU){
                 Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
-                grille.setElement(nenuphar, positionColone);
+                grille.setElement(nenuphar, positionLigneBas);
+            }
+            //colonne du début
+            Position positionColonneDebut = new Position(grille.getResolution()-1,i);
+            if (getNenuphar(positionColonneDebut).getType()==TypeElement.EAU){
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
+                grille.setElement(nenuphar, positionColonneDebut);
+            }
+            //ligne du haut
+            Position positionLigneHaut = new Position(i,posGrenouille.lireLigne());
+            if (getNenuphar(positionLigneHaut).getType()==TypeElement.EAU){
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
+                grille.setElement(nenuphar, positionLigneHaut);
+            }
+            //colonne de fin
+            Position positionColonneFin = new Position(i,grille.getResolution()-1);
+            if (getNenuphar(positionColonneFin).getType()==TypeElement.EAU){
+                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
+                grille.setElement(nenuphar, positionColonneFin);
             }
         }
 
-        //colone du début
-        for (int l = posGrenouille.lireLigne()+1; l != grille.getResolution(); l++) {
-            Position positionLigne = new Position(grille.getResolution()-1,l);
-            if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
-                grille.setElement(nenuphar, positionLigne);
-            }
-        }
-
-        //ligne du haut
-        for (int c = posGrenouille.lireColonne()+1; c != grille.getResolution(); c++) {
-            Position positionColone = new Position(c,posGrenouille.lireLigne());
-            if (getNenuphar(positionColone).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
-                grille.setElement(nenuphar, positionColone);
-            }
-        }
-
-        //colonne de fin
-        for (int l = posGrenouille.lireLigne()+1; l != grille.getResolution(); l++) {
-            Position positionLigne = new Position(l,grille.getResolution()-1);
-            if (getNenuphar(positionLigne).getType()==TypeElement.EAU){
-                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
-                grille.setElement(nenuphar, positionLigne);
-            }
-        }
+//        //colonne du début
+//        for (int l = posGrenouille.lireLigne()+1; l != grille.getResolution(); l++) {
+//            Position positionColonneDebut = new Position(grille.getResolution()-1,l);
+//            if (getNenuphar(positionColonneDebut).getType()==TypeElement.EAU){
+//                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
+//                grille.setElement(nenuphar, positionColonneDebut);
+//            }
+//        }
+//
+//        //ligne du haut
+//        for (int c = posGrenouille.lireColonne()+1; c != grille.getResolution(); c++) {
+//            Position positionLigneHaut = new Position(c,posGrenouille.lireLigne());
+//            if (getNenuphar(positionLigneHaut).getType()==TypeElement.EAU){
+//                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
+//                grille.setElement(nenuphar, positionLigneHaut);
+//            }
+//        }
+//
+//        //colonne de fin
+//        for (int l = posGrenouille.lireLigne()+1; l != grille.getResolution(); l++) {
+//            Position positionColonneFin = new Position(l,grille.getResolution()-1);
+//            if (getNenuphar(positionColonneFin).getType()==TypeElement.EAU){
+//                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
+//                grille.setElement(nenuphar, positionColonneFin);
+//            }
+//        }
     }
 
 
