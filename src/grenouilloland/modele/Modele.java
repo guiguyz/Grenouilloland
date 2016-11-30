@@ -52,6 +52,8 @@ public class Modele{
     public void genereChemin(){
         Position posGrenouille = grenouille.getPosition();
 
+
+
         for (int i = posGrenouille.lireColonne()+1; i != grille.getResolution(); i++) {
 //            //ligne du bas
 //            Position positionLigneBas = new Position(posGrenouille.lireLigne(),i);
@@ -59,13 +61,13 @@ public class Modele{
 //                Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
 //                grille.setElement(nenuphar, positionLigneBas);
 //            }
-            //colonne du début
+            //colonne du haut
             Position positionColonneDebut = new Position(grille.getResolution()-1,i);
             if (getNenuphar(positionColonneDebut).getType()==TypeElement.EAU){
                 Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
                 grille.setElement(nenuphar, positionColonneDebut);
             }
-            //ligne du haut
+            //ligne du debut
             Position positionLigneHaut = new Position(i,posGrenouille.lireLigne());
             if (getNenuphar(positionLigneHaut).getType()==TypeElement.EAU){
                 Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
