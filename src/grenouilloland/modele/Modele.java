@@ -44,11 +44,6 @@ public class Modele{
         return grenouille;
     }
 
-    public void setGrenouille(Grenouille grenouille) {
-        this.grenouille = grenouille;
-    }
-
-
 
 
     public void genereChemin(){

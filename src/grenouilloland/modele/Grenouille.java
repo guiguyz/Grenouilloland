@@ -68,9 +68,4 @@ public class Grenouille
         return etat;
     }
 
-    public void setEtat(Etat etat) {
-        this.etat = etat;
-    }
-
-
 }
