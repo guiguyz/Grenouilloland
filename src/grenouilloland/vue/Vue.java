@@ -317,7 +317,6 @@ public class Vue extends JFrame {
      */
     public void afficherFin(){
         if(!partieLancee){
-            System.out.println("Partie pas lancee");
             return;
         }
         // On prépare une nouvelle partie.
@@ -334,8 +333,6 @@ public class Vue extends JFrame {
         if(perdant){
             afficherMessage("Dommage vous avez perdu");
         }
-
-        System.out.println("Verdict affiche");
         cbReinitialiser();
     }
 
