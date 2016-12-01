@@ -8,7 +8,7 @@ package grenouilloland.modele;
  * @author Nicolas Vatel
  */
 public enum Etat {
-    MORTE,          /** 0) Etat associe a la grenouille morte. */
-    MALADE,           /** 1) Etat associe a la grenouille en mauvaise santé. */
-    VIVANTE           /** 2) Etat associe a la grenouille en bonne santé. */
+    MORTE,          /** Etat associe a la grenouille morte. */
+    MALADE,           /** Etat associe a la grenouille en mauvaise santé. */
+    VIVANTE           /** Etat associe a la grenouille en bonne santé. */
 }

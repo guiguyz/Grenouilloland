@@ -18,7 +18,7 @@ public enum TypeElement{
         @Override
         public void effetSurGrenouille(Grenouille grenouille)
         {
-			grenouille.setPtVie(0);
+			grenouille.setPtVie(-1);
 			grenouille.mourir();
 		}
     },
@@ -47,14 +47,18 @@ public enum TypeElement{
 		{
 			if(grenouille.estMalade())
 			{
-				grenouille.setPtVie(0);
+				grenouille.setPtVie(-1);
 				grenouille.mourir();
 
 			}
 			else
 			{
 				grenouille.rendreMalade();
-				grenouille.setPtVie(grenouille.getPtVie()/2);
+				if(grenouille.getPtVie()==0){
+					grenouille.setPtVie(-1);
+					grenouille.mourir();
+				}
+				else grenouille.setPtVie(grenouille.getPtVie()/2);
 			}
 		}
 	},
@@ -81,8 +85,8 @@ public enum TypeElement{
         @Override
 		public void effetSurGrenouille(Grenouille grenouille)
 		{
-			grenouille.mourir();
-			grenouille.setPtVie(0);
+			grenouille.setPtVie(-1);
+            grenouille.mourir();
 		}
 	};
 

@@ -33,6 +33,7 @@ public class TimerDeJeu implements ActionListener{
         temps--;
         vue.cbTimer(temps);
         if(temps==0){
+            vue.presentateur.getGrenouille().setPtVie(-1);
             vue.afficherFin();
             vue.cbReinitialiser();
         }

@@ -131,13 +131,6 @@ class ModeleGraphique extends JPanel {
 
 
     /**
-     * Chemin d'acces relatif au repertoire contenant les images des pions des
-     * deux joueurs.
-     */
-    protected static final String cheminPions = "ressources/images/";
-
-
-    /**
      * Vue proprietaire de ce modele.
      */
     protected final Vue vue;

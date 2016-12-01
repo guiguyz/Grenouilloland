@@ -24,7 +24,7 @@ public class Grenouille
 
         this.position=new Position(0,0);
 
-        this.ptVie = 2;
+        this.ptVie = 1;
     }
 
     public int getPtVie()
@@ -35,7 +35,7 @@ public class Grenouille
     public void setPtVie(int ptVie)
     {
         this.ptVie = ptVie;
-        if (ptVie<=0) {
+        if (ptVie<0) {
             mourir();
         }
     }
@@ -63,6 +63,7 @@ public class Grenouille
     public void setPosition(Position position) {
         this.position = position;
     }
+
 
     public Etat getEtat() {
         return etat;
