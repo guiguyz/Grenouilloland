@@ -30,14 +30,15 @@ class Vie extends JPanel{
 
         texte = new JLabel(vue.lirePresentateur().getGrenouille().getPtVie()+"", icone, JLabel.HORIZONTAL);
         add(texte, BorderLayout.CENTER);
+
     }
 
     /**
      * Met à jour le composant (affiche le nombre de points de vie de
      * la grenouille)
      */
-    protected void mettreAJour(int ptVie){
-        texte.setText(ptVie+"");
+    protected void mettreAJour(){
+        texte.setText(vue.lirePresentateur().getGrenouille().getPtVie()+"");
     }
 
     /** Le titre du panneau de contrôle */

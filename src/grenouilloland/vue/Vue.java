@@ -130,7 +130,7 @@ public class Vue extends JFrame {
         // Instanciation des barres de menus et d'outils.
         final JMenuBar barreMenus = new JMenuBar();
         final JToolBar barreOutils = new JToolBar();
-        final Vie vie = new Vie(this);
+        vie = new Vie(this);
 
         /* Menu */
 
@@ -236,8 +236,6 @@ public class Vue extends JFrame {
         System.out.println("cbTimer");
         temporisation.mettreTempsAJour(temps);
         mettreAJour();
-
-
     }
 
     /**
@@ -257,7 +255,7 @@ public class Vue extends JFrame {
             presentateur.deplacerGrenouille(position);
             afficherFin();
             mettreAJour();
-            mettreAJourVie();
+            vie.mettreAJour();
         }
     }
 
@@ -284,6 +282,7 @@ public class Vue extends JFrame {
         partieLancee=false;
         reinitialiser(presentateur.resolution());
         temporisation.mettreTempsAJour(59);
+        vie.mettreAJour();
     }
 
     /**
@@ -314,16 +313,14 @@ public class Vue extends JFrame {
 
     }
 
-    public void mettreAJourVie(){
-        Grenouille grenouille=lirePresentateur().getGrenouille();
-        vie.mettreAJour(grenouille.getPtVie());
-    }
+//    public void mettreAJourVie(){
+//        Grenouille grenouille=lirePresentateur().getGrenouille();
+//        vie.mettreAJour(grenouille.getPtVie());
+//    }
 
 
     public void mettreAJour(){
-        //vie.mettreAJour();
         modeleGraphique.mettreAJour();
-
     }
 
     /**
@@ -389,9 +386,9 @@ public class Vue extends JFrame {
 
     protected Temporisation temporisation;
 
-    protected Vie vie;
-
     protected TimerDeJeu timerDeJeu;
+
+    protected Vie vie;
 
 
 }
