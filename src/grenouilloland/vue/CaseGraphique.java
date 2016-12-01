@@ -91,39 +91,14 @@ class CaseGraphique extends JButton implements ActionListener {
         Nenuphar nenuphar=vue.lirePresentateur().getNenuphar(position);
         Position posGrenouille=vue.lirePresentateur().getGrenouille().getPosition();
         TypeElement typeNenuphar=nenuphar.getType();
-        //couleurSurface.get(typeNenuphar)
 
         if(position.estEgale(posGrenouille)){
             setIcon(grenouilleIcones[couleurGrenouille.get(grenouille.getEtat())]);
-            //setText("G "+grenouille.getEtat().name()+" "+grenouille.getPtVie());
         }
-//       else setText(typeNenuphar.name()+" "+nenuphar.getAge());
         else if(vue.lireType(position)==typeNenuphar && vue.lireType(position)!=TypeElement.EAU) {
             setIcon(nenupharsIcons[ageNenuphars.get(nenuphar.getAge())][couleurNenuphars.get(nenuphar.getType())]);
         }
         else setIcon(null);
-    }
-
-    /**
-     * Grenouille Image.
-     */
-    protected static final Image nenupharIcone;
-
-    static {
-        ClassLoader loader = ModeleGraphique.class.getClassLoader();
-        URL url = loader.getResource("ressources/images/grand-nenuphare-vert-96x96.png");
-        nenupharIcone = (new ImageIcon(url)).getImage();
-    }
-
-    /**
-     * Nenuphar immortel Image.
-     */
-    protected static final Image nenupharRose;
-
-    static {
-        ClassLoader loader = ModeleGraphique.class.getClassLoader();
-        URL url = loader.getResource("ressources/images/grand-nenuphare-rose-96x96.png");
-        nenupharRose = (new ImageIcon(url)).getImage();
     }
 
 
@@ -165,40 +140,6 @@ class CaseGraphique extends JButton implements ActionListener {
         couleurGrenouille.put(Etat.MALADE, 0);
         couleurGrenouille.put(Etat.VIVANTE, 1);
     }
-
-
-
-
-    /**
-     * Les différentes couleurs que peuvent prendre les nénuphars
-     *
-     */
-    protected static final String[] couleurs = {"rouge", "vert", "jaune", "rose"};
-
-
-
-
-
-    /**
-     * Representation graphique du modele proprietaire de cette case.
-     */
-    protected final ModeleGraphique modeleGraphique;
-
-    /**
-     * Position de la cellule du modele correspondante.
-     */
-    protected final Position position;
-
-    /**
-     * Le dossier contenant toutes les images
-     */
-    protected static final String dossierImages = "ressources/images/";
-
-
-    /**
-     * Chemin d'acces relatif a la grenouille.
-     */
-    protected static final String grenouilleChemin = dossierImages+"grenouille-verte-96x57.png";
 
 
     /*
@@ -268,37 +209,15 @@ class CaseGraphique extends JButton implements ActionListener {
         }
     }
 
-
-
+    /**
+     * Representation graphique du modele proprietaire de cette case.
+     */
+    protected final ModeleGraphique modeleGraphique;
 
     /**
-     * Grenouille Image.
+     * Position de la cellule du modele correspondante.
      */
-    protected static final Image grenouilleIcone;
+    protected final Position position;
 
-    static {
-        ClassLoader loader = ModeleGraphique.class.getClassLoader();
-        URL url = loader.getResource(grenouilleChemin);
-        grenouilleIcone = (new ImageIcon(url)).getImage();
-    }
-
-    /**
-     * Chemin d'acces relatif a la grenouille.
-     */
-    protected static final String eauChemin =
-            dossierImages+"mosaique.jpg";
-
-    /**
-     * Eau.
-     */
-    protected static final Image eauIcone;
-
-    static {
-        ClassLoader loader = ModeleGraphique.class.getClassLoader();
-        URL url = loader.getResource(eauChemin);
-        eauIcone = (new ImageIcon(url)).getImage();
-    }
-
-    protected Vie vie;
 
 }
