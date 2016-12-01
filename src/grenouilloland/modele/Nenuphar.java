@@ -34,7 +34,7 @@ public class Nenuphar {
     public Nenuphar(){//
         this.type=type.EAU;
         this.age=age.GRAND;
-    };
+    }
 
 
 
@@ -61,13 +61,6 @@ public class Nenuphar {
                 return;
             }
     }
-
-    public GrilleElement getPos(){
-        return getPos();
-    }
-
-
-
 
     /**
      * Accesseur.

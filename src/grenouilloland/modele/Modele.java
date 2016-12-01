@@ -34,7 +34,6 @@ public class Modele{
 
     public void deplacerGrenouille(Position position){
             if(position.voisine(grenouille.getPosition())){
-                System.out.println("deplace grenouille");
                 grenouille.setPosition(position);
                 grille.lireType(position).effetSurGrenouille(grenouille);
             }
@@ -53,41 +52,36 @@ public class Modele{
 
         for (int i = posGrenouille.lireColonne()+1; i != grille.getResolution(); i++) {
             for (int j = posGrenouille.lireLigne()+1; j < grille.getResolution(); j++) {
+
                 //ligne du bas
                 Position positionColonneDebut = new Position(posGrenouille.lireLigne(),i);
                 if (getNenuphar(positionColonneDebut).getType()==TypeElement.EAU){
                     Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
                     grille.setElement(nenuphar, positionColonneDebut);
                 }
+
                 //colonne du debut
                 Position positionLigneHaut = new Position(j,posGrenouille.lireColonne());
                 if (getNenuphar(positionLigneHaut).getType()==TypeElement.EAU){
                     Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
                     grille.setElement(nenuphar, positionLigneHaut);
                 }
-            }
-        }
 
-        for (int i = posGrenouille.lireLigne()+1; i != grille.getResolution(); i++) {
-            for (int j = posGrenouille.lireColonne()+1; j < grille.getResolution(); j++) {
-                //ligne du bas
-                Position positionLigneBas = new Position(i,grille.getResolution()-1);
+                //colonne de fin
+                Position positionLigneBas = new Position(j,grille.getResolution()-1);
                 if (getNenuphar(positionLigneBas).getType()==TypeElement.EAU){
                     Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
                     grille.setElement(nenuphar, positionLigneBas);
                 }
 
-                //colonne de fin
-                Position positionColonneFin = new Position(grille.getResolution()-1,j);
+                //ligne du haut
+                Position positionColonneFin = new Position(grille.getResolution()-1,i);
                 if (getNenuphar(positionColonneFin).getType()==TypeElement.EAU){
                     Nenuphar nenuphar= new Nenuphar(TypeElement.auHasard());
                     grille.setElement(nenuphar, positionColonneFin);
                 }
-
             }
-
         }
-
     }
 
 
