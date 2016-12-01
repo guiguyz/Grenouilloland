@@ -1,6 +1,3 @@
 ﻿
-affichage graphique des éléments(dont la valeur de vie dans le panel)
-
 nettoyage du code au carcher, javadoc, uml
 
-et on verra ...
