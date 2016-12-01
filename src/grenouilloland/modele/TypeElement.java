@@ -4,7 +4,9 @@ package grenouilloland.modele;
 
 
 /**
- * Type enumere fortement type permettant une strategie sur les nenuphar.
+ * Type enumere fortement type permettant une strategie d'effet sur la grenouille
+ * via les differents types de nenuphars.
+ *
  * @author Alexis Prevost Mayhen
  * @author Guillaume Drouart
  * @author Lucas Gouedant
