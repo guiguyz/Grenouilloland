@@ -2,7 +2,6 @@ package grenouilloland.vue;
 
 
 
-import grenouilloland.modele.Grenouille;
 import grenouilloland.modele.Position;
 import grenouilloland.modele.TypeElement;
 import grenouilloland.presentateur.Presentateur;
@@ -11,21 +10,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-//import javax.swing.JMenu;
+
 
 /**
  * Classe representant la vue.
  */
 public class Vue extends JFrame {
-
-    /**
-     * Accesseur.
-     *
-     * @return la valeur de {@link Vue#titre}.
-     */
-    public static String lireTitre() {
-        return titre;
-    }
 
     /**
      * Constructeur logique.
@@ -94,10 +84,6 @@ public class Vue extends JFrame {
         setSize(screenWidth / 2, screenHeight / 2);
         setLocation(screenWidth / 4, screenHeight / 4);
 
-        // Positionnement initial de la fenetre au milieu de l'écran.
-        //setLocationRelativeTo(null);
-
-
         // Comportement par defaut en cas de suppression de la fenetre : tout
         // doit passer par l'action "Quitter".
         addWindowListener(new WindowAdapter() {
@@ -106,6 +92,7 @@ public class Vue extends JFrame {
             }
         });
 
+        //thread timer de jeu
         timerDeJeu = new TimerDeJeu(this);
 
 
@@ -212,8 +199,6 @@ public class Vue extends JFrame {
      * Callback permettant de lancer Une Partie.
      *
      *
-     * @note cette methode pose un verrou sur la vue pendant tout la duree
-     * de son execution.
      */
     protected void cbLancer() {
         temporisation.mettreTempsAJour(59);
@@ -223,6 +208,11 @@ public class Vue extends JFrame {
         mettreAJour();
     }
 
+    /**
+     * Callback permettant de lancer un timer.
+     *
+     *@param temps La durée de partie
+     */
     protected void cbTimer(int temps) {
         if (!partieLancee) {
             return;
@@ -233,7 +223,6 @@ public class Vue extends JFrame {
             return;
         }
         presentateur.genererChemin();
-        System.out.println("cbTimer");
         temporisation.mettreTempsAJour(temps);
         mettreAJour();
     }
@@ -313,12 +302,9 @@ public class Vue extends JFrame {
 
     }
 
-//    public void mettreAJourVie(){
-//        Grenouille grenouille=lirePresentateur().getGrenouille();
-//        vie.mettreAJour(grenouille.getPtVie());
-//    }
-
-
+    /**
+     * Mets a jour la valeur de la vie de la grenouille dans le panel de vie
+     */
     public void mettreAJour(){
         modeleGraphique.mettreAJour();
     }
@@ -382,13 +368,23 @@ public class Vue extends JFrame {
      */
     protected ModeleGraphique modeleGraphique;
 
+    /**
+     * Modele graphique de cette vue.
+     */
     public boolean partieLancee=false;
 
+    /**
+     * Modele graphique de cette vue.
+     */
     protected Temporisation temporisation;
 
+    /**
+     * Modele graphique de cette vue.
+     */
     protected TimerDeJeu timerDeJeu;
 
+    /**
+     * Modele graphique de cette vue.
+     */
     protected Vie vie;
-
-
 }

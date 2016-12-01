@@ -1,11 +1,6 @@
 package grenouilloland.vue;
 
-import grenouilloland.modele.Grenouille;
-
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 
 import javax.swing.*;
 
