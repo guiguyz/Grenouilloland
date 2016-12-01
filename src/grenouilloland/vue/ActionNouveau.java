@@ -9,6 +9,11 @@ import java.awt.event.ActionEvent;
 
 /**
  * Classe representant une action consistant a reinitialiser le jeu.
+ *
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedant
+ * @author Nicolas Vatel
  */
 class ActionNouveau extends ActionAbstraite {
 

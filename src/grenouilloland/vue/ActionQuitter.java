@@ -10,6 +10,11 @@ import java.awt.event.ActionEvent;
 /**
  * Classe representant une action permettant de quitter proprement 
  * l'application.
+ *
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedant
+ * @author Nicolas Vatel
  */
 class ActionQuitter extends ActionAbstraite {
 

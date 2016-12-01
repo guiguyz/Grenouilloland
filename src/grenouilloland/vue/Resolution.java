@@ -9,6 +9,11 @@ import java.awt.event.AdjustmentEvent;
  * resolution du jeu.
  *
  * @note chaque instance de cette classe est son propre listener.
+ *
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedant
+ * @author Nicolas Vatel
  */
 class Resolution extends JScrollBar implements AdjustmentListener {
 

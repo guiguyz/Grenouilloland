@@ -6,6 +6,10 @@ import java.awt.event.ActionListener;
 
 /**
  *
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedant
+ * @author Nicolas Vatel
  */
 public class TimerDeJeu implements ActionListener{
 

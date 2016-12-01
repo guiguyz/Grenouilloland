@@ -5,7 +5,8 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 
 /**
- * Classe Vie .
+ * Classe Vie
+ *
  * @author Alexis Prevost Mayhen
  * @author Guillaume Drouart
  * @author Lucas Gouedant

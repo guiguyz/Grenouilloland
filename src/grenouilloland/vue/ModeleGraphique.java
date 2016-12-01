@@ -15,6 +15,11 @@ import java.awt.Dimension;
 
 /**
  * Representation graphique du modele.
+ *
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedant
+ * @author Nicolas Vatel
  */
 class ModeleGraphique extends JPanel {
 

@@ -5,6 +5,11 @@ package grenouilloland.modele;
 
 /**
  * Classe representant le jeu du GrilleElement.
+ *
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedant
+ * @author Nicolas Vatel
  */
 public class GrilleElement {
 

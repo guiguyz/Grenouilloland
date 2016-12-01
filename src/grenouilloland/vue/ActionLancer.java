@@ -8,6 +8,11 @@ import java.net.URL;
 
 /**
  * Classe representant une action consistant a lancer une partie de jeu.
+ *
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedant
+ * @author Nicolas Vatel
  */
 public class ActionLancer extends ActionAbstraite {
 

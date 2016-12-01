@@ -14,6 +14,11 @@ import java.awt.event.WindowEvent;
 
 /**
  * Classe representant la vue.
+ *
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedant
+ * @author Nicolas Vatel
  */
 public class Vue extends JFrame {
 

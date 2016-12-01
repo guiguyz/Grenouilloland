@@ -4,10 +4,11 @@ package grenouilloland.modele;
 
 /**
  *
- * @author
- * @author
- * @version
- */
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedant
+ * @author Nicolas Vatel
+ * */
 public class Modele{
 
     public Modele(int resolution) {

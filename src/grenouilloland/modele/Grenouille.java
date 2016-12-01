@@ -2,6 +2,7 @@ package grenouilloland.modele;
 
 /**
  * Classe Grenouille.
+ *
  * @author Alexis Prevost Mayhen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
