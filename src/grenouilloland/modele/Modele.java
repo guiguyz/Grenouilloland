@@ -74,7 +74,7 @@ public class Modele{
         }
 
         for (int i = posGrenouille.lireLigne()+1; i != grille.getResolution(); i++) {
-            for (int j = posGrenouille.lireLigne()+1; j < grille.getResolution(); j++) {
+            for (int j = posGrenouille.lireColonne()+1; j < grille.getResolution(); j++) {
                 //ligne du bas
                 Position positionLigneBas = new Position(i,grille.getResolution()-1);
                 if (getNenuphar(positionLigneBas).getType()==TypeElement.EAU){

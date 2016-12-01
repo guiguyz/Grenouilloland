@@ -257,7 +257,7 @@ public class Vue extends JFrame {
             presentateur.deplacerGrenouille(position);
             afficherFin();
             mettreAJour();
-            //mettreAJourVie();
+            mettreAJourVie();
         }
     }
 
