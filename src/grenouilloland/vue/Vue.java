@@ -117,6 +117,8 @@ public class Vue extends JFrame {
         // Instanciation des barres de menus et d'outils.
         final JMenuBar barreMenus = new JMenuBar();
         final JToolBar barreOutils = new JToolBar();
+
+        //le panel de ne dois pas être final car on modifie la valeur de vie dans cbPoser()
         vie = new Vie(this);
 
         /* Menu */
