@@ -94,14 +94,14 @@ class CaseGraphique extends JButton implements ActionListener {
         //couleurSurface.get(typeNenuphar)
 
         if(position.estEgale(posGrenouille)){
-            //setIcon(grenouilleIcones);
-            setText("G "+grenouille.getEtat().name()+" "+grenouille.getPtVie());
+            setIcon(grenouilleIcones[couleurGrenouille.get(grenouille.getEtat())]);
+            //setText("G "+grenouille.getEtat().name()+" "+grenouille.getPtVie());
         }
-        else setText(typeNenuphar.name()+" "+nenuphar.getAge());
-//        else if(vue.lireType(position)==typeNenuphar) {
-//            setIcon(nenupharsIcons[0][3]);
-//        }
-//        else setIcon(null);
+//       else setText(typeNenuphar.name()+" "+nenuphar.getAge());
+        else if(vue.lireType(position)==typeNenuphar && vue.lireType(position)!=TypeElement.EAU) {
+            setIcon(nenupharsIcons[ageNenuphars.get(nenuphar.getAge())][couleurNenuphars.get(nenuphar.getType())]);
+        }
+        else setIcon(null);
     }
 
     /**
@@ -128,30 +128,43 @@ class CaseGraphique extends JButton implements ActionListener {
 
 
 
-//    protected static final String[] etatGrenouille = {"rouge", "verte"};
-//    /**
-//     * Tableau contenant toutes les images des grenouilles
-//     *
-//     */
-//    protected static final ImageIcon[] grenouilleIcones;
-//
-//    static {
-//        // Crée le tableau d'images à 2 dimensions et charge chacune
-//        //    des images dans ce tableau.
-//        grenouilleIcones = new ImageIcon[etatGrenouille.length];
-//        ClassLoader loader = ModeleGraphique.class.getClassLoader();
-//
-//        /*Pour chaque couleur et chaque taille de nénuphar, ainsi que
-//         * pour chaque état de la grenouille, on charge l'image.
-//         * Les noms d'image sont de la forme :
-//         * taille-couleur.png
-//         * */
-//        for (int i = 0; i < etatGrenouille.length; i++) {
-//            String chemin = "ressources/images/grenouille-" + etatGrenouille[i] + "-" + "96x57" + ".png";
-//            URL urlImage = loader.getResource(chemin);
-//            grenouilleIcones[i] = new ImageIcon(urlImage);
-//        }
-//    }
+    protected static final String[] etatGrenouille = {"rouge", "verte"};
+    /**
+     * Tableau contenant toutes les images des grenouilles
+     *
+     */
+    protected static final ImageIcon[] grenouilleIcones;
+
+    static {
+        // Crée le tableau d'images à 2 dimensions et charge chacune
+        //    des images dans ce tableau.
+        grenouilleIcones = new ImageIcon[etatGrenouille.length];
+        ClassLoader loader = ModeleGraphique.class.getClassLoader();
+
+        /*Pour chaque couleur et chaque taille de nénuphar, ainsi que
+         * pour chaque état de la grenouille, on charge l'image.
+         * Les noms d'image sont de la forme :
+         * taille-couleur.png
+         * */
+        for (int i = 0; i < etatGrenouille.length; i++) {
+            String chemin = "ressources/images/grenouille-" + etatGrenouille[i] + "-" + "96x57" + ".png";
+            URL urlImage = loader.getResource(chemin);
+            grenouilleIcones[i] = new ImageIcon(urlImage);
+        }
+    }
+
+    /**
+     * Hashmap contenant les équivalences TypeElement-image.
+     * Elle permet d'associer à chaque type de nénuphar la couleur qui
+     * lui est associée
+     */
+    protected static final HashMap<Etat, Integer> couleurGrenouille;
+    static{
+        couleurGrenouille = new HashMap<Etat, Integer>();
+        couleurGrenouille.put(Etat.MORTE, -1);
+        couleurGrenouille.put(Etat.MALADE, 0);
+        couleurGrenouille.put(Etat.VIVANTE, 1);
+    }
 
 
 
@@ -161,6 +174,8 @@ class CaseGraphique extends JButton implements ActionListener {
      *
      */
     protected static final String[] couleurs = {"rouge", "vert", "jaune", "rose"};
+
+
 
 
 
@@ -189,53 +204,71 @@ class CaseGraphique extends JButton implements ActionListener {
     /*
      * Les différentes tailles que peuvent prendre les nénuphars
      */
-    protected static final String[] tailleNenuphar = {"grand", "moyen", "petit"};//age
+    protected static final String[] tailleNenuphar = {"grand", "moyen", "petit"};
 
-    /** Les différentes couleurs que peuvent prendre les nénuphars */
-    protected static final String[] couleurNenuphar = {"jaune", "rose", "rouge", "vert"};
-
-
-    /*
-    * Tableau contenant toutes les images des nénuphars
-    */
-//    protected static final ImageIcon[][] nenupharsIcons;
-//    static{
-//        // Crée le tableau d'images à 2 dimensions et charge chacune
-//        //    des images dans ce tableau.
-//        nenupharsIcons = new ImageIcon[tailleNenuphar.length][couleurNenuphar.length];//3,4
-//        ClassLoader loader = ModeleGraphique.class.getClassLoader();
-//
-//        /*Pour chaque couleur et chaque taille de nénuphar, ainsi que
-//         * pour chaque état de la grenouille, on charge l'image.
-//         * Les noms d'image sont de la forme :
-//         * taille-couleur.png
-//         * */
-//        for (int i = 0; i < tailleNenuphar.length; i++) {
-//            for (int j = 0; j < couleurNenuphar.length; j++) {
-//                String chemin = "ressources/images/" + tailleNenuphar[i] + "-" + "nenuphare"+
-//                        couleurNenuphar[j] + "-" + "96x96" + ".png";
-//                URL urlImage = loader.getResource(chemin);
-//                nenupharsIcons[i][j] = new ImageIcon(urlImage);
-//            }
-//        }
-//    }
 
     /**
      * Hashmap contenant les équivalences TypeElement-image.
      * Elle permet d'associer à chaque type de nénuphar la couleur qui
      * lui est associée
      */
-//    protected static final HashMap<TypeElement, Integer> couleurSurface;
-//    static{
-//        couleurSurface = new HashMap<TypeElement, Integer>();
-//        couleurSurface.put(TypeElement.EAU, -1);
-//        couleurSurface.put(TypeElement.NENUPHARIMMORTEL, 3);
-//        couleurSurface.put(TypeElement.NENUPHAR, 3);
-//        couleurSurface.put(TypeElement.NENUPHARDOPANT, 2);
-//        couleurSurface.put(TypeElement.NENUPHARMORTEL, 2);
-//        couleurSurface.put(TypeElement.NENUPHARNUTRITIF, 1);
-//        couleurSurface.put(TypeElement.NENUPHARVENENEUX, 0);
-//    }
+    protected static final HashMap<Age, Integer> ageNenuphars;
+    static{
+        ageNenuphars = new HashMap<Age, Integer>();
+        ageNenuphars.put(Age.GRAND, 0);
+        ageNenuphars.put(Age.MOYEN, 1);
+        ageNenuphars.put(Age.PETIT, 2);
+    }
+
+    /** Les différentes couleurs que peuvent prendre les nénuphars */
+    protected static final String[] couleurNenuphar = {"jaune", "rose", "rouge", "vert"};
+
+    /**
+     * Hashmap contenant les équivalences TypeElement-image.
+     * Elle permet d'associer à chaque type de nénuphar la couleur qui
+     * lui est associée
+     */
+    protected static final HashMap<TypeElement, Integer> couleurNenuphars;
+    static{
+        couleurNenuphars = new HashMap<TypeElement, Integer>();
+        couleurNenuphars.put(TypeElement.EAU, -1);
+        couleurNenuphars.put(TypeElement.NENUPHARIMMORTEL, 3);
+        couleurNenuphars.put(TypeElement.NENUPHAR, 3);
+        couleurNenuphars.put(TypeElement.NENUPHARDOPANT, 2);
+        couleurNenuphars.put(TypeElement.NENUPHARMORTEL, 2);
+        couleurNenuphars.put(TypeElement.NENUPHARNUTRITIF, 1);
+        couleurNenuphars.put(TypeElement.NENUPHARVENENEUX, 0);
+    }
+
+
+
+
+    /*
+    * Tableau contenant toutes les images des nénuphars
+    */
+    protected static final ImageIcon[][] nenupharsIcons;
+    static{
+        // Crée le tableau d'images à 2 dimensions et charge chacune
+        //    des images dans ce tableau.
+        nenupharsIcons = new ImageIcon[tailleNenuphar.length][couleurNenuphar.length];//3,4
+        ClassLoader loader = ModeleGraphique.class.getClassLoader();
+
+        /*Pour chaque couleur et chaque taille de nénuphar, ainsi que
+         * pour chaque état de la grenouille, on charge l'image.
+         * Les noms d'image sont de la forme :
+         * taille-couleur.png
+         * */
+        for (int i = 0; i < tailleNenuphar.length; i++) {
+            for (int j = 0; j < couleurNenuphar.length; j++) {
+                String chemin = "ressources/images/" + tailleNenuphar[i] + "-nenuphare-"+
+                        couleurNenuphar[j] + "-96x96.png";
+                URL urlImage = loader.getResource(chemin);
+                nenupharsIcons[i][j] = new ImageIcon(urlImage);
+            }
+        }
+    }
+
+
 
 
     /**
