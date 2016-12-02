@@ -1,3 +1,0 @@
-﻿
-nettoyage du code au carcher, javadoc, uml
-
