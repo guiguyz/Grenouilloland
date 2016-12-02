@@ -3,7 +3,7 @@ package grenouilloland.modele;
 /**
  * Classe representant une position dans un repere cartesien
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

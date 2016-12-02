@@ -10,7 +10,7 @@ import java.awt.event.AdjustmentEvent;
  *
  * @note chaque instance de cette classe est son propre listener.
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

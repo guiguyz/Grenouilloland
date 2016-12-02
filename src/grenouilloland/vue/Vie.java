@@ -7,7 +7,7 @@ import javax.swing.*;
 /**
  * Classe Vie permettant l'affichage du panel de vie
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

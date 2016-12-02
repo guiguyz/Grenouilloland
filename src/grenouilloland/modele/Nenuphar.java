@@ -5,7 +5,7 @@ package grenouilloland.modele;
  *
  * @note par defaut construit de l'eau
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

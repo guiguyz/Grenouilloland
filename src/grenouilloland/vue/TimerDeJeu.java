@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 /**
  * Thread de temporisation du jeu
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

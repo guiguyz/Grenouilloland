@@ -16,7 +16,7 @@ import java.awt.Dimension;
 /**
  * Representation graphique du modele.
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

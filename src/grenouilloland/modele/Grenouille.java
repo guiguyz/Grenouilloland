@@ -5,7 +5,7 @@ package grenouilloland.modele;
  * un état, un nombre de points de vie et une
  * position sur la mare.
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

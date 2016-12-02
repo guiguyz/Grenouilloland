@@ -3,7 +3,7 @@ package grenouilloland.modele;
 /**
  * Type enumere fortement type representant un Age de nenuphar.
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

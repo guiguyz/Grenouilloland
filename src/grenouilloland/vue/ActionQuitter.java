@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
  * Classe representant une action permettant de quitter proprement 
  * l'application.
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

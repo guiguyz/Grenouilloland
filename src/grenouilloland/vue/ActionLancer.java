@@ -9,7 +9,7 @@ import java.net.URL;
 /**
  * Classe representant une action consistant a lancer une partie de jeu.
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

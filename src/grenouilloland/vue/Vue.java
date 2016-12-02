@@ -15,7 +15,7 @@ import java.awt.event.WindowEvent;
 /**
  * Classe representant la vue principale de grenouilloland.
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

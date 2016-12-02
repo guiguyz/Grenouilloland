@@ -3,7 +3,7 @@ package grenouilloland.modele;
 /**
  * Type enumere fortement type representant un Etat de grenouille.
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

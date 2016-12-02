@@ -9,7 +9,7 @@ import javax.swing.KeyStroke;
  * Classe representant une action abstraite, c'est a dire une action commune
  * a une barre de menus et d'outils.
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

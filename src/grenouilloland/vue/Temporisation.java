@@ -6,7 +6,7 @@ import javax.swing.*;
 /**
  * Classe permettant l'affichage graphique du temps restant de jeu.
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

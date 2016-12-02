@@ -6,7 +6,7 @@ import grenouilloland.vue.Vue;
 /**
  * Classe representant le presentateur de l'application.
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel

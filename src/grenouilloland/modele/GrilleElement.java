@@ -6,7 +6,7 @@ package grenouilloland.modele;
 /**
  * Classe representant le jeu du GrilleElement.
  *
- * @author Alexis Prevost Mayhen
+ * @author Alexis Prevost Maynen
  * @author Guillaume Drouart
  * @author Lucas Gouedard
  * @author Nicolas Vatel
