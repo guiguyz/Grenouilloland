@@ -83,20 +83,20 @@ public class GrilleElement {
         return true;
     }
 
-    /**
-     * Indique si une grenouille peut etre pose sur la case dont la position en fournie
-     * en argument.
-     *
-     * @param position la position.
-     * @return true si une grenouille peut etre pose sur la case correspondante sinon
-     *   false.
-     */
-    protected boolean peutPoser(Position position) {
-        if (! estValide(position)) {
-            return false;
-        }
-        return true;
-    }
+//    /**
+//     * Indique si une grenouille peut etre pose sur la case dont la position en fournie
+//     * en argument.
+//     *
+//     * @param position la position.
+//     * @return true si une grenouille peut etre pose sur la case correspondante sinon
+//     *   false.
+//     */
+//    protected boolean peutPoser(Position position) {
+//        if (! estValide(position)) {
+//            return false;
+//        }
+//        return true;
+//    }
 
     /**
      * Depose un pion sur la case dont la position est fournie en argument.

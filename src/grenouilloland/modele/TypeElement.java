@@ -27,7 +27,7 @@ public enum TypeElement{
         @Override
 		public void effetSurGrenouille(Grenouille grenouille)
 		{
-			//rien
+			//le nenuphar immortel n'a aucun effet sur la grenouille
 		}
 	},
 
@@ -37,7 +37,7 @@ public enum TypeElement{
         @Override
         public void effetSurGrenouille(Grenouille grenouille)
         {
-            //rien
+			//le nenuphar normal n'a aucun effet sur la grenouille
         }
     },
 
@@ -90,14 +90,20 @@ public enum TypeElement{
 		}
 	};
 
+    /**
+     * Méthode abstraite d'effet sur la grenouille permettant
+     * la strategie d'effet redéfinie dans les éléments de l'énum.
+     */
 	public abstract void effetSurGrenouille(Grenouille grenouille);
 
+    /**
+     * Méthode permettant qui génère un nénuphar au hasard.
+     * Ne prend pas en compte l'eau et les nénuphar immortel sur la génération.
+     */
 	public static TypeElement auHasard(){
         int nbRand = (int)(Math.random()*(values().length-2))+2;
         return values()[nbRand];
 	}
-
-
 
 }
 

@@ -11,6 +11,11 @@ package grenouilloland.modele;
  * */
 public class Modele{
 
+    /**
+     * Constructeur logique.
+     *
+     * @param resolution le modele prend une resolution pour la grille d'élément
+     */
     public Modele(int resolution) {
 
         grille = new GrilleElement(resolution);
@@ -18,26 +23,40 @@ public class Modele{
         grenouille = new Grenouille();
     }
 
-    // retourne la position d'un nenuphar
+    /**
+     * Accesseur sur la position d'un nenuphar.
+     *
+     * @param position la position d'un nenuphar sur la grille d'élément
+     * @return la position d'un nenuphar.
+     */
     public Nenuphar getNenuphar(Position position) {
         return grille.getNenuphar(position);
     }
 
 
     /**
-     * Retourne la resolution de ce plateau.
+     * Accesseur sur la resolution d'une grille.
      *
-     * @return la resolution de ce plateau.
+     * @return la resolution d'une grille.
      */
     public int getResolution() {
         return grille.getResolution();
     }
 
-    public void deplacerGrenouille(Position position){
-            if(position.voisine(grenouille.getPosition())){
-                grenouille.setPosition(position);
-                grille.lireType(position).effetSurGrenouille(grenouille);
-            }
+    /**
+     * Déplace la grenouille sur la grille.
+     * Applique la strategie d'effet sur la grenouille.
+     */
+    public void deplacerGrenouille(Position position) {
+        //Verifie si le déplacement est possible
+        if (position.voisine(grenouille.getPosition())) {
+            //met la grenouille sur la nouvelle position
+            grenouille.setPosition(position);
+            // en fonction du type de nenuphar ou est la grenouille
+            // applique une effet sur celle si
+            // qui correspond a la strategie d'effet
+            grille.lireType(position).effetSurGrenouille(grenouille);
+        }
     }
 
     /**
@@ -101,6 +120,7 @@ public class Modele{
             for (int j = 0; j < grille.getResolution(); j++) {
                 Position position = new Position(i, j);
                 nenuphar = getNenuphar(position);
+                //si le nenuphar n'est pas de l'eau ou n'est pas immortel alors viellir les nenuphars
                 if ( (nenuphar.getType() != TypeElement.EAU) && (nenuphar.getType() != TypeElement.NENUPHARIMMORTEL) ) {
                     nenuphar.vieillir();
                 }
@@ -138,9 +158,19 @@ public class Modele{
         return grenouille.getPosition().estEgale(positionGagnante);
     }
 
-    //atribut
+    /**
+     * Grille d'element du modele.
+     */
     protected GrilleElement grille;
+
+    /**
+     * Grenouille du modele.
+     */
     protected Grenouille grenouille;
+
+    /**
+     * Nenuphar du modele.
+     */
     protected Nenuphar nenuphar;
 
 

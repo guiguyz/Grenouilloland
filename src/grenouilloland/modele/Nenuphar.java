@@ -46,20 +46,15 @@ public class Nenuphar {
      * et les nenuphar immortel
      *
      */
-    public void vieillir(){
-            if(getAge()==age.GRAND){
-                setAge(age.MOYEN);
-                return;
-            }
-            if(getAge()==age.MOYEN){
-                setAge(age.PETIT);
-                return;
-            }
-            if(getAge()==age.PETIT){
-                setAge(age.GRAND);
-                setType(type.EAU);
-                return;
-            }
+    public void vieillir() {
+        if (getAge() == age.GRAND) {
+            setAge(age.MOYEN);
+        } else if (getAge() == age.MOYEN) {
+            setAge(age.PETIT);
+        } else {
+            setAge(age.GRAND);
+            setType(type.EAU);
+        }
     }
 
     /**
@@ -101,13 +96,11 @@ public class Nenuphar {
 
     /**
      * type d'un nenuphar.
-     *
      */
     protected TypeElement type;
 
     /**
      * age d'un nenuphar.
-     *
      */
     protected Age age;
 }

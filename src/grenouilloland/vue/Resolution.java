@@ -39,15 +39,6 @@ class Resolution extends JScrollBar implements AdjustmentListener {
 	addAdjustmentListener(this);
     }
 
-    /**
-     * Accesseur.
-     *
-     * @return la valeur de {@link Resolution#vue}.
-     */
-    public Vue lireVue() {
-	return vue;
-    }
-
     @Override
     public void adjustmentValueChanged(AdjustmentEvent evt) {
 	    vue.cbReinitialiser();

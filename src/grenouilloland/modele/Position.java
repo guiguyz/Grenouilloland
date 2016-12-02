@@ -54,12 +54,11 @@ public class Position {
     }
 
     /**
-     * Retourne la voisine de cette position selon la direction fournie en
-     * argument.
+     * Verifie si la position d'un element est égale celle d'un autre
      *
-     * @param position la position.
-     * @return la voisine de cette position selon la direction fournie en
-     *   argument.
+     * @param position la position de l'élément.
+     * @return la position d'un element égale à celle d'un autre
+
      */
     public boolean estEgale(Position position){
         return position.ligne==this.ligne && position.colonne==this.colonne;

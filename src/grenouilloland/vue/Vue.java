@@ -252,7 +252,6 @@ public class Vue extends JFrame {
             mettreAJour();
             afficherFin();
             vie.mettreAJour();
-
         }
     }
 
