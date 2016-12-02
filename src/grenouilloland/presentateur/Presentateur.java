@@ -49,7 +49,7 @@ public class Presentateur {
     /**
      * Resolution du modele.
      *
-     * @return la resolution du modele.
+     * @return la resolution du modele {@link Modele#getResolution()}.
      */
     public int resolution() {
         return modele.getResolution();
