@@ -25,19 +25,32 @@ public class TimerDeJeu implements ActionListener{
     }
 
 
+    /**
+     * Demarre le timer.
+     *
+     */
     public void demarrer(){
         timer.start();
     }
 
+    /**
+     * Arrete le timer.
+     */
     public void arreter(){ timer.stop(); }
 
-
-
+    /**
+     * Instancie un nouveau timer avec un délai de 1 seconde.
+     */
     protected Timer timer = new Timer(1000,this);
 
 
 
 
+    /**
+     * Actualise toutes les 1 seconde le jeu,
+     * tant que la partie n'est pas fini(gagner ou perdre)
+     * ou que le temps restant est différents de 0.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         temps--;
@@ -49,12 +62,21 @@ public class TimerDeJeu implements ActionListener{
         }
     }
 
+    /**
+     * Reinitialise le temps à 59 secondes.
+     */
     public void resetTemps(){
         temps=59;
     }
 
+    /**
+     * Temps de jeu.
+     */
     protected int temps;
 
+    /**
+     * Modele graphique de cette vue.
+     */
     protected Vue vue;
 
 }
