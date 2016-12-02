@@ -8,7 +8,7 @@ import grenouilloland.vue.Vue;
  *
  * @author Alexis Prevost Mayhen
  * @author Guillaume Drouart
- * @author Lucas Gouedant
+ * @author Lucas Gouedard
  * @author Nicolas Vatel
  */
 public class Presentateur {

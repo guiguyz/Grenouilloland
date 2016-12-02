@@ -17,7 +17,7 @@ import java.util.HashMap;
  *
  * @author Alexis Prevost Mayhen
  * @author Guillaume Drouart
- * @author Lucas Gouedant
+ * @author Lucas Gouedard
  * @author Nicolas Vatel
  */
 class CaseGraphique extends JButton implements ActionListener {

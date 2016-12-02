@@ -12,6 +12,11 @@ import javax.swing.Action;
 /**
  * Classe representant une action permettant de presenter l'application,
  * sa version et ses auteurs.
+ *
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedard
+ * @author Nicolas Vatel
  */
 class ActionAPropos extends ActionAbstraite {
 

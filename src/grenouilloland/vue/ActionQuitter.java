@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
  *
  * @author Alexis Prevost Mayhen
  * @author Guillaume Drouart
- * @author Lucas Gouedant
+ * @author Lucas Gouedard
  * @author Nicolas Vatel
  */
 class ActionQuitter extends ActionAbstraite {

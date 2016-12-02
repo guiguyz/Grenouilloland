@@ -8,6 +8,11 @@ import javax.swing.KeyStroke;
 /**
  * Classe representant une action abstraite, c'est a dire une action commune
  * a une barre de menus et d'outils.
+ *
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedard
+ * @author Nicolas Vatel
  */
 abstract class ActionAbstraite extends AbstractAction {
 
@@ -34,15 +39,6 @@ abstract class ActionAbstraite extends AbstractAction {
 	putValue(Action.MNEMONIC_KEY, mnemonique);
 	putValue(Action.ACCELERATOR_KEY, accelerateur);
 	this.vue = vue;
-    }
-
-    /**
-     * Accesseur.
-     *
-     * @return la valeur de {@link ActionAbstraite#vue}.
-     */
-    public Vue lireVue() {
-	return vue;
     }
 
     /**

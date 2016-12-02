@@ -7,7 +7,12 @@ import java.awt.event.KeyEvent;
 import java.net.URL;
 
 /**
- * Created by GUY on 20/11/2016.
+ * Classe permettant d'afficher une aide dans le jeu.
+ *
+ * @author Alexis Prevost Mayhen
+ * @author Guillaume Drouart
+ * @author Lucas Gouedard
+ * @author Nicolas Vatel
  */
 public class ActionAide extends ActionAbstraite {
 
