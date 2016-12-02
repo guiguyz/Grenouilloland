@@ -40,12 +40,19 @@ public class Modele{
             }
     }
 
+    /**
+     * Retourne la grenouille.
+     *
+     * @return la grenouille.
+     */
     public Grenouille getGrenouille() {
         return grenouille;
     }
 
 
-
+    /**
+     * Genere un chemin de nenupĥar au hasard sur de l'eau uniquement
+     */
     public void genereChemin(){
 
         Position posGrenouille = grenouille.getPosition();
@@ -112,10 +119,20 @@ public class Modele{
     }
 
 
+    /**
+     * Verifie si la grenouille perd.
+     *
+     * @return la grenouille perdante si ses points de vie sont a -1 ou si elle est sur de l'eau.
+     */
     public boolean perdant(){
         return grenouille.getPtVie()==-1 || grille.lireType(grenouille.getPosition())==TypeElement.EAU;
     }
 
+    /**
+     * Verifie si la grenouille gagne.
+     *
+     * @return la position gagnante de la grenouille.
+     */
     public boolean gagnant(){
         Position positionGagnante = new Position(grille.getResolution() - 1, grille.getResolution() - 1);
         return grenouille.getPosition().estEgale(positionGagnante);
