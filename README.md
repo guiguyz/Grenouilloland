@@ -15,7 +15,7 @@ ant dist => lance la compilation des sources et crée le jar.
 
 ant doc => creation des javadoc.
 
-ant init => crée les dossiers.
+ant init => creation des dossiers.
 
 ant run => lance le jeu de grenouilloland.
 
