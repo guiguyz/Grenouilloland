@@ -249,9 +249,10 @@ public class Vue extends JFrame {
         // Mise a jour de la case graphique si la partie est lancée.
         if (partieLancee){
             presentateur.deplacerGrenouille(position);
-            afficherFin();
             mettreAJour();
+            afficherFin();
             vie.mettreAJour();
+
         }
     }
 

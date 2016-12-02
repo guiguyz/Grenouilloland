@@ -92,7 +92,7 @@ class CaseGraphique extends JButton implements ActionListener {
     /**
      * Tableau contenant les differentes couleurs de la grenouille
      * */
-    protected static final String[] etatGrenouille = {"rouge", "verte"};
+    protected static final String[] etatGrenouille = {"noir","rouge", "verte"};
 
     /**
      * Tableau contenant toutes les images des grenouilles
@@ -106,7 +106,7 @@ class CaseGraphique extends JButton implements ActionListener {
 
         // pour chaque état de la grenouille, on charge l'image.
         for (int i = 0; i < etatGrenouille.length; i++) {
-            String chemin = "ressources/images/grenouille-" + etatGrenouille[i] + "-" + "96x57" + ".png";
+            String chemin = "ressources/images/grenouille-" + etatGrenouille[i] + "-96x57.png";
             URL urlImage = loader.getResource(chemin);
             grenouilleIcones[i] = new ImageIcon(urlImage);
         }
@@ -120,9 +120,9 @@ class CaseGraphique extends JButton implements ActionListener {
     protected static final HashMap<Etat, Integer> couleurGrenouille;
     static{
         couleurGrenouille = new HashMap<>();
-        couleurGrenouille.put(Etat.MORTE, -1);
-        couleurGrenouille.put(Etat.MALADE, 0);
-        couleurGrenouille.put(Etat.VIVANTE, 1);
+        couleurGrenouille.put(Etat.MORTE, 0);
+        couleurGrenouille.put(Etat.MALADE, 1);
+        couleurGrenouille.put(Etat.VIVANTE, 2);
     }
 
 
