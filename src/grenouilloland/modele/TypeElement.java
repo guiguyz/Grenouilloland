@@ -14,6 +14,9 @@ package grenouilloland.modele;
  */
 public enum TypeElement{
 
+    /**
+     * Eau, tue la grenouille.
+     */
     EAU{
         @Override
         public void effetSurGrenouille(Grenouille grenouille)
@@ -23,36 +26,44 @@ public enum TypeElement{
 		}
     },
 
+    /**
+     * Nenuphar immortel, n'a aucun effet sur la grenouille.
+     */
 	NENUPHARIMMORTEL{
         @Override
 		public void effetSurGrenouille(Grenouille grenouille)
 		{
-			//le nenuphar immortel n'a aucun effet sur la grenouille
+			//le nenuphar immortel n'a aucun effet sur la grenouille.
 		}
 	},
 
 
 
+    /**
+     * Nenuphar normal, n'a aucun effet sur la grenouille.
+     */
     NENUPHAR{
         @Override
         public void effetSurGrenouille(Grenouille grenouille)
         {
-			//le nenuphar normal n'a aucun effet sur la grenouille
+			//le nenuphar normal n'a aucun effet sur la grenouille.
         }
     },
 
+    /**
+     * Nenuphar veneneux, rend malade la grenouille si elle est en bonne santé, sinon la tue.
+     * Divise les points de vie de la grenouille par 2 si ils sont supérieur à 0.
+     */
 	NENUPHARVENENEUX{
         @Override
 		public void effetSurGrenouille(Grenouille grenouille)
 		{
-			if(grenouille.estMalade())
-			{
+			if(grenouille.estMalade()){
 				grenouille.setPtVie(-1);
 				grenouille.mourir();
 
 			}
-			else
-			{
+			else{
 				grenouille.rendreMalade();
 				if(grenouille.getPtVie()==0){
 					grenouille.setPtVie(-1);
@@ -63,6 +74,10 @@ public enum TypeElement{
 		}
 	},
 
+    /**
+     * Nenuphar nutritif, guerit la grenouille.
+     * augmente les points de vie de la grenouille de 1 points.
+     */
 	NENUPHARNUTRITIF{
         @Override
 		public void effetSurGrenouille(Grenouille grenouille)
@@ -72,6 +87,10 @@ public enum TypeElement{
 		}
 	},
 
+    /**
+     * Nenuphar dopant, guerit la grenouille.
+     * Multiplie les points de vie de la grenouille par 2.
+     */
 	NENUPHARDOPANT{
         @Override
 		public void effetSurGrenouille(Grenouille grenouille)
@@ -81,6 +100,11 @@ public enum TypeElement{
 		}
 	},
 
+
+    /**
+     * Nenuphar mortel, tue la grenouille.
+     * Modifie les points de vie de la grenouille par -1.
+     */
 	NENUPHARMORTEL{
         @Override
 		public void effetSurGrenouille(Grenouille grenouille)
