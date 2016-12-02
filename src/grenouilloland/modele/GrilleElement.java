@@ -64,41 +64,6 @@ public class GrilleElement {
 
 
     /**
-     * Indique si la position fournie en argument designe une case du plateau
-     * de jeu.
-     *
-     * @param position la position.
-     * @return true si la position designe une case du plateau de jeu sinon
-     *   false.
-     */
-    protected boolean estValide(Position position) {
-        final int ligne = position.lireLigne();
-        if (ligne < 0 || ligne >= grille.length) {
-            return false;
-        }
-        final int colonne = position.lireColonne();
-        if (colonne < 0 || colonne >= grille.length) {
-            return false;
-        }
-        return true;
-    }
-
-//    /**
-//     * Indique si une grenouille peut etre pose sur la case dont la position en fournie
-//     * en argument.
-//     *
-//     * @param position la position.
-//     * @return true si une grenouille peut etre pose sur la case correspondante sinon
-//     *   false.
-//     */
-//    protected boolean peutPoser(Position position) {
-//        if (! estValide(position)) {
-//            return false;
-//        }
-//        return true;
-//    }
-
-    /**
      * Depose un pion sur la case dont la position est fournie en argument.
      *
      * @param nenuphar le nenuphar.

@@ -11,7 +11,7 @@ import java.net.URL;
 import java.util.HashMap;
 
 /**
- * Representation graphique d'une case du plateau de jeu.
+ * Classe representant le graphique d'une case du plateau de jeu.
  *
  * @note Chaque instance de cette classe represente son propre listener.
  *

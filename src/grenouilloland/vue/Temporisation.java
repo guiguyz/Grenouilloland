@@ -4,6 +4,7 @@ import javax.swing.*;
 
 
 /**
+ * Classe permettant l'affichage graphique du temps restant de jeu.
  *
  * @author Alexis Prevost Mayhen
  * @author Guillaume Drouart
@@ -14,6 +15,11 @@ public class Temporisation extends JProgressBar{
 
 
 
+    /**
+     * Constructeur logique.
+     *
+     * @param vue la vue proprietaire de cette barre
+     */
     public Temporisation(Vue vue){
 
         super(JProgressBar.HORIZONTAL, 0, 59);

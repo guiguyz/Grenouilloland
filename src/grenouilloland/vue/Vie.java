@@ -5,7 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 
 /**
- * Classe Vie
+ * Classe Vie permettant l'affichage du panel de vie
  *
  * @author Alexis Prevost Mayhen
  * @author Guillaume Drouart

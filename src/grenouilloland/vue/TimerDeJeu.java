@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * Thread de temporisation du jeu
  *
  * @author Alexis Prevost Mayhen
  * @author Guillaume Drouart
@@ -13,6 +14,11 @@ import java.awt.event.ActionListener;
  */
 public class TimerDeJeu implements ActionListener{
 
+    /**
+     * Constructeur logique.
+     *
+     * @param vue la vue proprietaire de cette barre
+     */
     public TimerDeJeu(Vue vue){
         temps=59;
         this.vue=vue;

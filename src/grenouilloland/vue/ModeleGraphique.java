@@ -103,6 +103,9 @@ class ModeleGraphique extends JPanel {
         afficherMosaique(gc);
     }
 
+    /**
+     * Mide a jour des cases du modele graphique.
+     */
     public void mettreAJour(){
         // Obtention de la resolution du modele.
         final int resolution = vue.lirePresentateur().resolution();

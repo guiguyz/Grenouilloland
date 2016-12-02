@@ -13,7 +13,7 @@ import java.awt.event.WindowEvent;
 
 
 /**
- * Classe representant la vue.
+ * Classe representant la vue principale de grenouilloland.
  *
  * @author Alexis Prevost Mayhen
  * @author Guillaume Drouart
@@ -204,8 +204,6 @@ public class Vue extends JFrame {
 
     /**
      * Callback permettant de lancer Une Partie.
-     *
-     *
      */
     protected void cbLancer() {
         temporisation.mettreTempsAJour(59);
